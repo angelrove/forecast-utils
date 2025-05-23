@@ -1,6 +1,6 @@
 {
   "name": "@angelrove/forecast",
-  "version": "1.1.15",
+  "version": "1.1.16",
   "author": "Jose Angel Romero Vegas",
   "license": "MIT",
   "description": "Utilidades para obtener datos de previsión meteorológica (Open-Meteo API) y de astronomía (SunCalc API).",
