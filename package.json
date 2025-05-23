@@ -1,0 +1,43 @@
+{
+  "name": "@angelrove/forecast",
+  "version": "1.1.15",
+  "author": "Jose Angel Romero Vegas",
+  "license": "MIT",
+  "description": "Utilidades para obtener datos de previsión meteorológica (Open-Meteo API) y de astronomía (SunCalc API).",
+  "homepage": "https://github.com/angelrove/OpenMeteoForecast",
+  "type": "module",
+  "scripts": {
+    "docs:md": "bunx jsdoc2md $(cat doc-files.txt) > README.md"
+  },
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./src/index.js",
+      "require": "./src/index.js"
+    }
+  },
+  "files": [
+    "src",
+    "dist"
+  ],
+  "keywords": [
+    "forecast",
+    "weather",
+    "open-meteo",
+    "astronomy",
+    "react",
+    "hooks",
+    "JavaScript"
+  ],
+  "peerDependencies": {
+    "react": "^19.1.0",
+    "suncalc3": "^2.0.5",
+    "swr": "^2.3.3",
+    "@capacitor/geolocation": "^7.1.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "jsdoc-to-markdown": "^9.1.1"
+  },
+  "dependencies": {}
+}
