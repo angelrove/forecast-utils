@@ -3,8 +3,8 @@
   "version": "1.1.1",
   "author": "Jose Angel Romero Vegas",
   "license": "MIT",
-  "description": "Utilidades para obtener datos de previsión meteorológica (Open-Meteo API) y de astronomía (SunCalc API).",
-  "homepage": "https://github.com/angelrove/OpenMeteoForecast",
+  "description": "Utilities for obtaining weather and astronomy forecast data.",
+  "homepage": "https://github.com/angelrove/forecast-utils",
   "type": "module",
   "scripts": {
     "docs:md": "bunx jsdoc2md $(cat doc-files.txt) > README.md"
