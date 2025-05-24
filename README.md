@@ -3,6 +3,19 @@
 <dl>
 <dt><a href="#module_Astronomy">Astronomy</a></dt>
 <dd></dd>
+<dt><a href="#module_Astronomy/MoonCalc">Astronomy/MoonCalc</a></dt>
+<dd><p>MoonCalc for calculating moon times, positions, and phases.</p>
+<p>  import { MoonCalc } from ...</p>
+<p>Importante!:
+¡Solo proporcionar HORA LOCAL DEL SISTEMA!: &#39;new Date()&#39;</p>
+</dd>
+<dt><a href="#module_Astronomy/SunCalc">Astronomy/SunCalc</a></dt>
+<dd><p>SunCalc for calculating solar times, positions, and phases.</p>
+<p>  import { SunCalc } from ...</p>
+<p>Importante:
+¡Solo proporcionar HORA LOCAL DEL SISTEMA!: &#39;new Date()&#39;
+Con excepción de &#39;getSolarTime()&#39;: recibe la hora local correspondiente a la localización dada.</p>
+</dd>
 <dt><a href="#module_Geolocation">Geolocation</a></dt>
 <dd></dd>
 <dt><a href="#module_OpenMeteo">OpenMeteo</a></dt>
@@ -11,219 +24,18 @@
 <dd></dd>
 </dl>
 
-## Constants
-
-<dl>
-<dt><a href="#MoonCalc">MoonCalc</a></dt>
-<dd><p>Export MoonCalc</p>
-</dd>
-<dt><a href="#SunCalc">SunCalc</a></dt>
-<dd><p>Export SunCalc</p>
-</dd>
-</dl>
-
 <a name="module_Astronomy"></a>
 
 ## Astronomy
 
 * [Astronomy](#module_Astronomy)
-    * [.phasesES](#module_Astronomy.phasesES) : <code>Object.&lt;string, string&gt;</code>
-    * [.data(latitude, longitude, [date], [language])](#module_Astronomy.data) ⇒ <code>MoonData</code>
-    * [.dataExt(latitude, longitude, [date], [language])](#module_Astronomy.dataExt) ⇒ <code>Object</code>
-    * [.emoji(latitude, longitude, [date])](#module_Astronomy.emoji) ⇒ <code>string</code>
-    * [.times(latitude, longitude, timezoneId, date)](#module_Astronomy.times) ⇒ <code>Object</code>
-    * [.getUpOrDown(altitude, highest)](#module_Astronomy.getUpOrDown) ⇒ <code>string</code>
-    * [.all(date, latitude, longitude, timezoneId)](#module_Astronomy.all) ⇒ <code>Object</code>
-    * [.times(date, latitude, longitude, timezoneId)](#module_Astronomy.times) ⇒ <code>Object</code>
-    * [.getSolarTime(date, lng, offsetSign, offset)](#module_Astronomy.getSolarTime) ⇒ <code>string</code>
-    * [.position(latitude, longitude)](#module_Astronomy.position) ⇒ <code>Object</code>
-    * [.getIsNight(lat, lon, timezoneId, date, dateStr)](#module_Astronomy.getIsNight) ⇒ <code>boolean</code>
-    * [.getPhase(altitude, noon)](#module_Astronomy.getPhase) ⇒ <code>string</code>
     * [.exports.timeString([date], [sec])](#module_Astronomy.exports.timeString) ⇒ <code>string</code>
     * [.exports.nowString(sec)](#module_Astronomy.exports.nowString) ⇒ <code>String</code>
     * [.exports.dateFormat([date])](#module_Astronomy.exports.dateFormat) ⇒ <code>string</code>
     * [.exports.getLocalTimeFromTz(timeZone, [date])](#module_Astronomy.exports.getLocalTimeFromTz) ⇒ <code>string</code>
     * [.exports.getLocalTimeInfo(apiKey, lat, lng)](#module_Astronomy.exports.getLocalTimeInfo) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
     * [.AstroPosition](#module_Astronomy.AstroPosition) : <code>Object</code>
-    * [.MoonData](#module_Astronomy.MoonData) : <code>Object</code>
     * [.LocalTimeData](#module_Astronomy.LocalTimeData) : <code>Object</code>
-
-
-* * *
-
-<a name="module_Astronomy.phasesES"></a>
-
-### Astronomy.phasesES : <code>Object.&lt;string, string&gt;</code>
-Mapa de fases lunares.
-{ phaseId, phaseName }
-
-**Kind**: static constant of [<code>Astronomy</code>](#module_Astronomy)  
-
-* * *
-
-<a name="module_Astronomy.data"></a>
-
-### Astronomy.data(latitude, longitude, [date], [language]) ⇒ <code>MoonData</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| latitude | <code>number</code> |  | 
-| longitude | <code>number</code> |  | 
-| [date] | <code>Date</code> | <code>new Date()</code> | 
-| [language] | <code>string</code> | <code>&quot;es-ES&quot;</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.dataExt"></a>
-
-### Astronomy.dataExt(latitude, longitude, [date], [language]) ⇒ <code>Object</code>
-Información de la luna para una fecha y hora dadas.
-La fecha y hora se devolverán en la zona horaria local.
-
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| latitude | <code>number</code> |  | 
-| longitude | <code>number</code> |  | 
-| [date] | <code>Date</code> | <code>new Date()</code> | 
-| [language] | <code>string</code> | <code>&quot;es-ES&quot;</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.emoji"></a>
-
-### Astronomy.emoji(latitude, longitude, [date]) ⇒ <code>string</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>string</code> - - Emoji of the moon phase  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| latitude | <code>number</code> |  | 
-| longitude | <code>number</code> |  | 
-| [date] | <code>Date</code> | <code>new Date()</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.times"></a>
-
-### Astronomy.times(latitude, longitude, timezoneId, date) ⇒ <code>Object</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-
-| Param | Type |
-| --- | --- |
-| latitude | <code>number</code> | 
-| longitude | <code>number</code> | 
-| timezoneId | <code>string</code> | 
-| date | <code>Date</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.getUpOrDown"></a>
-
-### Astronomy.getUpOrDown(altitude, highest) ⇒ <code>string</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>string</code> - - Up or down emoji  
-
-| Param | Type |
-| --- | --- |
-| altitude | <code>number</code> | 
-| highest | <code>Date</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.all"></a>
-
-### Astronomy.all(date, latitude, longitude, timezoneId) ⇒ <code>Object</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-
-| Param | Type |
-| --- | --- |
-| date | <code>Date</code> | 
-| latitude | <code>number</code> | 
-| longitude | <code>number</code> | 
-| timezoneId | <code>string</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.times"></a>
-
-### Astronomy.times(date, latitude, longitude, timezoneId) ⇒ <code>Object</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-
-| Param | Type |
-| --- | --- |
-| date | <code>Date</code> | 
-| latitude | <code>number</code> | 
-| longitude | <code>number</code> | 
-| timezoneId | <code>string</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.getSolarTime"></a>
-
-### Astronomy.getSolarTime(date, lng, offsetSign, offset) ⇒ <code>string</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>string</code> - - Local time in "HH:mm" format  
-
-| Param | Type | Description |
-| --- | --- | --- |
-| date | <code>Date</code> |  |
-| lng | <code>number</code> |  |
-| offsetSign | <code>string</code> | "+" or "-" |
-| offset | <code>number</code> | UTC offset in hours |
-
-
-* * *
-
-<a name="module_Astronomy.position"></a>
-
-### Astronomy.position(latitude, longitude) ⇒ <code>Object</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-
-| Param | Type |
-| --- | --- |
-| latitude | <code>number</code> | 
-| longitude | <code>number</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.getIsNight"></a>
-
-### Astronomy.getIsNight(lat, lon, timezoneId, date, dateStr) ⇒ <code>boolean</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>boolean</code> - - true if it's night, false otherwise  
-
-| Param | Type |
-| --- | --- |
-| lat | <code>number</code> | 
-| lon | <code>number</code> | 
-| timezoneId | <code>string</code> | 
-| date | <code>number</code> \| <code>Date</code> | 
-| dateStr | <code>string</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.getPhase"></a>
-
-### Astronomy.getPhase(altitude, noon) ⇒ <code>string</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>string</code> - - The phase of the sun based on its altitude  
-
-| Param | Type |
-| --- | --- |
-| altitude | <code>number</code> | 
-| noon | <code>string</code> | 
 
 
 * * *
@@ -324,22 +136,6 @@ Get local time from any location using Google Maps TimeZone API.
 
 * * *
 
-<a name="module_Astronomy.MoonData"></a>
-
-### Astronomy.MoonData : <code>Object</code>
-**Kind**: static typedef of [<code>Astronomy</code>](#module_Astronomy)  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| position | <code>AstroPosition</code> |  |
-| next | <code>Object</code> |  |
-| next.newMoon | <code>string</code> | Date of the next new moon. |
-| next.fullMoon | <code>string</code> | Date of the next full moon. |
-
-
-* * *
-
 <a name="module_Astronomy.LocalTimeData"></a>
 
 ### Astronomy.LocalTimeData : <code>Object</code>
@@ -355,6 +151,245 @@ Get local time from any location using Google Maps TimeZone API.
 | offset | <code>number</code> | The UTC offset in hours. |
 | offsetSign | <code>string</code> | The sign of the offset ('+' or '-'). |
 | dstOffset | <code>number</code> | The DST offset in hours. |
+
+
+* * *
+
+<a name="module_Astronomy/MoonCalc"></a>
+
+## Astronomy/MoonCalc
+MoonCalc for calculating moon times, positions, and phases.
+
+  import { MoonCalc } from ...
+
+Importante!:
+¡Solo proporcionar HORA LOCAL DEL SISTEMA!: 'new Date()'
+
+
+* [Astronomy/MoonCalc](#module_Astronomy/MoonCalc)
+    * [.phasesES](#module_Astronomy/MoonCalc.phasesES) : <code>Object.&lt;string, string&gt;</code>
+    * [.data(latitude, longitude, [date], [language])](#module_Astronomy/MoonCalc.data) ⇒ <code>MoonData</code>
+    * [.dataExt(latitude, longitude, [date], [language])](#module_Astronomy/MoonCalc.dataExt) ⇒ <code>Object</code>
+    * [.emoji(latitude, longitude, [date])](#module_Astronomy/MoonCalc.emoji) ⇒ <code>string</code>
+    * [.times(latitude, longitude, timezoneId, date)](#module_Astronomy/MoonCalc.times) ⇒ <code>Object</code>
+    * [.getUpOrDown(altitude, highest)](#module_Astronomy/MoonCalc.getUpOrDown) ⇒ <code>string</code>
+    * [.MoonData](#module_Astronomy/MoonCalc.MoonData) : <code>Object</code>
+
+
+* * *
+
+<a name="module_Astronomy/MoonCalc.phasesES"></a>
+
+### Astronomy/MoonCalc.phasesES : <code>Object.&lt;string, string&gt;</code>
+Mapa de fases lunares.
+{ phaseId, phaseName }
+
+**Kind**: static constant of [<code>Astronomy/MoonCalc</code>](#module_Astronomy/MoonCalc)  
+
+* * *
+
+<a name="module_Astronomy/MoonCalc.data"></a>
+
+### Astronomy/MoonCalc.data(latitude, longitude, [date], [language]) ⇒ <code>MoonData</code>
+**Kind**: static method of [<code>Astronomy/MoonCalc</code>](#module_Astronomy/MoonCalc)  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| latitude | <code>number</code> |  | 
+| longitude | <code>number</code> |  | 
+| [date] | <code>Date</code> | <code>new Date()</code> | 
+| [language] | <code>string</code> | <code>&quot;es-ES&quot;</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/MoonCalc.dataExt"></a>
+
+### Astronomy/MoonCalc.dataExt(latitude, longitude, [date], [language]) ⇒ <code>Object</code>
+Información de la luna para una fecha y hora dadas.
+La fecha y hora se devolverán en la zona horaria local.
+
+**Kind**: static method of [<code>Astronomy/MoonCalc</code>](#module_Astronomy/MoonCalc)  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| latitude | <code>number</code> |  | 
+| longitude | <code>number</code> |  | 
+| [date] | <code>Date</code> | <code>new Date()</code> | 
+| [language] | <code>string</code> | <code>&quot;es-ES&quot;</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/MoonCalc.emoji"></a>
+
+### Astronomy/MoonCalc.emoji(latitude, longitude, [date]) ⇒ <code>string</code>
+**Kind**: static method of [<code>Astronomy/MoonCalc</code>](#module_Astronomy/MoonCalc)  
+**Returns**: <code>string</code> - - Emoji of the moon phase  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| latitude | <code>number</code> |  | 
+| longitude | <code>number</code> |  | 
+| [date] | <code>Date</code> | <code>new Date()</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/MoonCalc.times"></a>
+
+### Astronomy/MoonCalc.times(latitude, longitude, timezoneId, date) ⇒ <code>Object</code>
+**Kind**: static method of [<code>Astronomy/MoonCalc</code>](#module_Astronomy/MoonCalc)  
+
+| Param | Type |
+| --- | --- |
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+| timezoneId | <code>string</code> | 
+| date | <code>Date</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/MoonCalc.getUpOrDown"></a>
+
+### Astronomy/MoonCalc.getUpOrDown(altitude, highest) ⇒ <code>string</code>
+**Kind**: static method of [<code>Astronomy/MoonCalc</code>](#module_Astronomy/MoonCalc)  
+**Returns**: <code>string</code> - - Up or down emoji  
+
+| Param | Type |
+| --- | --- |
+| altitude | <code>number</code> | 
+| highest | <code>Date</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/MoonCalc.MoonData"></a>
+
+### Astronomy/MoonCalc.MoonData : <code>Object</code>
+**Kind**: static typedef of [<code>Astronomy/MoonCalc</code>](#module_Astronomy/MoonCalc)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| position | <code>AstroPosition</code> |  |
+| next | <code>Object</code> |  |
+| next.newMoon | <code>string</code> | Date of the next new moon. |
+| next.fullMoon | <code>string</code> | Date of the next full moon. |
+
+
+* * *
+
+<a name="module_Astronomy/SunCalc"></a>
+
+## Astronomy/SunCalc
+SunCalc for calculating solar times, positions, and phases.
+
+  import { SunCalc } from ...
+
+Importante:
+¡Solo proporcionar HORA LOCAL DEL SISTEMA!: 'new Date()'
+Con excepción de 'getSolarTime()': recibe la hora local correspondiente a la localización dada.
+
+
+* [Astronomy/SunCalc](#module_Astronomy/SunCalc)
+    * [.all(date, latitude, longitude, timezoneId)](#module_Astronomy/SunCalc.all) ⇒ <code>Object</code>
+    * [.times(date, latitude, longitude, timezoneId)](#module_Astronomy/SunCalc.times) ⇒ <code>Object</code>
+    * [.getSolarTime(date, lng, offsetSign, offset)](#module_Astronomy/SunCalc.getSolarTime) ⇒ <code>string</code>
+    * [.position(latitude, longitude)](#module_Astronomy/SunCalc.position) ⇒ <code>Object</code>
+    * [.getIsNight(lat, lon, timezoneId, date, dateStr)](#module_Astronomy/SunCalc.getIsNight) ⇒ <code>boolean</code>
+    * [.getPhase(altitude, noon)](#module_Astronomy/SunCalc.getPhase) ⇒ <code>string</code>
+
+
+* * *
+
+<a name="module_Astronomy/SunCalc.all"></a>
+
+### Astronomy/SunCalc.all(date, latitude, longitude, timezoneId) ⇒ <code>Object</code>
+**Kind**: static method of [<code>Astronomy/SunCalc</code>](#module_Astronomy/SunCalc)  
+
+| Param | Type |
+| --- | --- |
+| date | <code>Date</code> | 
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+| timezoneId | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/SunCalc.times"></a>
+
+### Astronomy/SunCalc.times(date, latitude, longitude, timezoneId) ⇒ <code>Object</code>
+**Kind**: static method of [<code>Astronomy/SunCalc</code>](#module_Astronomy/SunCalc)  
+
+| Param | Type |
+| --- | --- |
+| date | <code>Date</code> | 
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+| timezoneId | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/SunCalc.getSolarTime"></a>
+
+### Astronomy/SunCalc.getSolarTime(date, lng, offsetSign, offset) ⇒ <code>string</code>
+**Kind**: static method of [<code>Astronomy/SunCalc</code>](#module_Astronomy/SunCalc)  
+**Returns**: <code>string</code> - - Local time in "HH:mm" format  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| date | <code>Date</code> |  |
+| lng | <code>number</code> |  |
+| offsetSign | <code>string</code> | "+" or "-" |
+| offset | <code>number</code> | UTC offset in hours |
+
+
+* * *
+
+<a name="module_Astronomy/SunCalc.position"></a>
+
+### Astronomy/SunCalc.position(latitude, longitude) ⇒ <code>Object</code>
+**Kind**: static method of [<code>Astronomy/SunCalc</code>](#module_Astronomy/SunCalc)  
+
+| Param | Type |
+| --- | --- |
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/SunCalc.getIsNight"></a>
+
+### Astronomy/SunCalc.getIsNight(lat, lon, timezoneId, date, dateStr) ⇒ <code>boolean</code>
+**Kind**: static method of [<code>Astronomy/SunCalc</code>](#module_Astronomy/SunCalc)  
+**Returns**: <code>boolean</code> - - true if it's night, false otherwise  
+
+| Param | Type |
+| --- | --- |
+| lat | <code>number</code> | 
+| lon | <code>number</code> | 
+| timezoneId | <code>string</code> | 
+| date | <code>number</code> \| <code>Date</code> | 
+| dateStr | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/SunCalc.getPhase"></a>
+
+### Astronomy/SunCalc.getPhase(altitude, noon) ⇒ <code>string</code>
+**Kind**: static method of [<code>Astronomy/SunCalc</code>](#module_Astronomy/SunCalc)  
+**Returns**: <code>string</code> - - The phase of the sun based on its altitude  
+
+| Param | Type |
+| --- | --- |
+| altitude | <code>number</code> | 
+| noon | <code>string</code> | 
 
 
 * * *
@@ -647,24 +682,6 @@ Return the wind level based on the speed.
 | tx | <code>string</code> | Text representing this level |
 | txEn | <code>string</code> | Text representing this level |
 
-
-* * *
-
-<a name="MoonCalc"></a>
-
-## MoonCalc
-Export MoonCalc
-
-**Kind**: global constant  
-
-* * *
-
-<a name="SunCalc"></a>
-
-## SunCalc
-Export SunCalc
-
-**Kind**: global constant  
 
 * * *
 

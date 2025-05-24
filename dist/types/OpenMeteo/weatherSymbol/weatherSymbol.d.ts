@@ -6,6 +6,7 @@
  * @param {boolean} night
  * @param {boolean} dark
  * @returns {{ icon: string, description: string }}
+ * @memberof module:OpenMeteo
  */
 export function weatherSymbol(code: any, precipitation?: number | undefined, night?: boolean, dark?: boolean): {
     icon: string;

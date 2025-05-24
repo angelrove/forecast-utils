@@ -6,6 +6,7 @@
  * @param {number} lon
  * @param {number} refreshIntervalMin
  * @returns {{ data: any, isLoading: boolean, isError: any }}
+ * @memberof module:OpenMeteo
  */
 export function useForecastDaily(lat: number, lon: number, refreshIntervalMin?: number): {
     data: any;

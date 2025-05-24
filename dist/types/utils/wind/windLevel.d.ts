@@ -3,6 +3,7 @@
  *
  * @param {number} speed Wind speed in km/h
  * @return {WindLevel | null} Wind level object or null if speed is null
+ * @memberof module:Utils
  */
 export function getWindLevel(speed: number): WindLevel | null;
 export type WindLevel = {

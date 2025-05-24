@@ -4,6 +4,7 @@
  * @param {{ latitude: number, longitude: number }} location
  * @param {number} dayNum - Number of days from today: -1 = 24 hours, 0 = today, 1 = tomorrow, ...
  * @returns {{ data: any, isLoading: boolean, isError: any }}
+ * @memberof module:OpenMeteo
  */
 export function useForecastHourly(location: {
     latitude: number;

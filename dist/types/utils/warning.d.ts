@@ -6,6 +6,7 @@
  * @param {number} showersSumToday
  * @param {number} showersSumTomorrow
  * @returns {{ levelNum: number, level: string, message: string, day: number } | null}
+ * @memberof module:Utils
  */
 export function getWarningByDays(precipitationSumToday: number, precipitationSumTomorrow: number, showersSumToday: number, showersSumTomorrow: number): {
     levelNum: number;
@@ -20,6 +21,7 @@ export function getWarningByDays(precipitationSumToday: number, precipitationSum
  * @param {number} precipitation
  * @param {number} showers
  * @returns {{ levelNum: number, level: string, message: string } | null}
+ * @memberof module:Utils
  */
 export function getWarning(precipitation: number, showers: number): {
     levelNum: number;

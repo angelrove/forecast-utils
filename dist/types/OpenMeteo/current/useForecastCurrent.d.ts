@@ -5,6 +5,7 @@
  * @param {number} lon
  * @param {number} refreshIntervalMin
  * @returns {{ data: any, apiUrl: string, isLoading: boolean, isError: any }}
+ * @memberof module:OpenMeteo
  */
 export function useForecastCurrent(lat: number, lon: number, refreshIntervalMin?: number): {
     data: any;

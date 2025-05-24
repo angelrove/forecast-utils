@@ -1,5 +1,5 @@
 /**
- * @module utils:WindArrow
+ * Wind direction arrow component (svg image).
  */
 /**
  * @typedef {Object} WindArrowProps
@@ -13,6 +13,7 @@
  *
  * @component
  * @param {WindArrowProps} props
+ * @memberof module:Utils
  */
 export function WindArrow({ deg, size, strokeWidth, className, }: WindArrowProps): any;
 export type WindArrowProps = {

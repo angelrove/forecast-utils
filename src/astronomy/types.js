@@ -9,15 +9,6 @@
 
 /**
  * @memberof module:Astronomy
- * @typedef {Object} MoonData
- * @property {AstroPosition} position
- * @property {Object} next
- * @property {string} next.newMoon - Date of the next new moon.
- * @property {string} next.fullMoon - Date of the next full moon.
- */
-
-/**
- * @memberof module:Astronomy
  * @typedef {Object} LocalTimeData
  * @property {Date} time - The local time.
  * @property {string} timeStr - The formatted local time string.

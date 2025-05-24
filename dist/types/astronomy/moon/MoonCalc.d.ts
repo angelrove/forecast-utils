@@ -12,6 +12,7 @@ declare namespace MoonCalc {
  * @param {Date} [date=new Date()]
  * @param {string} [language=es-ES]
  * @returns {MoonData}
+ * @memberof module:Astronomy
  */
 declare function data(latitude: number, longitude: number, date?: Date | undefined, language?: string | undefined): MoonData;
 /**
@@ -23,6 +24,7 @@ declare function data(latitude: number, longitude: number, date?: Date | undefin
  * @param {Date} [date=new Date()]
  * @param {string} [language=es-ES]
  * @returns {{ date: string, time: string, illumination: string, phase: string, phaseId: string, emoji: string, parallacticAngle: number, angle: number, position: AstroPosition, next: object }}
+ * @memberof module:Astronomy
  */
 declare function dataExt(latitude: number, longitude: number, date?: Date | undefined, language?: string | undefined): {
     date: string;
@@ -42,6 +44,7 @@ declare function dataExt(latitude: number, longitude: number, date?: Date | unde
  * @param {string} timezoneId
  * @param {Date} date
  * @returns {{rise: string, set: string, highest: string}}
+ * @memberof module:Astronomy
  */
 declare function times(latitude: number, longitude: number, timezoneId: string, date?: Date): {
     rise: string;
@@ -53,11 +56,13 @@ declare function times(latitude: number, longitude: number, timezoneId: string, 
  * @param {number} longitude
  * @param {Date} [date=new Date()]
  * @returns {string} - Emoji of the moon phase
+ * @memberof module:Astronomy
  */
 declare function emoji(latitude: number, longitude: number, date?: Date | undefined): string;
 /**
  * @param {number} altitude
  * @param {Date} highest
  * @returns {string} - Up or down emoji
+ * @memberof module:Astronomy
  */
 declare function getUpOrDown(altitude: number, highest: Date): string;
