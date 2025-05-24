@@ -1,9 +1,3 @@
-src/astronomy/index.js
-src/astronomy/types.js
-src/astronomy/moon/MoonCalc.js
-src/astronomy/sun/SunCalc.js
-src/astronomy/timehelpers.js
-src/astronomy/timeZoneInfo.js
 src/geolocation/index.js
 src/geolocation/getGeolocation.js
 src/OpenMeteo/index.js
@@ -11,6 +5,12 @@ src/OpenMeteo/current/useForecastCurrent.js
 src/OpenMeteo/daily/useForecastDaily.js
 src/OpenMeteo/hourly/useForecastHourly.js
 src/OpenMeteo/weatherSymbol/weatherSymbol.js
+src/astronomy/index.js
+src/astronomy/types.js
+src/astronomy/moon/MoonCalc.js
+src/astronomy/sun/SunCalc.js
+src/astronomy/timehelpers.js
+src/astronomy/timeZoneInfo.js
 src/utils/index.js
 src/utils/degreesToCompass.js
 src/utils/warning.js
