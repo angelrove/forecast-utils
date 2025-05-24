@@ -379,7 +379,7 @@ Get local time from a given location (lat, lng) using 'GoogleMaps TimeZone' API.
 Custom hook to fetch current weather data from OpenMeteo API.
 
 **Kind**: static method of [<code>OpenMeteo</code>](#module_OpenMeteo)  
-**Returns**: <code>ForecastData</code> - -  
+**Returns**: <code>ForecastData</code> - {data, isLoading, isError, apiUrl}  
 
 | Param | Type |
 | --- | --- |
@@ -397,7 +397,7 @@ Custom hook to fetch daily forecast (10 days) data from OpenMeteo API.
 https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=36.6644363&longitude=-4.5108962&forecast_days=10&daily=weathercode
 
 **Kind**: static method of [<code>OpenMeteo</code>](#module_OpenMeteo)  
-**Returns**: <code>ForecastData</code> - -  
+**Returns**: <code>ForecastData</code> - {data, isLoading, isError, apiUrl}  
 
 | Param | Type |
 | --- | --- |
@@ -414,7 +414,7 @@ https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=36.6644363&longitu
 Custom hook to fetch hourly forecast data for a given location and number of days from OpenMeteo API.
 
 **Kind**: static method of [<code>OpenMeteo</code>](#module_OpenMeteo)  
-**Returns**: <code>ForecastData</code> - -  
+**Returns**: <code>ForecastData</code> - {data, isLoading, isError, apiUrl}  
 
 | Param | Type | Description |
 | --- | --- | --- |

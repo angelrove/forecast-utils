@@ -10,7 +10,7 @@ import transformer from "./transformer.js";
  * @param {number} lat
  * @param {number} lon
  * @param {number} refreshIntervalMin
- * @returns {ForecastData} -
+ * @returns {ForecastData} {data, isLoading, isError, apiUrl}
  * @memberof module:OpenMeteo
  */
 export function useForecastCurrent(lat, lon, refreshIntervalMin = 0) {
