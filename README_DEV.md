@@ -1,7 +1,7 @@
 # Linter, formatter, JS check
 
 ```sh
-bunx tsc # JS errors
+bunx tsc # JS errors and generate '.d.ts' files
 bunx biome lint
 bunx biome format --write
 ```
@@ -24,16 +24,11 @@ bun unlink @angelrove/forecast # en la ruta del paquete o eliminar carpeta de 'n
 # Publish NPM package
 
 ```bash
-# generate types for JSDoc (.d.ts) in 'dist/types'
-npx ts
-
-# commit
-commit
-
-# version update
-npm version patch
+# generate types for JSDoc (.d.ts) in 'dist/types'. See 'tsconfig.json'
+bunx tsc
 
 # publish package
-npm publish --access public # only first time
-npm publish # subsequent times
+commit
+npm version patch
+npm publish # 'with --access public' only first time
 ```
