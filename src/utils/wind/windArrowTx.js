@@ -1,11 +1,8 @@
 /**
  * Convert wind direction in degrees to an arrow representation.
- */
-
-/**
- * Convert wind direction in degrees to an arrow representation.
  *
  * @param {number} deg - Wind direction in degrees.
+ * @returns {string} Arrow representation of the wind direction.
  * @memberof module:Utils
  */
 export function windArrowTx(deg) {
@@ -22,4 +19,5 @@ export function windArrowTx(deg) {
   if (deg < 247.5) return "↗";
   if (deg < 292.5) return "→";
   if (deg < 337.5) return "↘";
+  return "↓"; // Default arrow for degrees >= 337.5
 }

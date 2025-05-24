@@ -1,7 +1,4 @@
-/**
- * Custom hook to fetch current weather data from OpenMeteo API.
- */
-
+// @ts-nocheck
 import useSWR from "swr";
 import { fetcher, getPath } from "../conf.js";
 import { fetchParams } from "./fetchParams.js";
@@ -13,7 +10,7 @@ import transformer from "./transformer.js";
  * @param {number} lat
  * @param {number} lon
  * @param {number} refreshIntervalMin
- * @returns {{ data: any, apiUrl: string, isLoading: boolean, isError: any }}
+ * @returns {ForecastData} -
  * @memberof module:OpenMeteo
  */
 export function useForecastCurrent(lat, lon, refreshIntervalMin = 0) {

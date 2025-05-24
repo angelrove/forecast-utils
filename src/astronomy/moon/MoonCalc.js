@@ -1,4 +1,3 @@
-// @ts-nocheck
 /**
  * MoonCalc for calculating moon times, positions, and phases.
  *
@@ -16,15 +15,6 @@ import TimeDateStr from "../../utils/timehelpers.js";
 import { parseBasicData } from "./parseBasicData.js";
 
 /**
- * @memberof module:Astronomy/MoonCalc
- * @typedef {Object} MoonData
- * @property {AstroPosition} position
- * @property {Object} next
- * @property {string} next.newMoon - Date of the next new moon.
- * @property {string} next.fullMoon - Date of the next full moon.
- */
-
-/**
  * MoonCalc.
  * @ignore
  */
@@ -36,6 +26,39 @@ const MoonCalc = {
   getUpOrDown,
 };
 export default MoonCalc;
+
+/**
+ * @memberof module:Astronomy
+ * @typedef {Object} AstroPosition
+ * @property {number} altitude
+ * @property {number} azimuth
+ * @property {string} direction
+ * @property {string} direction_full``
+ */
+
+/**
+ * @memberof module:Astronomy/MoonCalc
+ * @typedef {Object} MoonDataExt
+ * @property {string} date
+ * @property {string} time
+ * @property {string} illumination
+ * @property {string} phase
+ * @property {string} phaseId
+ * @property {string} emoji
+ * @property {number} parallacticAngle
+ * @property {number} angle
+ * @property {AstroPosition} position
+ * @property {Object} next
+ */
+
+/**
+ * @memberof module:Astronomy/MoonCalc
+ * @typedef {Object} MoonData
+ * @property {AstroPosition} position
+ * @property {Object} next
+ * @property {string} next.newMoon - Date of the next new moon.
+ * @property {string} next.fullMoon - Date of the next full moon.
+ */
 
 /**
  * Mapa de fases lunares.
@@ -61,7 +84,7 @@ const phasesES = {
  * @param {number} longitude
  * @param {Date} [date=new Date()]
  * @param {string} [language=es-ES]
- * @returns {MoonData}
+ * @returns {MoonData} Moon info object
  * @memberof module:Astronomy/MoonCalc
  */
 function data(latitude, longitude, date = new Date(), language = "es-ES") {
@@ -80,7 +103,7 @@ function data(latitude, longitude, date = new Date(), language = "es-ES") {
  * @param {number} longitude
  * @param {Date} [date=new Date()]
  * @param {string} [language=es-ES]
- * @returns {{ date: string, time: string, illumination: string, phase: string, phaseId: string, emoji: string, parallacticAngle: number, angle: number, position: AstroPosition, next: object }}
+ * @returns {MoonDataExt} Full information
  * @memberof module:Astronomy/MoonCalc
  */
 function dataExt(latitude, longitude, date = new Date(), language = "es-ES") {
@@ -122,7 +145,7 @@ function dataExt(latitude, longitude, date = new Date(), language = "es-ES") {
  * @param {number} latitude
  * @param {number} longitude
  * @param {Date} [date=new Date()]
- * @returns {string} - Emoji of the moon phase
+ * @returns {string} Emoji of the moon phase
  * @memberof module:Astronomy/MoonCalc
  */
 function emoji(latitude, longitude, date = new Date()) {
@@ -135,7 +158,7 @@ function emoji(latitude, longitude, date = new Date()) {
  * @param {number} longitude
  * @param {string} timezoneId
  * @param {Date} date
- * @returns {{rise: string, set: string, highest: string}}
+ * @returns {{rise: string, set: string, highest: string}} Moon times
  * @memberof module:Astronomy/MoonCalc
  */
 function times(latitude, longitude, timezoneId, date = new Date()) {

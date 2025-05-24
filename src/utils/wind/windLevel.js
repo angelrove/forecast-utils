@@ -1,8 +1,4 @@
 /**
- * Ordered list of wind levels.
- */
-
-/**
  * @typedef {Object} WindLevel
  * @property {number} id - Level ID
  * @property {number} speed - Minimum wind speed for this level

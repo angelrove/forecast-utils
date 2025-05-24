@@ -1,7 +1,4 @@
-/**
- * Custom hook to fetch daily forecast (10 days) data from OpenMeteo API.
- */
-
+// @ts-nocheck
 import useSWR from "swr";
 import { fetcher, getPath } from "../conf.js";
 import { fetchParams } from "./fetchParams.js";
@@ -14,7 +11,7 @@ import transformer from "./transformer.js";
  * @param {number} lat
  * @param {number} lon
  * @param {number} refreshIntervalMin
- * @returns {{ data: any, isLoading: boolean, isError: any }}
+ * @returns {ForecastData} -
  * @memberof module:OpenMeteo
  */
 export function useForecastDaily(lat, lon, refreshIntervalMin = 0) {
@@ -33,6 +30,7 @@ export function useForecastDaily(lat, lon, refreshIntervalMin = 0) {
   // Return --
   return {
     data: data ? transformer(data) : null,
+    apiUrl: apiUrl,
     isLoading,
     isError: error,
   };

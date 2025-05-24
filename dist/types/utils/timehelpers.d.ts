@@ -17,7 +17,7 @@ declare function dateFormat(date?: Date): string;
  * Returns a now time as a formated string.
  *
  * @param {boolean} sec
- * @returns {String}
+ * @returns {String} now time as a formated string
  * @memberof module:Utils/TimeDateStr
  */
 declare function nowString(sec?: boolean): string;

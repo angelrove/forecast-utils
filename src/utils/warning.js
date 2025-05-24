@@ -27,6 +27,7 @@ const ALERT_LEVEL = [
  * @param {number} showersSumToday
  * @param {number} showersSumTomorrow
  * @returns {{ levelNum: number, level: string, message: string, day: number } | null}
+ * {{ levelNum: number, level: string, message: string, day: number } | null}
  * @memberof module:Utils
  */
 export function getWarningByDays(
@@ -63,6 +64,7 @@ export function getWarningByDays(
  * @param {number} precipitation
  * @param {number} showers
  * @returns {{ levelNum: number, level: string, message: string } | null}
+ * {{ levelNum: number, level: string, message: string } | null}
  * @memberof module:Utils
  */
 export function getWarning(precipitation, showers) {

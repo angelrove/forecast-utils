@@ -3,7 +3,7 @@
  *
  * @param {number} degrees
  * @param {string} language - Language code ("en-US", "es-ES", "auto")
- * @returns {{short: string, full: string}}
+ * @returns {{short: string, full: string}} {short: string, full: string}
  * @memberof module:Utils
  */
 export function degreesToCompass(degrees: number, language?: string): {

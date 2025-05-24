@@ -12,12 +12,13 @@ declare namespace SunCalc {
  * @param {number} latitude
  * @param {number} longitude
  * @param {string} timezoneId
- * @returns {{ sunTimes: object, sunPosition: object, sunPhase: string }}
+ * @returns {{ sunTimes: Object, sunPosition: Object, sunPhase: string }}
+ * { sunTimes: Object, sunPosition: Object, sunPhase: string }
  * @memberof module:Astronomy/SunCalc
  */
 declare function all(date: Date, latitude: number, longitude: number, timezoneId: string): {
-    sunTimes: object;
-    sunPosition: object;
+    sunTimes: Object;
+    sunPosition: Object;
     sunPhase: string;
 };
 /**
@@ -26,6 +27,7 @@ declare function all(date: Date, latitude: number, longitude: number, timezoneId
  * @param {number} longitude
  * @param {string} timezoneId
  * @returns {{ date: Date, sunrise: string, sunset: string, noon: string, dawn: string, dusk: string }}
+ * { date: Date, sunrise: string, sunset: string, noon: string, dawn: string, dusk: string }
  * @memberof module:Astronomy/SunCalc
  */
 declare function times(date: Date, latitude: number, longitude: number, timezoneId: string): {
@@ -39,9 +41,9 @@ declare function times(date: Date, latitude: number, longitude: number, timezone
 /**
  * @param {Date} date
  * @param {number} lng
- * @param {string} offsetSign - "+" or "-"
- * @param {number} offset - UTC offset in hours
- * @returns {string} - Local time in "HH:mm" format
+ * @param {string} offsetSign "+" or "-"
+ * @param {number} offset UTC offset in hours
+ * @returns {string} Local time in "HH:mm" format
  * @memberof module:Astronomy/SunCalc
  */
 declare function getSolarTime(date: Date, lng: number, offsetSign: string, offset: number): string;
@@ -49,6 +51,7 @@ declare function getSolarTime(date: Date, lng: number, offsetSign: string, offse
  * @param {number} latitude
  * @param {number} longitude
  * @returns {{date: string, azimuth: number, direction: string, direction_full: string, altitude: number, zenith: number, declination: number}}
+ * {date: string, azimuth: number, direction: string, direction_full: string, altitude: number, zenith: number, declination: number}
  * @memberof module:Astronomy/SunCalc
  */
 declare function position(latitude: number, longitude: number, date?: Date, language?: string): {
@@ -66,14 +69,14 @@ declare function position(latitude: number, longitude: number, date?: Date, lang
  * @param {string} timezoneId
  * @param {number | Date} date
  * @param {string} dateStr
- * @returns {boolean} - true if it's night, false otherwise
+ * @returns {boolean} true if it's night, false otherwise
  * @memberof module:Astronomy/SunCalc
  */
 declare function getIsNight(lat: number, lon: number, timezoneId: string, date: number | Date, dateStr: string): boolean;
 /**
  * @param {number} altitude
  * @param {string} noon
- * @returns {string} - The phase of the sun based on its altitude
+ * @returns {string} The phase of the sun based on its altitude
  * @memberof module:Astronomy/SunCalc
  */
 declare function getPhase(altitude: number, noon: string): string;

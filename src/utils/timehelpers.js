@@ -63,7 +63,7 @@ function timeString(date = new Date(), sec = false) {
  * Returns a now time as a formated string.
  *
  * @param {boolean} sec
- * @returns {String}
+ * @returns {String} now time as a formated string
  * @memberof module:Utils/TimeDateStr
  */
 function nowString(sec = false) {
