@@ -4,4 +4,4 @@
  * @param {number} code - WMO Weather interpretation code.
  * @returns {WeatherCodeEntry | undefined}
  */
-export function getWeatherCodeEntry(code: number): any | undefined;
+export function getWeatherCodeEntry(code: number): WeatherCodeEntry | undefined;

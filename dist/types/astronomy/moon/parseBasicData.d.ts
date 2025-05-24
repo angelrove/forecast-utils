@@ -6,4 +6,4 @@
  * @param {string} language
  * @returns {MoonData}
  */
-export function parseBasicData(data: any, language: string): any;
+export function parseBasicData(data: any, language: string): MoonData;

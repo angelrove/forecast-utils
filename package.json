@@ -39,7 +39,9 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "jsdoc-to-markdown": "^9.1.1"
+    "jsdoc-to-markdown": "^9.1.1",
+    "@types/react": "^19.1.5",
+    "@types/react-dom": "^19.1.5"
   },
   "dependencies": {}
 }

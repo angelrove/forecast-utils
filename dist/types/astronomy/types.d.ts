@@ -1,10 +1,10 @@
-type AstroPosition = {
+export type AstroPosition = {
     altitude: number;
     azimuth: number;
     direction: string;
     direction_full: string;
 };
-type LocalTimeData = {
+export type LocalTimeData = {
     /**
      * - The local time.
      */

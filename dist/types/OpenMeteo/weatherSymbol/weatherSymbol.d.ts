@@ -8,7 +8,7 @@
  * @returns {{ icon: string, description: string }}
  * @memberof module:OpenMeteo
  */
-export function weatherSymbol(code: any, precipitation?: number | undefined, night?: boolean, dark?: boolean): {
+export function weatherSymbol(code: any, precipitation?: number, night?: boolean, dark?: boolean): {
     icon: string;
     description: string;
 };

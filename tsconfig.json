@@ -10,10 +10,10 @@
     "declarationDir": "dist/types",
     "rootDir": "./src",
 
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["esnext", "dom"],
 
-    "noEmit": true,
+    "noEmit": false,
     "emitDeclarationOnly": true,
 
     "skipLibCheck": true,

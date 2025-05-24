@@ -21,7 +21,7 @@ declare namespace MoonCalc {
  * @returns {MoonData}
  * @memberof module:Astronomy/MoonCalc
  */
-declare function data(latitude: number, longitude: number, date?: Date | undefined, language?: string | undefined): MoonData;
+declare function data(latitude: number, longitude: number, date?: Date, language?: string): MoonData;
 /**
  * Información de la luna para una fecha y hora dadas.
  * La fecha y hora se devolverán en la zona horaria local.
@@ -33,7 +33,7 @@ declare function data(latitude: number, longitude: number, date?: Date | undefin
  * @returns {{ date: string, time: string, illumination: string, phase: string, phaseId: string, emoji: string, parallacticAngle: number, angle: number, position: AstroPosition, next: object }}
  * @memberof module:Astronomy/MoonCalc
  */
-declare function dataExt(latitude: number, longitude: number, date?: Date | undefined, language?: string | undefined): {
+declare function dataExt(latitude: number, longitude: number, date?: Date, language?: string): {
     date: string;
     time: string;
     illumination: string;
@@ -65,7 +65,7 @@ declare function times(latitude: number, longitude: number, timezoneId: string, 
  * @returns {string} - Emoji of the moon phase
  * @memberof module:Astronomy/MoonCalc
  */
-declare function emoji(latitude: number, longitude: number, date?: Date | undefined): string;
+declare function emoji(latitude: number, longitude: number, date?: Date): string;
 /**
  * @param {number} altitude
  * @param {Date} highest

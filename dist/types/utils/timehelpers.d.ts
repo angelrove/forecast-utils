@@ -12,7 +12,7 @@ declare namespace TimeDateStr {
  * @returns {string} La fecha formateada.
  * @memberof module:Utils/TimeDateStr
  */
-declare function dateFormat(date?: Date | undefined): string;
+declare function dateFormat(date?: Date): string;
 /**
  * Returns a now time as a formated string.
  *
@@ -29,7 +29,7 @@ declare function nowString(sec?: boolean): string;
  * @returns {string} La fecha formateada.
  * @memberof module:Utils/TimeDateStr
  */
-declare function timeString(date?: Date | undefined, sec?: boolean | undefined): string;
+declare function timeString(date?: Date, sec?: boolean): string;
 /**
  * Return the local time string from a given timezone.
  *
@@ -38,4 +38,4 @@ declare function timeString(date?: Date | undefined, sec?: boolean | undefined):
  * @returns {string} - The formatted local time string.
  * @memberof module:Utils/TimeDateStr
  */
-declare function getLocalTimeFromTz(timeZone: string, date?: number | Date | undefined): string;
+declare function getLocalTimeFromTz(timeZone: string, date?: Date | number): string;
