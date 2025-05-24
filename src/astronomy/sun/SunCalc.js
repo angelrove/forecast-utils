@@ -21,7 +21,7 @@ import {
 } from "../timehelpers.js";
 
 /**
- * Export
+ * SunCalc.
  * @ignore
  */
 const SunCalc = {

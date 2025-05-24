@@ -16,10 +16,7 @@
       "require": "./src/index.js"
     }
   },
-  "files": [
-    "src",
-    "dist"
-  ],
+  "files": ["src", "dist"],
   "keywords": [
     "forecast",
     "weather",

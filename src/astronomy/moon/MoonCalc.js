@@ -25,7 +25,7 @@ import { parseBasicData } from "./parseBasicData.js";
  */
 
 /**
- * Export
+ * MoonCalc.
  * @ignore
  */
 const MoonCalc = {
