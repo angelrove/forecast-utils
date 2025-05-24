@@ -1,7 +1,3 @@
-/**
- * Get the current geolocation of the device and reverse geocode it to get the address.
- */
-
 import geolocationCapacitor from "./lib/geolocation.js";
 import reverseGeocoding from "./lib/reversegeocoding.js";
 

@@ -16,7 +16,7 @@ import { timeString } from "./timehelpers.js";
  * @param {number} lng
  * @returns {Promise<any | LocalTimeData>} - An object containing the local time and timezone information:
  * @throws {Error} - If the API request fails or returns an error status.
- * @memberof module:Astronomy
+ * @memberof module:Astronomy/helpers
  */
 export async function getLocalTimeInfo(apiKey, lat, lng) {
   const timestamp = Math.floor(Date.now() / 1000);

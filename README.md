@@ -1,8 +1,6 @@
 ## Modules
 
 <dl>
-<dt><a href="#module_Astronomy">Astronomy</a></dt>
-<dd></dd>
 <dt><a href="#module_Astronomy/MoonCalc">Astronomy/MoonCalc</a></dt>
 <dd><p>MoonCalc for calculating moon times, positions, and phases.</p>
 <p>  import { MoonCalc } from ...</p>
@@ -16,6 +14,8 @@
 ¡Solo proporcionar HORA LOCAL DEL SISTEMA!: &#39;new Date()&#39;
 Con excepción de &#39;getSolarTime()&#39;: recibe la hora local correspondiente a la localización dada.</p>
 </dd>
+<dt><a href="#module_Astronomy/helpers">Astronomy/helpers</a></dt>
+<dd></dd>
 <dt><a href="#module_Geolocation">Geolocation</a></dt>
 <dd></dd>
 <dt><a href="#module_OpenMeteo">OpenMeteo</a></dt>
@@ -23,137 +23,6 @@ Con excepción de &#39;getSolarTime()&#39;: recibe la hora local correspondiente
 <dt><a href="#module_Utils">Utils</a></dt>
 <dd></dd>
 </dl>
-
-<a name="module_Astronomy"></a>
-
-## Astronomy
-
-* [Astronomy](#module_Astronomy)
-    * [.exports.timeString([date], [sec])](#module_Astronomy.exports.timeString) ⇒ <code>string</code>
-    * [.exports.nowString(sec)](#module_Astronomy.exports.nowString) ⇒ <code>String</code>
-    * [.exports.dateFormat([date])](#module_Astronomy.exports.dateFormat) ⇒ <code>string</code>
-    * [.exports.getLocalTimeFromTz(timeZone, [date])](#module_Astronomy.exports.getLocalTimeFromTz) ⇒ <code>string</code>
-    * [.exports.getLocalTimeInfo(apiKey, lat, lng)](#module_Astronomy.exports.getLocalTimeInfo) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
-    * [.AstroPosition](#module_Astronomy.AstroPosition) : <code>Object</code>
-    * [.LocalTimeData](#module_Astronomy.LocalTimeData) : <code>Object</code>
-
-
-* * *
-
-<a name="module_Astronomy.exports.timeString"></a>
-
-### Astronomy.exports.timeString([date], [sec]) ⇒ <code>string</code>
-Formatea una fecha a un string legible.
-
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>string</code> - La fecha formateada.  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| [date] | <code>Date</code> |  | 
-| [sec] | <code>boolean</code> | <code>false</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.exports.nowString"></a>
-
-### Astronomy.exports.nowString(sec) ⇒ <code>String</code>
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-
-| Param | Type |
-| --- | --- |
-| sec | <code>boolean</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.exports.dateFormat"></a>
-
-### Astronomy.exports.dateFormat([date]) ⇒ <code>string</code>
-Formatea una fecha a un string legible.
-
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>string</code> - La fecha formateada.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [date] | <code>Date</code> | <code>new Date()</code> | La fecha a formatear. |
-
-
-* * *
-
-<a name="module_Astronomy.exports.getLocalTimeFromTz"></a>
-
-### Astronomy.exports.getLocalTimeFromTz(timeZone, [date]) ⇒ <code>string</code>
-Get local time from timezone
-
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>string</code> - - The formatted local time string.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| timeZone | <code>string</code> |  | The timezone string (e.g., 'America/New_York'). |
-| [date] | <code>Date</code> \| <code>number</code> | <code>new Date()</code> | The date object to format. Defaults to the current date. |
-
-
-* * *
-
-<a name="module_Astronomy.exports.getLocalTimeInfo"></a>
-
-### Astronomy.exports.getLocalTimeInfo(apiKey, lat, lng) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
-Get local time from any location using Google Maps TimeZone API.
-
-**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
-**Returns**: <code>Promise.&lt;(any\|LocalTimeData)&gt;</code> - - An object containing the local time and timezone information:  
-**Throws**:
-
-- <code>Error</code> - If the API request fails or returns an error status.
-
-
-| Param | Type | Description |
-| --- | --- | --- |
-| apiKey | <code>string</code> | GoogleMaps API key. |
-| lat | <code>number</code> |  |
-| lng | <code>number</code> |  |
-
-
-* * *
-
-<a name="module_Astronomy.AstroPosition"></a>
-
-### Astronomy.AstroPosition : <code>Object</code>
-**Kind**: static typedef of [<code>Astronomy</code>](#module_Astronomy)  
-**Properties**
-
-| Name | Type |
-| --- | --- |
-| altitude | <code>number</code> | 
-| azimuth | <code>number</code> | 
-| direction | <code>string</code> | 
-| direction_full | <code>string</code> | 
-
-
-* * *
-
-<a name="module_Astronomy.LocalTimeData"></a>
-
-### Astronomy.LocalTimeData : <code>Object</code>
-**Kind**: static typedef of [<code>Astronomy</code>](#module_Astronomy)  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| time | <code>Date</code> | The local time. |
-| timeStr | <code>string</code> | The formatted local time string. |
-| timezone | <code>string</code> | The timezone name. |
-| timezoneId | <code>string</code> | The timezone ID. |
-| offset | <code>number</code> | The UTC offset in hours. |
-| offsetSign | <code>string</code> | The sign of the offset ('+' or '-'). |
-| dstOffset | <code>number</code> | The DST offset in hours. |
-
-
-* * *
 
 <a name="module_Astronomy/MoonCalc"></a>
 
@@ -390,6 +259,100 @@ Con excepción de 'getSolarTime()': recibe la hora local correspondiente a la lo
 | --- | --- |
 | altitude | <code>number</code> | 
 | noon | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/helpers"></a>
+
+## Astronomy/helpers
+
+* [Astronomy/helpers](#module_Astronomy/helpers)
+    * [.exports.timeString([date], [sec])](#module_Astronomy/helpers.exports.timeString) ⇒ <code>string</code>
+    * [.exports.nowString(sec)](#module_Astronomy/helpers.exports.nowString) ⇒ <code>String</code>
+    * [.exports.dateFormat([date])](#module_Astronomy/helpers.exports.dateFormat) ⇒ <code>string</code>
+    * [.exports.getLocalTimeFromTz(timeZone, [date])](#module_Astronomy/helpers.exports.getLocalTimeFromTz) ⇒ <code>string</code>
+    * [.exports.getLocalTimeInfo(apiKey, lat, lng)](#module_Astronomy/helpers.exports.getLocalTimeInfo) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
+
+
+* * *
+
+<a name="module_Astronomy/helpers.exports.timeString"></a>
+
+### Astronomy/helpers.exports.timeString([date], [sec]) ⇒ <code>string</code>
+Formatea una fecha a un string legible.
+
+**Kind**: static method of [<code>Astronomy/helpers</code>](#module_Astronomy/helpers)  
+**Returns**: <code>string</code> - La fecha formateada.  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| [date] | <code>Date</code> |  | 
+| [sec] | <code>boolean</code> | <code>false</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/helpers.exports.nowString"></a>
+
+### Astronomy/helpers.exports.nowString(sec) ⇒ <code>String</code>
+**Kind**: static method of [<code>Astronomy/helpers</code>](#module_Astronomy/helpers)  
+
+| Param | Type |
+| --- | --- |
+| sec | <code>boolean</code> | 
+
+
+* * *
+
+<a name="module_Astronomy/helpers.exports.dateFormat"></a>
+
+### Astronomy/helpers.exports.dateFormat([date]) ⇒ <code>string</code>
+Formatea una fecha a un string legible.
+
+**Kind**: static method of [<code>Astronomy/helpers</code>](#module_Astronomy/helpers)  
+**Returns**: <code>string</code> - La fecha formateada.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [date] | <code>Date</code> | <code>new Date()</code> | La fecha a formatear. |
+
+
+* * *
+
+<a name="module_Astronomy/helpers.exports.getLocalTimeFromTz"></a>
+
+### Astronomy/helpers.exports.getLocalTimeFromTz(timeZone, [date]) ⇒ <code>string</code>
+Get local time from timezone
+
+**Kind**: static method of [<code>Astronomy/helpers</code>](#module_Astronomy/helpers)  
+**Returns**: <code>string</code> - - The formatted local time string.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| timeZone | <code>string</code> |  | The timezone string (e.g., 'America/New_York'). |
+| [date] | <code>Date</code> \| <code>number</code> | <code>new Date()</code> | The date object to format. Defaults to the current date. |
+
+
+* * *
+
+<a name="module_Astronomy/helpers.exports.getLocalTimeInfo"></a>
+
+### Astronomy/helpers.exports.getLocalTimeInfo(apiKey, lat, lng) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
+Get local time from any location using Google Maps TimeZone API.
+
+**Kind**: static method of [<code>Astronomy/helpers</code>](#module_Astronomy/helpers)  
+**Returns**: <code>Promise.&lt;(any\|LocalTimeData)&gt;</code> - - An object containing the local time and timezone information:  
+**Throws**:
+
+- <code>Error</code> - If the API request fails or returns an error status.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| apiKey | <code>string</code> | GoogleMaps API key. |
+| lat | <code>number</code> |  |
+| lng | <code>number</code> |  |
 
 
 * * *
