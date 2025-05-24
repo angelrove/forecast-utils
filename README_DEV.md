@@ -6,6 +6,21 @@ bunx biome lint
 bunx biome format --write
 ```
 
+# Generate doc (JSDoc).
+
+```bash
+# See: 'package.json', 'jsdoc-files.txt'
+bun run docs:md
+```
+
+# Dev: test NPM package in app
+
+```bash
+bun link # en la ruta del paquete
+bun link @angelrove/forecast # en la ruta del proyecto que lo usa
+bun unlink @angelrove/forecast # en la ruta del paquete o eliminar carpeta de 'node_modules'
+```
+
 # Publish NPM package
 
 ```bash
@@ -14,26 +29,11 @@ npx ts
 
 # commit
 commit
-gp
 
-# update version
+# version update
 npm version patch
 
-# publish NPM package
+# publish package
 npm publish --access public # only first time
 npm publish # subsequent times
-```
-
-# Test NPM package
-
-```bash
-bun link # en la ruta del paquete
-bun link @angelrove/forecast # en la ruta del proyecto que lo usa
-```
-
-# JSDoc: generar documentación
-
-```bash
-# generate documentation to README.md. See 'package.json'
-bun run docs:md
 ```
