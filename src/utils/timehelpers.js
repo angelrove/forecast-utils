@@ -1,7 +1,6 @@
 /**
  * Helpers for get date and time formeted strings
  *
- * @module Astronomy/helpers
  */
 
 /**
@@ -18,11 +17,11 @@ export default TimeDateStr;
 
 //------------------------------------------------------
 /**
- * Formatea una fecha a un string legible.
+ * Returns a date as a formated string.
  *
  * @param {Date} [date=new Date()] La fecha a formatear.
  * @returns {string} La fecha formateada.
- * @memberof module:Astronomy/helpers
+ * @memberof module:Utils
  */
 function dateFormat(date = new Date()) {
   const options = {
@@ -35,12 +34,12 @@ function dateFormat(date = new Date()) {
 }
 //------------------------------------------------------
 /**
- * Formatea una fecha a un string legible.
+ * Returns a time as a formated string.
  *
  * @param {Date} [date]
  * @param {boolean} [sec=false]
  * @returns {string} La fecha formateada.
- * @memberof module:Astronomy/helpers
+ * @memberof module:Utils
  */
 function timeString(date = new Date(), sec = false) {
   if (sec) {
@@ -60,10 +59,11 @@ function timeString(date = new Date(), sec = false) {
 }
 //------------------------------------------------------
 /**
+ * Returns a now time as a formated string.
  *
  * @param {boolean} sec
  * @returns {String}
- * @memberof module:Astronomy/helpers
+ * @memberof module:Utils
  */
 function nowString(sec = false) {
   return timeString(new Date(), sec);
@@ -75,7 +75,7 @@ function nowString(sec = false) {
  * @param {string} timeZone - The timezone string (e.g., 'America/New_York').
  * @param {Date | number} [date=new Date()] - The date object to format. Defaults to the current date.
  * @returns {string} - The formatted local time string.
- * @memberof module:Astronomy/helpers
+ * @memberof module:Utils
  */
 function getLocalTimeFromTz(timeZone, date = new Date()) {
   // Timezone example
