@@ -4,13 +4,6 @@ type AstroPosition = {
     direction: string;
     direction_full: string;
 };
-type MoonData = {
-    position: AstroPosition;
-    next: {
-        newMoon: string;
-        fullMoon: string;
-    };
-};
 type LocalTimeData = {
     /**
      * - The local time.
