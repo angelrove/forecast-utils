@@ -11,10 +11,12 @@
     "declaration": true,
     "declarationDir": "dist/types",
     "rootDir": "./src",
+    "outDir": "./dist",
 
     "jsx": "react-jsx",
     "lib": ["esnext", "dom"],
 
+    // No build
     "noEmit": false,
     "emitDeclarationOnly": true,
 
@@ -22,6 +24,6 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.js", "src/**/*.jsx"],
+  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules", "dist", "build", "out"]
 }
