@@ -1,7 +1,15 @@
+# Linter, formatter, JS check
+
+```sh
+bunx tsc # JS errors
+bunx biome lint
+bunx biome format --write
+```
+
 # Publish NPM package
 
 ```bash
-# revision and generate types for JSDoc
+# generate types for JSDoc (.d.ts) in 'dist/types'
 npx ts
 
 # commit
@@ -28,11 +36,4 @@ bun link @angelrove/forecast # en la ruta del proyecto que lo usa
 ```bash
 # generate documentation to README.md. See 'package.json'
 bun run docs:md
-```
-
-# Linter, formatter
-
-```sh
-bunx biome lint
-bunx biome format --write
 ```

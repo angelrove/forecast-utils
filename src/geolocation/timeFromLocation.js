@@ -1,5 +1,5 @@
 // @ts-nocheck
-import { timeString } from "../utils/timehelpers.js";
+import TimeDateStr from "../utils/timehelpers.js";
 
 //------------------------------------------------------
 /**
@@ -39,6 +39,8 @@ export async function timeFromLocation(apiKey, lat, lng) {
     });
 }
 //------------------------------------------------------
+// Private
+//------------------------------------------------------
 /**
  * @private
  * @param {Object} timezoneInfo - The timezone Google API information.
@@ -58,7 +60,7 @@ function getLocalTimeData(timezoneInfo) {
 
   return {
     time: time,
-    timeStr: timeString(time),
+    timeStr: TimeDateStr.timeString(time),
     timezone: timezoneInfo.timeZoneName,
     timezoneId: timezoneInfo.timeZoneId,
     offset: timezoneInfo.rawOffset / 3600,
@@ -75,7 +77,7 @@ function getLocalTimeDataErr() {
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   return {
     time: new Date(),
-    timeStr: timeString(new Date()),
+    timeStr: TimeDateStr.timeString(new Date()),
     timezone: timezone,
     timezoneId: timezone,
     offset: 0,

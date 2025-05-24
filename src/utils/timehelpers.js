@@ -9,9 +9,9 @@
  */
 const TimeDateStr = {
   dateFormat,
-  getLocalTimeFromTz,
   nowString,
   timeString,
+  getLocalTimeFromTz,
 };
 export default TimeDateStr;
 
@@ -70,7 +70,7 @@ function nowString(sec = false) {
 }
 //------------------------------------------------------
 /**
- * Get the local time from a given timezone.
+ * Return the local time string from a given timezone.
  *
  * @param {string} timeZone - The timezone string (e.g., 'America/New_York').
  * @param {Date | number} [date=new Date()] - The date object to format. Defaults to the current date.

@@ -30,12 +30,16 @@ export default async function geolocation() {
     };
   } catch (error) {
     console.error(error);
+
+    // @ts-ignore
     if (error.code === error.PERMISSION_DENIED) {
       throw new Error("Geolocation: permission denied");
     }
+    // @ts-ignore
     if (error.code === error.POSITION_UNAVAILABLE) {
       throw new Error("Geolocation: position unavailable");
     }
+    // @ts-ignore
     if (error.code === error.TIMEOUT) {
       throw new Error("Geolocation: timeout");
     }
