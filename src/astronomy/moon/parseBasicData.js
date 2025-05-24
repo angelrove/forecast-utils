@@ -5,6 +5,7 @@ import { dateFormat } from "../timehelpers.js";
 /**
  * Parse basic data from SunCalc
  *
+ * @private
  * @param {any} data
  * @param {string} language
  * @returns {MoonData}

@@ -1,6 +1,8 @@
 ## Modules
 
 <dl>
+<dt><a href="#module_Astronomy">Astronomy</a></dt>
+<dd></dd>
 <dt><a href="#module_Geolocation">Geolocation</a></dt>
 <dd></dd>
 <dt><a href="#module_OpenMeteo">OpenMeteo</a></dt>
@@ -12,41 +14,350 @@
 ## Constants
 
 <dl>
-<dt><a href="#directions">directions</a> : <code><a href="#Compass">Array.&lt;Compass&gt;</a></code></dt>
-<dd><p>English compass designations</p>
+<dt><a href="#MoonCalc">MoonCalc</a></dt>
+<dd><p>Export MoonCalc</p>
 </dd>
-<dt><a href="#directionsEs">directionsEs</a> : <code><a href="#Compass">Array.&lt;Compass&gt;</a></code></dt>
-<dd><p>Spanish compass designations</p>
-</dd>
-<dt><a href="#ALERT_LEVEL">ALERT_LEVEL</a> : <code><a href="#AlertLevel">Array.&lt;AlertLevel&gt;</a></code></dt>
-<dd><p>Alert levels for rain and showers</p>
-</dd>
-<dt><a href="#WIND_LEVELS">WIND_LEVELS</a> : <code><a href="#WindLevel">Array.&lt;WindLevel&gt;</a></code></dt>
-<dd><p>Ordered list of wind levels.</p>
+<dt><a href="#SunCalc">SunCalc</a></dt>
+<dd><p>Export SunCalc</p>
 </dd>
 </dl>
 
-## Functions
+<a name="module_Astronomy"></a>
 
-<dl>
-<dt><a href="#getWarningRain">getWarningRain(precipitation)</a> ⇒ <code>Object</code> | <code>null</code></dt>
-<dd><p>Get warning by rain</p>
-</dd>
-<dt><a href="#getWarningShowers">getWarningShowers(showers)</a> ⇒ <code>Object</code> | <code>null</code></dt>
-<dd><p>Get warning by showers</p>
-</dd>
-</dl>
+## Astronomy
 
-## Typedefs
+* [Astronomy](#module_Astronomy)
+    * [.phasesES](#module_Astronomy.phasesES) : <code>Object.&lt;string, string&gt;</code>
+    * [.data(latitude, longitude, [date], [language])](#module_Astronomy.data) ⇒ <code>MoonData</code>
+    * [.dataExt(latitude, longitude, [date], [language])](#module_Astronomy.dataExt) ⇒ <code>Object</code>
+    * [.emoji(latitude, longitude, [date])](#module_Astronomy.emoji) ⇒ <code>string</code>
+    * [.times(latitude, longitude, timezoneId, date)](#module_Astronomy.times) ⇒ <code>Object</code>
+    * [.getUpOrDown(altitude, highest)](#module_Astronomy.getUpOrDown) ⇒ <code>string</code>
+    * [.all(date, latitude, longitude, timezoneId)](#module_Astronomy.all) ⇒ <code>Object</code>
+    * [.times(date, latitude, longitude, timezoneId)](#module_Astronomy.times) ⇒ <code>Object</code>
+    * [.getSolarTime(date, lng, offsetSign, offset)](#module_Astronomy.getSolarTime) ⇒ <code>string</code>
+    * [.position(latitude, longitude)](#module_Astronomy.position) ⇒ <code>Object</code>
+    * [.getIsNight(lat, lon, timezoneId, date, dateStr)](#module_Astronomy.getIsNight) ⇒ <code>boolean</code>
+    * [.getPhase(altitude, noon)](#module_Astronomy.getPhase) ⇒ <code>string</code>
+    * [.exports.timeString([date], [sec])](#module_Astronomy.exports.timeString) ⇒ <code>string</code>
+    * [.exports.nowString(sec)](#module_Astronomy.exports.nowString) ⇒ <code>String</code>
+    * [.exports.dateFormat([date])](#module_Astronomy.exports.dateFormat) ⇒ <code>string</code>
+    * [.exports.getLocalTimeFromTz(timeZone, [date])](#module_Astronomy.exports.getLocalTimeFromTz) ⇒ <code>string</code>
+    * [.exports.getLocalTimeInfo(apiKey, lat, lng)](#module_Astronomy.exports.getLocalTimeInfo) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
+    * [.AstroPosition](#module_Astronomy.AstroPosition) : <code>Object</code>
+    * [.MoonData](#module_Astronomy.MoonData) : <code>Object</code>
+    * [.LocalTimeData](#module_Astronomy.LocalTimeData) : <code>Object</code>
 
-<dl>
-<dt><a href="#Compass">Compass</a> : <code>Object</code></dt>
-<dd></dd>
-<dt><a href="#AlertLevel">AlertLevel</a> : <code>Object</code></dt>
-<dd></dd>
-<dt><a href="#WindLevel">WindLevel</a> : <code>Object</code></dt>
-<dd></dd>
-</dl>
+
+* * *
+
+<a name="module_Astronomy.phasesES"></a>
+
+### Astronomy.phasesES : <code>Object.&lt;string, string&gt;</code>
+Mapa de fases lunares.
+{ phaseId, phaseName }
+
+**Kind**: static constant of [<code>Astronomy</code>](#module_Astronomy)  
+
+* * *
+
+<a name="module_Astronomy.data"></a>
+
+### Astronomy.data(latitude, longitude, [date], [language]) ⇒ <code>MoonData</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| latitude | <code>number</code> |  | 
+| longitude | <code>number</code> |  | 
+| [date] | <code>Date</code> | <code>new Date()</code> | 
+| [language] | <code>string</code> | <code>&quot;es-ES&quot;</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.dataExt"></a>
+
+### Astronomy.dataExt(latitude, longitude, [date], [language]) ⇒ <code>Object</code>
+Información de la luna para una fecha y hora dadas.
+La fecha y hora se devolverán en la zona horaria local.
+
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| latitude | <code>number</code> |  | 
+| longitude | <code>number</code> |  | 
+| [date] | <code>Date</code> | <code>new Date()</code> | 
+| [language] | <code>string</code> | <code>&quot;es-ES&quot;</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.emoji"></a>
+
+### Astronomy.emoji(latitude, longitude, [date]) ⇒ <code>string</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>string</code> - - Emoji of the moon phase  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| latitude | <code>number</code> |  | 
+| longitude | <code>number</code> |  | 
+| [date] | <code>Date</code> | <code>new Date()</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.times"></a>
+
+### Astronomy.times(latitude, longitude, timezoneId, date) ⇒ <code>Object</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+
+| Param | Type |
+| --- | --- |
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+| timezoneId | <code>string</code> | 
+| date | <code>Date</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.getUpOrDown"></a>
+
+### Astronomy.getUpOrDown(altitude, highest) ⇒ <code>string</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>string</code> - - Up or down emoji  
+
+| Param | Type |
+| --- | --- |
+| altitude | <code>number</code> | 
+| highest | <code>Date</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.all"></a>
+
+### Astronomy.all(date, latitude, longitude, timezoneId) ⇒ <code>Object</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+
+| Param | Type |
+| --- | --- |
+| date | <code>Date</code> | 
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+| timezoneId | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.times"></a>
+
+### Astronomy.times(date, latitude, longitude, timezoneId) ⇒ <code>Object</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+
+| Param | Type |
+| --- | --- |
+| date | <code>Date</code> | 
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+| timezoneId | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.getSolarTime"></a>
+
+### Astronomy.getSolarTime(date, lng, offsetSign, offset) ⇒ <code>string</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>string</code> - - Local time in "HH:mm" format  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| date | <code>Date</code> |  |
+| lng | <code>number</code> |  |
+| offsetSign | <code>string</code> | "+" or "-" |
+| offset | <code>number</code> | UTC offset in hours |
+
+
+* * *
+
+<a name="module_Astronomy.position"></a>
+
+### Astronomy.position(latitude, longitude) ⇒ <code>Object</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+
+| Param | Type |
+| --- | --- |
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.getIsNight"></a>
+
+### Astronomy.getIsNight(lat, lon, timezoneId, date, dateStr) ⇒ <code>boolean</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>boolean</code> - - true if it's night, false otherwise  
+
+| Param | Type |
+| --- | --- |
+| lat | <code>number</code> | 
+| lon | <code>number</code> | 
+| timezoneId | <code>string</code> | 
+| date | <code>number</code> \| <code>Date</code> | 
+| dateStr | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.getPhase"></a>
+
+### Astronomy.getPhase(altitude, noon) ⇒ <code>string</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>string</code> - - The phase of the sun based on its altitude  
+
+| Param | Type |
+| --- | --- |
+| altitude | <code>number</code> | 
+| noon | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.exports.timeString"></a>
+
+### Astronomy.exports.timeString([date], [sec]) ⇒ <code>string</code>
+Formatea una fecha a un string legible.
+
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>string</code> - La fecha formateada.  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| [date] | <code>Date</code> |  | 
+| [sec] | <code>boolean</code> | <code>false</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.exports.nowString"></a>
+
+### Astronomy.exports.nowString(sec) ⇒ <code>String</code>
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+
+| Param | Type |
+| --- | --- |
+| sec | <code>boolean</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.exports.dateFormat"></a>
+
+### Astronomy.exports.dateFormat([date]) ⇒ <code>string</code>
+Formatea una fecha a un string legible.
+
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>string</code> - La fecha formateada.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [date] | <code>Date</code> | <code>new Date()</code> | La fecha a formatear. |
+
+
+* * *
+
+<a name="module_Astronomy.exports.getLocalTimeFromTz"></a>
+
+### Astronomy.exports.getLocalTimeFromTz(timeZone, [date]) ⇒ <code>string</code>
+Get local time from timezone
+
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>string</code> - - The formatted local time string.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| timeZone | <code>string</code> |  | The timezone string (e.g., 'America/New_York'). |
+| [date] | <code>Date</code> \| <code>number</code> | <code>new Date()</code> | The date object to format. Defaults to the current date. |
+
+
+* * *
+
+<a name="module_Astronomy.exports.getLocalTimeInfo"></a>
+
+### Astronomy.exports.getLocalTimeInfo(apiKey, lat, lng) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
+Get local time from any location using Google Maps TimeZone API.
+
+**Kind**: static method of [<code>Astronomy</code>](#module_Astronomy)  
+**Returns**: <code>Promise.&lt;(any\|LocalTimeData)&gt;</code> - - An object containing the local time and timezone information:  
+**Throws**:
+
+- <code>Error</code> - If the API request fails or returns an error status.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| apiKey | <code>string</code> | GoogleMaps API key. |
+| lat | <code>number</code> |  |
+| lng | <code>number</code> |  |
+
+
+* * *
+
+<a name="module_Astronomy.AstroPosition"></a>
+
+### Astronomy.AstroPosition : <code>Object</code>
+**Kind**: static typedef of [<code>Astronomy</code>](#module_Astronomy)  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| altitude | <code>number</code> | 
+| azimuth | <code>number</code> | 
+| direction | <code>string</code> | 
+| direction_full | <code>string</code> | 
+
+
+* * *
+
+<a name="module_Astronomy.MoonData"></a>
+
+### Astronomy.MoonData : <code>Object</code>
+**Kind**: static typedef of [<code>Astronomy</code>](#module_Astronomy)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| position | <code>AstroPosition</code> |  |
+| next | <code>Object</code> |  |
+| next.newMoon | <code>string</code> | Date of the next new moon. |
+| next.fullMoon | <code>string</code> | Date of the next full moon. |
+
+
+* * *
+
+<a name="module_Astronomy.LocalTimeData"></a>
+
+### Astronomy.LocalTimeData : <code>Object</code>
+**Kind**: static typedef of [<code>Astronomy</code>](#module_Astronomy)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| time | <code>Date</code> | The local time. |
+| timeStr | <code>string</code> | The formatted local time string. |
+| timezone | <code>string</code> | The timezone name. |
+| timezoneId | <code>string</code> | The timezone ID. |
+| offset | <code>number</code> | The UTC offset in hours. |
+| offsetSign | <code>string</code> | The sign of the offset ('+' or '-'). |
+| dstOffset | <code>number</code> | The DST offset in hours. |
+
+
+* * *
 
 <a name="module_Geolocation"></a>
 
@@ -150,12 +461,69 @@ Get weather symbol and description based on the weather code.
 ## Utils
 
 * [Utils](#module_Utils)
+    * [.directions](#module_Utils.directions) : <code>Array.&lt;Compass&gt;</code>
+    * [.directionsEs](#module_Utils.directionsEs) : <code>Array.&lt;Compass&gt;</code>
+    * [.ALERT_LEVEL](#module_Utils.ALERT_LEVEL) : <code>Array.&lt;AlertLevel&gt;</code>
+    * [.WIND_LEVELS](#module_Utils.WIND_LEVELS) : <code>Array.&lt;WindLevel&gt;</code>
     * [.exports.degreesToCompass(degrees, language)](#module_Utils.exports.degreesToCompass) ⇒ <code>Object</code>
     * [.exports.getWarningByDays(precipitationSumToday, precipitationSumTomorrow, showersSumToday, showersSumTomorrow)](#module_Utils.exports.getWarningByDays) ⇒ <code>Object</code> \| <code>null</code>
     * [.exports.getWarning(precipitation, showers)](#module_Utils.exports.getWarning) ⇒ <code>Object</code> \| <code>null</code>
     * [.exports.windArrowTx(deg)](#module_Utils.exports.windArrowTx)
-    * [.exports.getWindLevel(speed)](#module_Utils.exports.getWindLevel) ⇒ [<code>WindLevel</code>](#WindLevel) \| <code>null</code>
+    * [.exports.getWindLevel(speed)](#module_Utils.exports.getWindLevel) ⇒ <code>WindLevel</code> \| <code>null</code>
+    * [.Compass](#module_Utils.Compass) : <code>Object</code>
+    * [.AlertLevel](#module_Utils.AlertLevel) : <code>Object</code>
+    * [.WindLevel](#module_Utils.WindLevel) : <code>Object</code>
 
+
+* * *
+
+<a name="module_Utils.directions"></a>
+
+### Utils.directions : <code>Array.&lt;Compass&gt;</code>
+English compass designations
+
+**Kind**: static constant of [<code>Utils</code>](#module_Utils)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| short | <code>string</code> | Short compass designation |
+| full | <code>string</code> | Full compass designation |
+
+
+* * *
+
+<a name="module_Utils.directionsEs"></a>
+
+### Utils.directionsEs : <code>Array.&lt;Compass&gt;</code>
+Spanish compass designations
+
+**Kind**: static constant of [<code>Utils</code>](#module_Utils)  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| short | <code>string</code> | Short compass designation |
+| full | <code>string</code> | Full compass designation |
+
+
+* * *
+
+<a name="module_Utils.ALERT_LEVEL"></a>
+
+### Utils.ALERT\_LEVEL : <code>Array.&lt;AlertLevel&gt;</code>
+Alert levels for rain and showers
+
+**Kind**: static constant of [<code>Utils</code>](#module_Utils)  
+
+* * *
+
+<a name="module_Utils.WIND_LEVELS"></a>
+
+### Utils.WIND\_LEVELS : <code>Array.&lt;WindLevel&gt;</code>
+Ordered list of wind levels.
+
+**Kind**: static constant of [<code>Utils</code>](#module_Utils)  
 
 * * *
 
@@ -222,11 +590,11 @@ Convert wind direction in degrees to an arrow representation.
 
 <a name="module_Utils.exports.getWindLevel"></a>
 
-### Utils.exports.getWindLevel(speed) ⇒ [<code>WindLevel</code>](#WindLevel) \| <code>null</code>
+### Utils.exports.getWindLevel(speed) ⇒ <code>WindLevel</code> \| <code>null</code>
 Return the wind level based on the speed.
 
 **Kind**: static method of [<code>Utils</code>](#module_Utils)  
-**Returns**: [<code>WindLevel</code>](#WindLevel) \| <code>null</code> - Wind level object or null if speed is null  
+**Returns**: <code>WindLevel</code> \| <code>null</code> - Wind level object or null if speed is null  
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -235,12 +603,10 @@ Return the wind level based on the speed.
 
 * * *
 
-<a name="directions"></a>
+<a name="module_Utils.Compass"></a>
 
-## directions : [<code>Array.&lt;Compass&gt;</code>](#Compass)
-English compass designations
-
-**Kind**: global constant  
+### Utils.Compass : <code>Object</code>
+**Kind**: static typedef of [<code>Utils</code>](#module_Utils)  
 **Properties**
 
 | Name | Type | Description |
@@ -251,86 +617,10 @@ English compass designations
 
 * * *
 
-<a name="directionsEs"></a>
+<a name="module_Utils.AlertLevel"></a>
 
-## directionsEs : [<code>Array.&lt;Compass&gt;</code>](#Compass)
-Spanish compass designations
-
-**Kind**: global constant  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| short | <code>string</code> | Short compass designation |
-| full | <code>string</code> | Full compass designation |
-
-
-* * *
-
-<a name="ALERT_LEVEL"></a>
-
-## ALERT\_LEVEL : [<code>Array.&lt;AlertLevel&gt;</code>](#AlertLevel)
-Alert levels for rain and showers
-
-**Kind**: global constant  
-
-* * *
-
-<a name="WIND_LEVELS"></a>
-
-## WIND\_LEVELS : [<code>Array.&lt;WindLevel&gt;</code>](#WindLevel)
-Ordered list of wind levels.
-
-**Kind**: global constant  
-
-* * *
-
-<a name="getWarningRain"></a>
-
-## getWarningRain(precipitation) ⇒ <code>Object</code> \| <code>null</code>
-Get warning by rain
-
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| precipitation | <code>number</code> | 
-
-
-* * *
-
-<a name="getWarningShowers"></a>
-
-## getWarningShowers(showers) ⇒ <code>Object</code> \| <code>null</code>
-Get warning by showers
-
-**Kind**: global function  
-
-| Param | Type |
-| --- | --- |
-| showers | <code>number</code> | 
-
-
-* * *
-
-<a name="Compass"></a>
-
-## Compass : <code>Object</code>
-**Kind**: global typedef  
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
-| short | <code>string</code> | Short compass designation |
-| full | <code>string</code> | Full compass designation |
-
-
-* * *
-
-<a name="AlertLevel"></a>
-
-## AlertLevel : <code>Object</code>
-**Kind**: global typedef  
+### Utils.AlertLevel : <code>Object</code>
+**Kind**: static typedef of [<code>Utils</code>](#module_Utils)  
 **Properties**
 
 | Name | Type | Description |
@@ -343,10 +633,10 @@ Get warning by showers
 
 * * *
 
-<a name="WindLevel"></a>
+<a name="module_Utils.WindLevel"></a>
 
-## WindLevel : <code>Object</code>
-**Kind**: global typedef  
+### Utils.WindLevel : <code>Object</code>
+**Kind**: static typedef of [<code>Utils</code>](#module_Utils)  
 **Properties**
 
 | Name | Type | Description |
@@ -357,6 +647,24 @@ Get warning by showers
 | tx | <code>string</code> | Text representing this level |
 | txEn | <code>string</code> | Text representing this level |
 
+
+* * *
+
+<a name="MoonCalc"></a>
+
+## MoonCalc
+Export MoonCalc
+
+**Kind**: global constant  
+
+* * *
+
+<a name="SunCalc"></a>
+
+## SunCalc
+Export SunCalc
+
+**Kind**: global constant  
 
 * * *
 

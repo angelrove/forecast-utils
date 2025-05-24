@@ -9,12 +9,14 @@
  * @property {string} color - Color representing this level
  * @property {string} tx - Text representing this level
  * @property {string} txEn - Text representing this level
+ * @memberof module:Utils
  */
 
 /**
  * Ordered list of wind levels.
  *
  * @type {WindLevel[]}
+ * @memberof module:Utils
  */
 const WIND_LEVELS = [
   { id: 1, speed: 8, color: "green", tx: "Brisa", txEn: "Breeze" },

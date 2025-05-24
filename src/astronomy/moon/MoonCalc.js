@@ -6,7 +6,6 @@
  * IMPORTANTE!!:
  * ¡Solo proporcionar HORA LOCAL DEL SISTEMA!: 'new Date()'
  *
- * @module MoonCalc
  */
 
 // @ts-ignore
@@ -16,7 +15,6 @@ import { parseBasicData } from "./parseBasicData.js";
 
 /**
  * Export MoonCalc
- * @ignore module:MoonCalc
  */
 const MoonCalc = {
   data,
@@ -32,7 +30,7 @@ export default MoonCalc;
  * { phaseId, phaseName }
  *
  * @type {Object.<string, string>}
- * @memberof module:MoonCalc
+ * @memberof module:Astronomy
  */
 const phasesES = {
   newMoon: "Luna Nueva",
@@ -52,7 +50,7 @@ const phasesES = {
  * @param {Date} [date=new Date()]
  * @param {string} [language=es-ES]
  * @returns {MoonData}
- * @memberof module:MoonCalc
+ * @memberof module:Astronomy
  */
 function data(latitude, longitude, date = new Date(), language = "es-ES") {
   // date.setHours(date.getHours() + 0); // debug
@@ -71,7 +69,7 @@ function data(latitude, longitude, date = new Date(), language = "es-ES") {
  * @param {Date} [date=new Date()]
  * @param {string} [language=es-ES]
  * @returns {{ date: string, time: string, illumination: string, phase: string, phaseId: string, emoji: string, parallacticAngle: number, angle: number, position: AstroPosition, next: object }}
- * @memberof module:MoonCalc
+ * @memberof module:Astronomy
  */
 function dataExt(latitude, longitude, date = new Date(), language = "es-ES") {
   const data = SunCalc.getMoonData(date, latitude, longitude);
@@ -113,7 +111,7 @@ function dataExt(latitude, longitude, date = new Date(), language = "es-ES") {
  * @param {number} longitude
  * @param {Date} [date=new Date()]
  * @returns {string} - Emoji of the moon phase
- * @memberof module:MoonCalc
+ * @memberof module:Astronomy
  */
 function emoji(latitude, longitude, date = new Date()) {
   const data = SunCalc.getMoonData(date, latitude, longitude);
@@ -126,7 +124,7 @@ function emoji(latitude, longitude, date = new Date()) {
  * @param {string} timezoneId
  * @param {Date} date
  * @returns {{rise: string, set: string, highest: string}}
- * @memberof module:MoonCalc
+ * @memberof module:Astronomy
  */
 function times(latitude, longitude, timezoneId, date = new Date()) {
   const ret = {
@@ -160,7 +158,7 @@ function times(latitude, longitude, timezoneId, date = new Date()) {
  * @param {number} altitude
  * @param {Date} highest
  * @returns {string} - Up or down emoji
- * @memberof module:MoonCalc
+ * @memberof module:Astronomy
  */
 function getUpOrDown(altitude, highest) {
   const now = new Date();

@@ -6,7 +6,6 @@
  * ¡Solo proporcionar HORA LOCAL DEL SISTEMA!: 'new Date()'
  * La única excepción es 'getSolarTime()': hay que darle la hora local correspondiente a la localización dada.
  *
- * @module SunCalc
  */
 
 // @ts-ignore
@@ -21,7 +20,6 @@ import {
 
 /**
  * Export SunCalc
- * @ignore module:MoonCalc
  */
 const SunCalc = {
   all,
@@ -40,7 +38,7 @@ export default SunCalc;
  * @param {number} longitude
  * @param {string} timezoneId
  * @returns {{ sunTimes: object, sunPosition: object, sunPhase: string }}
- * @memberof module:SunCalc
+ * @memberof module:Astronomy
  */
 function all(date, latitude, longitude, timezoneId) {
   const sunTimes = SunCalc.times(date, latitude, longitude, timezoneId);
@@ -61,7 +59,7 @@ function all(date, latitude, longitude, timezoneId) {
  * @param {number} longitude
  * @param {string} timezoneId
  * @returns {{ date: Date, sunrise: string, sunset: string, noon: string, dawn: string, dusk: string }}
- * @memberof module:SunCalc
+ * @memberof module:Astronomy
  */
 function times(date, latitude, longitude, timezoneId) {
   const times = SunCalc3.getSunTimes(date, latitude, longitude);
@@ -85,7 +83,7 @@ function times(date, latitude, longitude, timezoneId) {
  * @param {string} offsetSign - "+" or "-"
  * @param {number} offset - UTC offset in hours
  * @returns {string} - Local time in "HH:mm" format
- * @memberof module:SunCalc
+ * @memberof module:Astronomy
  */
 function getSolarTime(date, lng, offsetSign, offset) {
   // Convert offsetSign and offset to a numeric UTC offset (e.g., -3, +2)
@@ -98,7 +96,7 @@ function getSolarTime(date, lng, offsetSign, offset) {
  * @param {number} latitude
  * @param {number} longitude
  * @returns {{date: string, azimuth: number, direction: string, direction_full: string, altitude: number, zenith: number, declination: number}}
- * @memberof module:SunCalc
+ * @memberof module:Astronomy
  */
 function position(latitude, longitude, date = new Date(), language = "es-ES") {
   const position = SunCalc3.getPosition(date, latitude, longitude);
@@ -126,7 +124,7 @@ function position(latitude, longitude, date = new Date(), language = "es-ES") {
  * @param {number | Date} date
  * @param {string} dateStr
  * @returns {boolean} - true if it's night, false otherwise
- * @memberof module:SunCalc
+ * @memberof module:Astronomy
  */
 function getIsNight(lat, lon, timezoneId, date, dateStr) {
   const times = SunCalc3.getSunTimes(date, lat, lon);
@@ -146,7 +144,7 @@ function getIsNight(lat, lon, timezoneId, date, dateStr) {
  * @param {number} altitude
  * @param {string} noon
  * @returns {string} - The phase of the sun based on its altitude
- * @memberof module:SunCalc
+ * @memberof module:Astronomy
  */
 function getPhase(altitude, noon) {
   const nowTime = nowString();

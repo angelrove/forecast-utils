@@ -3,7 +3,6 @@
  * Get local time from any location using Google Maps TimeZone API.
  * - import { getLocalTimeInfo } from '@angelrov/forecast';
  *
- * @module Astronomy
  */
 
 import { timeString } from "./timehelpers.js";

@@ -6,6 +6,7 @@
  * @typedef {Object} Compass
  * @property {string} short - Short compass designation
  * @property {string} full - Full compass designation
+ * @memberof module:Utils
  */
 
 /**
@@ -14,6 +15,7 @@
  * @constant
  * @property {string} short - Short compass designation
  * @property {string} full - Full compass designation
+ * @memberof module:Utils
  */
 const directions = [
   { short: "N", full: "North" },
@@ -32,6 +34,7 @@ const directions = [
  * @constant
  * @property {string} short - Short compass designation
  * @property {string} full - Full compass designation
+ * @memberof module:Utils
  */
 const directionsEs = [
   { short: "N", full: "Norte" },

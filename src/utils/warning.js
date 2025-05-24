@@ -1,19 +1,17 @@
 /**
- * Alert levels for rain and showers
- */
-
-/**
  * @typedef {Object} AlertLevel
  * @property {number} levelNum - The alert level number.
  * @property {string} level - The alert level string (e.g., "red", "orange", "yellow").
  * @property {number} precipitation - The precipitation threshold for the alert level.
  * @property {number} showers - The showers threshold for the alert level.
+ * @memberof module:Utils
  */
 
 /**
  * Alert levels for rain and showers
  *
  * @type {AlertLevel[]}
+ * @memberof module:Utils
  */
 const ALERT_LEVEL = [
   { levelNum: 3, level: "red", precipitation: 120, showers: 60 },
@@ -93,7 +91,7 @@ export function getWarning(precipitation, showers) {
 //----------------------------------------------------------------
 /**
  * Get warning by rain
- *
+ * @private
  * @param {number} precipitation
  * @returns {{ levelNum: number, level: string, message: string } | null}
  */
@@ -113,6 +111,7 @@ function getWarningRain(precipitation) {
 /**
  * Get warning by showers
  *
+ * @private
  * @param {number} showers
  * @returns {{ levelNum: number, level: string, message: string } | null}
  */

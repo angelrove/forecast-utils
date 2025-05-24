@@ -1,8 +1,5 @@
 /**
- * @module Astronomy
- */
-
-/**
+ * @memberof module:Astronomy
  * @typedef {Object} AstroPosition
  * @property {number} altitude
  * @property {number} azimuth
@@ -11,6 +8,7 @@
  */
 
 /**
+ * @memberof module:Astronomy
  * @typedef {Object} MoonData
  * @property {AstroPosition} position
  * @property {Object} next
@@ -19,6 +17,7 @@
  */
 
 /**
+ * @memberof module:Astronomy
  * @typedef {Object} LocalTimeData
  * @property {Date} time - The local time.
  * @property {string} timeStr - The formatted local time string.
