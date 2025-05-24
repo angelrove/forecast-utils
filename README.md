@@ -20,6 +20,9 @@ Con excepción de &#39;getSolarTime()&#39;: recibe la hora local correspondiente
 <dd></dd>
 <dt><a href="#module_Utils">Utils</a></dt>
 <dd></dd>
+<dt><a href="#module_Utils/TimeDateStr">Utils/TimeDateStr</a></dt>
+<dd><p>Helpers for get date and time formeted strings</p>
+</dd>
 </dl>
 
 <a name="module_Astronomy/MoonCalc"></a>
@@ -265,6 +268,11 @@ Con excepción de 'getSolarTime()': recibe la hora local correspondiente a la lo
 
 ## Geolocation
 
+* [Geolocation](#module_Geolocation)
+    * [.exports.getGeolocation()](#module_Geolocation.exports.getGeolocation) ⇒ <code>Promise.&lt;{latitude: number, longitude: number, formatted\_address: string}&gt;</code>
+    * [.exports.timeFromLocation(apiKey, lat, lng)](#module_Geolocation.exports.timeFromLocation) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
+
+
 * * *
 
 <a name="module_Geolocation.exports.getGeolocation"></a>
@@ -276,6 +284,27 @@ Get the current geolocation of the device and reverse geocode it to get the addr
 **Throws**:
 
 - <code>Error</code> If geolocation is not supported or permission is denied.
+
+
+* * *
+
+<a name="module_Geolocation.exports.timeFromLocation"></a>
+
+### Geolocation.exports.timeFromLocation(apiKey, lat, lng) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
+Get local time from a given location (lat, lng) using 'GoogleMaps TimeZone' API.
+
+**Kind**: static method of [<code>Geolocation</code>](#module_Geolocation)  
+**Returns**: <code>Promise.&lt;(any\|LocalTimeData)&gt;</code> - - An object containing the local time and timezone information:  
+**Throws**:
+
+- <code>Error</code> - If the API request fails or returns an error status.
+
+
+| Param | Type | Description |
+| --- | --- | --- |
+| apiKey | <code>string</code> | GoogleMaps API key. |
+| lat | <code>number</code> |  |
+| lng | <code>number</code> |  |
 
 
 * * *
@@ -368,12 +397,9 @@ Get weather symbol and description based on the weather code.
     * [.ALERT_LEVEL](#module_Utils.ALERT_LEVEL) : <code>Array.&lt;AlertLevel&gt;</code>
     * [.WIND_LEVELS](#module_Utils.WIND_LEVELS) : <code>Array.&lt;WindLevel&gt;</code>
     * [.exports.degreesToCompass(degrees, language)](#module_Utils.exports.degreesToCompass) ⇒ <code>Object</code>
-    * [.dateFormat([date])](#module_Utils.dateFormat) ⇒ <code>string</code>
-    * [.timeString([date], [sec])](#module_Utils.timeString) ⇒ <code>string</code>
-    * [.nowString(sec)](#module_Utils.nowString) ⇒ <code>String</code>
-    * [.getLocalTimeFromTz(timeZone, [date])](#module_Utils.getLocalTimeFromTz) ⇒ <code>string</code>
     * [.exports.getWarningByDays(precipitationSumToday, precipitationSumTomorrow, showersSumToday, showersSumTomorrow)](#module_Utils.exports.getWarningByDays) ⇒ <code>Object</code> \| <code>null</code>
     * [.exports.getWarning(precipitation, showers)](#module_Utils.exports.getWarning) ⇒ <code>Object</code> \| <code>null</code>
+    * [.exports.WindArrow(props)](#module_Utils.exports.WindArrow)
     * [.exports.windArrowTx(deg)](#module_Utils.exports.windArrowTx)
     * [.exports.getWindLevel(speed)](#module_Utils.exports.getWindLevel) ⇒ <code>WindLevel</code> \| <code>null</code>
     * [.Compass](#module_Utils.Compass) : <code>Object</code>
@@ -448,67 +474,6 @@ Convert degrees to compass designation
 
 * * *
 
-<a name="module_Utils.dateFormat"></a>
-
-### Utils.dateFormat([date]) ⇒ <code>string</code>
-Returns a date as a formated string.
-
-**Kind**: static method of [<code>Utils</code>](#module_Utils)  
-**Returns**: <code>string</code> - La fecha formateada.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| [date] | <code>Date</code> | <code>new Date()</code> | La fecha a formatear. |
-
-
-* * *
-
-<a name="module_Utils.timeString"></a>
-
-### Utils.timeString([date], [sec]) ⇒ <code>string</code>
-Returns a time as a formated string.
-
-**Kind**: static method of [<code>Utils</code>](#module_Utils)  
-**Returns**: <code>string</code> - La fecha formateada.  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| [date] | <code>Date</code> |  | 
-| [sec] | <code>boolean</code> | <code>false</code> | 
-
-
-* * *
-
-<a name="module_Utils.nowString"></a>
-
-### Utils.nowString(sec) ⇒ <code>String</code>
-Returns a now time as a formated string.
-
-**Kind**: static method of [<code>Utils</code>](#module_Utils)  
-
-| Param | Type | Default |
-| --- | --- | --- |
-| sec | <code>boolean</code> | <code>false</code> | 
-
-
-* * *
-
-<a name="module_Utils.getLocalTimeFromTz"></a>
-
-### Utils.getLocalTimeFromTz(timeZone, [date]) ⇒ <code>string</code>
-Return the local time string from a given timezone.
-
-**Kind**: static method of [<code>Utils</code>](#module_Utils)  
-**Returns**: <code>string</code> - - The formatted local time string.  
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| timeZone | <code>string</code> |  | The timezone string (e.g., 'America/New_York'). |
-| [date] | <code>Date</code> \| <code>number</code> | <code>new Date()</code> | The date object to format. Defaults to the current date. |
-
-
-* * *
-
 <a name="module_Utils.exports.getWarningByDays"></a>
 
 ### Utils.exports.getWarningByDays(precipitationSumToday, precipitationSumTomorrow, showersSumToday, showersSumTomorrow) ⇒ <code>Object</code> \| <code>null</code>
@@ -537,6 +502,30 @@ Get warning by precipitation and showers
 | --- | --- |
 | precipitation | <code>number</code> | 
 | showers | <code>number</code> | 
+
+
+* * *
+
+<a name="module_Utils.exports.WindArrow"></a>
+
+### Utils.exports.WindArrow(props)
+SVG arrow indicating wind direction.
+
+**Kind**: static method of [<code>Utils</code>](#module_Utils)  
+**Component**: JSX  
+
+| Param | Type | Description |
+| --- | --- | --- |
+| props | <code>Object</code> | Component props. |
+
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| props.deg | <code>number</code> | Wind direction in degrees (0 = North, 90 = East, etc.). |
+| [props.size] | <code>string</code> | Tailwind CSS size class (e.g., 'size-10') |
+| [props.strokeWidth] | <code>number</code> | Stroke width of the arrow (range: 1–6). |
+| [props.className] | <code>string</code> | Additional CSS classes. |
 
 
 * * *
@@ -613,6 +602,82 @@ Return the wind level based on the speed.
 | color | <code>string</code> | Color representing this level |
 | tx | <code>string</code> | Text representing this level |
 | txEn | <code>string</code> | Text representing this level |
+
+
+* * *
+
+<a name="module_Utils/TimeDateStr"></a>
+
+## Utils/TimeDateStr
+Helpers for get date and time formeted strings
+
+
+* [Utils/TimeDateStr](#module_Utils/TimeDateStr)
+    * [.dateFormat([date])](#module_Utils/TimeDateStr.dateFormat) ⇒ <code>string</code>
+    * [.timeString([date], [sec])](#module_Utils/TimeDateStr.timeString) ⇒ <code>string</code>
+    * [.nowString(sec)](#module_Utils/TimeDateStr.nowString) ⇒ <code>String</code>
+    * [.getLocalTimeFromTz(timeZone, [date])](#module_Utils/TimeDateStr.getLocalTimeFromTz) ⇒ <code>string</code>
+
+
+* * *
+
+<a name="module_Utils/TimeDateStr.dateFormat"></a>
+
+### Utils/TimeDateStr.dateFormat([date]) ⇒ <code>string</code>
+Returns a date as a formated string.
+
+**Kind**: static method of [<code>Utils/TimeDateStr</code>](#module_Utils/TimeDateStr)  
+**Returns**: <code>string</code> - La fecha formateada.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| [date] | <code>Date</code> | <code>new Date()</code> | La fecha a formatear. |
+
+
+* * *
+
+<a name="module_Utils/TimeDateStr.timeString"></a>
+
+### Utils/TimeDateStr.timeString([date], [sec]) ⇒ <code>string</code>
+Returns a time as a formated string.
+
+**Kind**: static method of [<code>Utils/TimeDateStr</code>](#module_Utils/TimeDateStr)  
+**Returns**: <code>string</code> - La fecha formateada.  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| [date] | <code>Date</code> |  | 
+| [sec] | <code>boolean</code> | <code>false</code> | 
+
+
+* * *
+
+<a name="module_Utils/TimeDateStr.nowString"></a>
+
+### Utils/TimeDateStr.nowString(sec) ⇒ <code>String</code>
+Returns a now time as a formated string.
+
+**Kind**: static method of [<code>Utils/TimeDateStr</code>](#module_Utils/TimeDateStr)  
+
+| Param | Type | Default |
+| --- | --- | --- |
+| sec | <code>boolean</code> | <code>false</code> | 
+
+
+* * *
+
+<a name="module_Utils/TimeDateStr.getLocalTimeFromTz"></a>
+
+### Utils/TimeDateStr.getLocalTimeFromTz(timeZone, [date]) ⇒ <code>string</code>
+Return the local time string from a given timezone.
+
+**Kind**: static method of [<code>Utils/TimeDateStr</code>](#module_Utils/TimeDateStr)  
+**Returns**: <code>string</code> - - The formatted local time string.  
+
+| Param | Type | Default | Description |
+| --- | --- | --- | --- |
+| timeZone | <code>string</code> |  | The timezone string (e.g., 'America/New_York'). |
+| [date] | <code>Date</code> \| <code>number</code> | <code>new Date()</code> | The date object to format. Defaults to the current date. |
 
 
 * * *

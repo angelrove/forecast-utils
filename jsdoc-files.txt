@@ -1,5 +1,6 @@
 src/geolocation/index.js
 src/geolocation/getGeolocation.js
+src/geolocation/timeFromLocation.js
 src/OpenMeteo/index.js
 src/OpenMeteo/current/useForecastCurrent.js
 src/OpenMeteo/daily/useForecastDaily.js
@@ -16,4 +17,4 @@ src/utils/degreesToCompass.js
 src/utils/warning.js
 src/utils/wind/windLevel.js
 src/utils/wind/windArrowTx.js
-src/utils/wind/windArrow.jsx
+src/utils/wind/WindArrow.jsx
