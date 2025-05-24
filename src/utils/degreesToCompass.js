@@ -1,7 +1,20 @@
 /**
- * @module utils
+ * Convert degrees to compass designation
  */
 
+/**
+ * @typedef {Object} Compass
+ * @property {string} short - Short compass designation
+ * @property {string} full - Full compass designation
+ */
+
+/**
+ * English compass designations
+ * @type {Compass[]}
+ * @constant
+ * @property {string} short - Short compass designation
+ * @property {string} full - Full compass designation
+ */
 const directions = [
   { short: "N", full: "North" },
   { short: "NE", full: "Northeast" },
@@ -13,6 +26,13 @@ const directions = [
   { short: "NW", full: "Northwest" },
 ];
 
+/**
+ * Spanish compass designations
+ * @type {Compass[]}
+ * @constant
+ * @property {string} short - Short compass designation
+ * @property {string} full - Full compass designation
+ */
 const directionsEs = [
   { short: "N", full: "Norte" },
   { short: "NE", full: "Noreste" },
@@ -30,6 +50,7 @@ const directionsEs = [
  * @param {number} degrees
  * @param {string} language - Language code ("en-US", "es-ES", "auto")
  * @returns {{short: string, full: string}}
+ * @memberof module:Utils
  */
 export function degreesToCompass(degrees, language = "auto") {
   if (degrees == null) return { short: "?", full: "?" };

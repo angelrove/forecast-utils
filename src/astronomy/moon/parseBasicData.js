@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { degreesToCompass } from "../../utils/degreesToCompass.js";
 import { dateFormat } from "../timehelpers.js";
 

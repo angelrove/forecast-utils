@@ -1,19 +1,23 @@
 // @ts-nocheck
 /**
- * @module astronomy/time-date
+ * Get local time from any location using Google Maps TimeZone API.
+ * - import { getLocalTimeInfo } from '@angelrov/forecast';
+ *
+ * @module Astronomy
  */
 
 import { timeString } from "./timehelpers.js";
 
 //------------------------------------------------------
 /**
- * Google API: Get local time from any location
+ * Get local time from any location using Google Maps TimeZone API.
  *
  * @param {string} apiKey - GoogleMaps API key.
  * @param {number} lat
  * @param {number} lng
  * @returns {Promise<any | LocalTimeData>} - An object containing the local time and timezone information:
  * @throws {Error} - If the API request fails or returns an error status.
+ * @memberof module:Astronomy
  */
 export async function getLocalTimeInfo(apiKey, lat, lng) {
   const timestamp = Math.floor(Date.now() / 1000);

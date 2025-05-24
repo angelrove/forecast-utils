@@ -1,5 +1,5 @@
 /**
- * @module OpenMeteo:weatherSymbol
+ * Get weather symbol and description based on the weather code.
  */
 
 import { getWeatherCodeEntry } from "./lib/getWeatherCodeEntry.js";
@@ -12,6 +12,7 @@ import { getWeatherCodeEntry } from "./lib/getWeatherCodeEntry.js";
  * @param {boolean} night
  * @param {boolean} dark
  * @returns {{ icon: string, description: string }}
+ * @memberof module:OpenMeteo
  */
 export function weatherSymbol(
   code,

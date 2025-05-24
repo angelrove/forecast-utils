@@ -1,8 +1,6 @@
 /**
- * @module utils
+ * Alert levels for rain and showers
  */
-
-// AEMET (12 horas)
 
 /**
  * @typedef {Object} AlertLevel
@@ -31,6 +29,7 @@ const ALERT_LEVEL = [
  * @param {number} showersSumToday
  * @param {number} showersSumTomorrow
  * @returns {{ levelNum: number, level: string, message: string, day: number } | null}
+ * @memberof module:Utils
  */
 export function getWarningByDays(
   precipitationSumToday,
@@ -66,6 +65,7 @@ export function getWarningByDays(
  * @param {number} precipitation
  * @param {number} showers
  * @returns {{ levelNum: number, level: string, message: string } | null}
+ * @memberof module:Utils
  */
 export function getWarning(precipitation, showers) {
   const warningRain = getWarningRain(precipitation);

@@ -1,5 +1,5 @@
 /**
- * @module astronomy/types
+ * @module Astronomy
  */
 
 /**

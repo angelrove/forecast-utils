@@ -1,7 +1,3 @@
-/**
- * @module astronomy/time-date
- */
-
 //------------------------------------------------------
 /**
  * Formatea una fecha a un string legible.
@@ -9,6 +5,7 @@
  * @param {Date} [date]
  * @param {boolean} [sec=false]
  * @returns {string} La fecha formateada.
+ * @memberof module:Astronomy
  */
 export function timeString(date = new Date(), sec = false) {
   if (sec) {

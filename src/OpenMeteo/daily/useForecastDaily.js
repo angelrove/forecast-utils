@@ -1,5 +1,5 @@
 /**
- * @module OpenMeteo:daily
+ * Custom hook to fetch daily forecast (10 days) data from OpenMeteo API.
  */
 
 import useSWR from "swr";
@@ -15,6 +15,7 @@ import transformer from "./transformer.js";
  * @param {number} lon
  * @param {number} refreshIntervalMin
  * @returns {{ data: any, isLoading: boolean, isError: any }}
+ * @memberof module:OpenMeteo
  */
 export function useForecastDaily(lat, lon, refreshIntervalMin = 0) {
   // Validate --

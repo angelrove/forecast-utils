@@ -1,5 +1,5 @@
 /**
- * @module OpenMeteo:current
+ * Custom hook to fetch current weather data from OpenMeteo API.
  */
 
 import useSWR from "swr";
@@ -14,6 +14,7 @@ import transformer from "./transformer.js";
  * @param {number} lon
  * @param {number} refreshIntervalMin
  * @returns {{ data: any, apiUrl: string, isLoading: boolean, isError: any }}
+ * @memberof module:OpenMeteo
  */
 export function useForecastCurrent(lat, lon, refreshIntervalMin = 0) {
   if (!lat || !lon) {

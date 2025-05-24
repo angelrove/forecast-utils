@@ -1,16 +1,16 @@
 /**
- * @module Geolocation
+ * Get the current geolocation of the device and reverse geocode it to get the address.
  */
 
 import geolocationCapacitor from "./lib/geolocation.js";
 import reverseGeocoding from "./lib/reversegeocoding.js";
 
 /**
- * Get the current geolocation of the device and reverse
- * geocode it to get the address.
+ * Get the current geolocation of the device and reverse geocode it to get the address.
  *
  * @returns {Promise<{latitude: number, longitude: number, formatted_address: string}>}
  * @throws {Error} If geolocation is not supported or permission is denied.
+ * @memberof module:Geolocation
  */
 export async function getGeolocation() {
   let location = null;
@@ -21,7 +21,8 @@ export async function getGeolocation() {
     location = await geolocationCapacitor();
     // location.latitude = '25.90197748117876'; location.longitude = '-65.71650426928204';
   } catch (error) {
-    throw new Error("Geolocation error: " + error.message);
+    const message = error instanceof Error ? error.message : error;
+    throw new Error("Geolocation error: " + message);
   }
 
   // Address ---
@@ -33,7 +34,8 @@ export async function getGeolocation() {
       import.meta.env.VITE_googlemaps_api_key,
     );
   } catch (error) {
-    console.log("reverseGeocoding - error: ", error.message);
+    const message = error instanceof Error ? error.message : error;
+    console.log("reverseGeocoding - error: ", message);
     address = {
       formatted_address:
         "[" + location.latitude + ", " + location.longitude + "]",

@@ -1,10 +1,9 @@
 /**
- * @author: Jose Angel Romero Vegas
- * @license: MIT
- * @description:
  * Several utility libraries for the Tierracolora project:
  * - Forecast API (OpenWeather)
  * - Astronomy utilities
+ * - Geolocation
+ * - Another utilities.
  *
  * I use public libraries for the following:
  * - Astronomy calculations: suncalc3

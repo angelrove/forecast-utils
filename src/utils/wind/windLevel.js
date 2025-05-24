@@ -1,5 +1,5 @@
 /**
- * @module utils
+ * Ordered list of wind levels.
  */
 
 /**
@@ -36,6 +36,7 @@ const WIND_LEVELS = [
  *
  * @param {number} speed Wind speed in km/h
  * @return {WindLevel | null} Wind level object or null if speed is null
+ * @memberof module:Utils
  */
 export function getWindLevel(speed) {
   if (typeof speed !== "number") return null;
