@@ -12,11 +12,7 @@
 
 // @ts-ignore
 import SunCalc from "suncalc3";
-import {
-  dateFormat,
-  getLocalTimeFromTz,
-  timeString,
-} from "../../utils/timehelpers.js";
+import TimeDateStr from "../../utils/timehelpers.js";
 import { parseBasicData } from "./parseBasicData.js";
 
 /**
@@ -109,8 +105,8 @@ function dataExt(latitude, longitude, date = new Date(), language = "es-ES") {
 
   // Return ---
   return {
-    date: dateFormat(date),
-    time: timeString(date),
+    date: TimeDateStr.dateFormat(date),
+    time: TimeDateStr.timeString(date),
     illumination: illumination,
     phase: phase,
     phaseId: phaseId,
@@ -164,9 +160,9 @@ function times(latitude, longitude, timezoneId, date = new Date()) {
     return ret;
   }
 
-  ret.rise = getLocalTimeFromTz(timezoneId, times.rise);
-  ret.set = getLocalTimeFromTz(timezoneId, times.set);
-  ret.highest = getLocalTimeFromTz(timezoneId, times.highest);
+  ret.rise = TimeDateStr.getLocalTimeFromTz(timezoneId, times.rise);
+  ret.set = TimeDateStr.getLocalTimeFromTz(timezoneId, times.set);
+  ret.highest = TimeDateStr.getLocalTimeFromTz(timezoneId, times.highest);
   return ret;
 }
 //--------------------------------------------------------------------

@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { degreesToCompass } from "../../utils/degreesToCompass.js";
-import { dateFormat } from "../../utils/timehelpers.js";
+import TimeDateStr from "../../utils/timehelpers.js";
 
 /**
  * Parse basic data from SunCalc
@@ -17,10 +17,10 @@ export function parseBasicData(data, language) {
   const direction = degreesToCompass(data.azimuthDegrees, language);
 
   // Next moon ---
-  const nextNewMoon = dateFormat(
+  const nextNewMoon = TimeDateStr.dateFormat(
     new Date(data.illumination.next.newMoon.value),
   );
-  const nextFullMoon = dateFormat(
+  const nextFullMoon = TimeDateStr.dateFormat(
     new Date(data.illumination.next.fullMoon.value),
   );
 

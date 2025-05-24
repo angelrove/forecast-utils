@@ -4,6 +4,18 @@
  * @module Astronomy/helpers
  */
 
+/**
+ * TimeDateStr.
+ * @ignore
+ */
+const TimeDateStr = {
+  dateFormat,
+  getLocalTimeFromTz,
+  nowString,
+  timeString,
+};
+export default TimeDateStr;
+
 //------------------------------------------------------
 /**
  * Formatea una fecha a un string legible.
@@ -12,7 +24,7 @@
  * @returns {string} La fecha formateada.
  * @memberof module:Astronomy/helpers
  */
-export function dateFormat(date = new Date()) {
+function dateFormat(date = new Date()) {
   const options = {
     weekday: "long",
     day: "numeric",
@@ -30,7 +42,7 @@ export function dateFormat(date = new Date()) {
  * @returns {string} La fecha formateada.
  * @memberof module:Astronomy/helpers
  */
-export function timeString(date = new Date(), sec = false) {
+function timeString(date = new Date(), sec = false) {
   if (sec) {
     return date.toLocaleTimeString([], {
       hour: "2-digit",
@@ -53,7 +65,7 @@ export function timeString(date = new Date(), sec = false) {
  * @returns {String}
  * @memberof module:Astronomy/helpers
  */
-export function nowString(sec = false) {
+function nowString(sec = false) {
   return timeString(new Date(), sec);
 }
 //------------------------------------------------------
@@ -65,7 +77,7 @@ export function nowString(sec = false) {
  * @returns {string} - The formatted local time string.
  * @memberof module:Astronomy/helpers
  */
-export function getLocalTimeFromTz(timeZone, date = new Date()) {
+function getLocalTimeFromTz(timeZone, date = new Date()) {
   // Timezone example
   // timeZone = 'America/New_York';
 

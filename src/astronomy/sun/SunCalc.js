@@ -13,12 +13,7 @@
 // @ts-ignore
 import { default as SunCalc3 } from "suncalc3";
 import { degreesToCompass } from "../../utils/degreesToCompass.js";
-import {
-  dateFormat,
-  getLocalTimeFromTz,
-  nowString,
-  timeString,
-} from "../../utils/timehelpers.js";
+import TimeDateStr from "../../utils/timehelpers.js";
 
 /**
  * SunCalc.
@@ -69,11 +64,14 @@ function times(date, latitude, longitude, timezoneId) {
 
   const sunTimes = {
     date: date,
-    sunrise: getLocalTimeFromTz(timezoneId, times.sunriseStart.value),
-    sunset: getLocalTimeFromTz(timezoneId, times.sunsetStart.value),
-    noon: getLocalTimeFromTz(timezoneId, times.solarNoon.value),
-    dawn: getLocalTimeFromTz(timezoneId, times.civilDawn.value),
-    dusk: getLocalTimeFromTz(timezoneId, times.civilDusk.value),
+    sunrise: TimeDateStr.getLocalTimeFromTz(
+      timezoneId,
+      times.sunriseStart.value,
+    ),
+    sunset: TimeDateStr.getLocalTimeFromTz(timezoneId, times.sunsetStart.value),
+    noon: TimeDateStr.getLocalTimeFromTz(timezoneId, times.solarNoon.value),
+    dawn: TimeDateStr.getLocalTimeFromTz(timezoneId, times.civilDawn.value),
+    dusk: TimeDateStr.getLocalTimeFromTz(timezoneId, times.civilDusk.value),
   };
 
   // console.log(sunTimes);
@@ -92,7 +90,7 @@ function getSolarTime(date, lng, offsetSign, offset) {
   // Convert offsetSign and offset to a numeric UTC offset (e.g., -3, +2)
   const utcOffset = (offsetSign === "-" ? -1 : 1) * Math.abs(Number(offset));
   const solarTime = SunCalc3.getSolarTime(date, lng, utcOffset);
-  return timeString(solarTime);
+  return TimeDateStr.timeString(solarTime);
 }
 //-------------------------------------------------------
 /**
@@ -108,7 +106,7 @@ function position(latitude, longitude, date = new Date(), language = "es-ES") {
   const direction = degreesToCompass(position.azimuthDegrees, language);
 
   return {
-    date: dateFormat(date),
+    date: TimeDateStr.dateFormat(date),
     azimuth: position.azimuthDegrees,
     direction: direction.short,
     direction_full: direction.full,
@@ -134,8 +132,11 @@ function getIsNight(lat, lon, timezoneId, date, dateStr) {
 
   // se pueden comparar horas(hh:mm) estando en formato texto
   // y así no tenemos que tener en cuenta el día, mes.
-  const timeUp = getLocalTimeFromTz(timezoneId, times.sunriseEnd.value);
-  const timeDown = getLocalTimeFromTz(
+  const timeUp = TimeDateStr.getLocalTimeFromTz(
+    timezoneId,
+    times.sunriseEnd.value,
+  );
+  const timeDown = TimeDateStr.getLocalTimeFromTz(
     timezoneId,
     times.goldenHourDuskStart.value,
   );
@@ -150,7 +151,7 @@ function getIsNight(lat, lon, timezoneId, date, dateStr) {
  * @memberof module:Astronomy/SunCalc
  */
 function getPhase(altitude, noon) {
-  const nowTime = nowString();
+  const nowTime = TimeDateStr.nowString();
 
   let phase = "day";
   if (altitude < 4) {

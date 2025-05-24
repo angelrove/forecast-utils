@@ -9,9 +9,9 @@ src/astronomy/index.js
 src/astronomy/types.js
 src/astronomy/moon/MoonCalc.js
 src/astronomy/sun/SunCalc.js
-src/astronomy/timehelpers.js
 src/astronomy/timeZoneInfo.js
 src/utils/index.js
+src/utils/timehelpers.js
 src/utils/degreesToCompass.js
 src/utils/warning.js
 src/utils/wind/windLevel.js

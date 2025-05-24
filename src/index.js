@@ -13,12 +13,7 @@
 export { default as MoonCalc } from "./astronomy/moon/MoonCalc.js";
 export { default as SunCalc } from "./astronomy/sun/SunCalc.js";
 export { timeFromLocation } from "./geolocation/timeFromLocation.js";
-export {
-  dateFormat,
-  getLocalTimeFromTz,
-  nowString,
-  timeString,
-} from "./utils/timehelpers.js";
+export { default as TimeDateStr } from "./utils/timehelpers.js";
 
 // Geolocation
 export { getGeolocation } from "./geolocation/getGeolocation.js";
