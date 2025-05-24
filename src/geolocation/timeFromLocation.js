@@ -1,15 +1,9 @@
 // @ts-nocheck
-/**
- * Get local time from any location using Google Maps TimeZone API.
- * - import { getLocalTimeInfo } from '@angelrov/forecast';
- *
- */
-
-import { timeString } from "./timehelpers.js";
+import { timeString } from "../utils/timehelpers.js";
 
 //------------------------------------------------------
 /**
- * Get local time from any location using Google Maps TimeZone API.
+ * Get local time from a given location (lat, lng) using 'GoogleMaps TimeZone' API.
  *
  * @param {string} apiKey - GoogleMaps API key.
  * @param {number} lat
@@ -18,7 +12,7 @@ import { timeString } from "./timehelpers.js";
  * @throws {Error} - If the API request fails or returns an error status.
  * @memberof module:Astronomy/helpers
  */
-export async function getLocalTimeInfo(apiKey, lat, lng) {
+export async function timeFromLocation(apiKey, lat, lng) {
   const timestamp = Math.floor(Date.now() / 1000);
   const url =
     "https://maps.googleapis.com/maps/api/timezone/json?" +

@@ -1,6 +1,6 @@
 export { default as MoonCalc } from "./astronomy/moon/MoonCalc.js";
 export { default as SunCalc } from "./astronomy/sun/SunCalc.js";
-export { getLocalTimeInfo as getLocalTime } from "./astronomy/timeZoneInfo.js";
+export { timeFromLocation } from "./geolocation/timeFromLocation.js";
 export { getGeolocation } from "./geolocation/getGeolocation.js";
 export { useForecastCurrent } from "./OpenMeteo/current/useForecastCurrent.js";
 export { useForecastDaily } from "./OpenMeteo/daily/useForecastDaily.js";

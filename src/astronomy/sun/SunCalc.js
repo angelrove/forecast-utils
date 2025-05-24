@@ -18,7 +18,7 @@ import {
   getLocalTimeFromTz,
   nowString,
   timeString,
-} from "../timehelpers.js";
+} from "../../utils/timehelpers.js";
 
 /**
  * SunCalc.

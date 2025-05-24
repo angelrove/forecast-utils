@@ -12,7 +12,11 @@
 
 // @ts-ignore
 import SunCalc from "suncalc3";
-import { dateFormat, getLocalTimeFromTz, timeString } from "../timehelpers.js";
+import {
+  dateFormat,
+  getLocalTimeFromTz,
+  timeString,
+} from "../../utils/timehelpers.js";
 import { parseBasicData } from "./parseBasicData.js";
 
 /**

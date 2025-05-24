@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { degreesToCompass } from "../../utils/degreesToCompass.js";
-import { dateFormat } from "../timehelpers.js";
+import { dateFormat } from "../../utils/timehelpers.js";
 
 /**
  * Parse basic data from SunCalc

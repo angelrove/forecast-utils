@@ -29,3 +29,10 @@ bun link @angelrove/forecast # en la ruta del proyecto que lo usa
 # generate documentation to README.md. See 'package.json'
 bun run docs:md
 ```
+
+# Linter, formatter
+
+```sh
+bunx biome lint
+bunx biome format --write
+```
