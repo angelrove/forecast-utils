@@ -1,26 +1,12 @@
-// @ts-nocheck
-/**
- * Wind direction arrow component (svg image).
- */
-
-// /**
-//  * @typedef {Object} WindArrowProps
-//  * @property {number} props.deg - Wind direction in degrees
-//  * @property {string} [props.size] - Size of the arrow (Tailwind CSS size: 'size-10')
-//  * @property {number} [props.strokeWidth] - Stroke width of the arrow (1 to 6)
-//  * @property {string} [props.className]
-//  * @memberof module:Utils
-//  */
-
 /**
  * SVG arrow indicating wind direction.
  *
  * @component JSX
  * @param {Object} props - Component props.
- * @prop {number} props.deg - Wind direction in degrees (0 = North, 90 = East, etc.).
- * @prop {string} [props.size] - Tailwind CSS size class (e.g., 'size-10')
- * @prop {number} [props.strokeWidth] - Stroke width of the arrow (range: 1–6).
- * @prop {string} [props.className] - Additional CSS classes.
+ * @param {number} props.deg - Wind direction in degrees (0 = North, 90 = East, etc.).
+ * @param {string} [props.size] - Tailwind CSS size class (e.g., 'size-10')
+ * @param {number} [props.strokeWidth] - Stroke width of the arrow (range: 1–6).
+ * @param {string} [props.className] - Additional CSS classes.
  * @memberof module:Utils
  */
 export function WindArrow({

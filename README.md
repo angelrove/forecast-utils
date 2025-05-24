@@ -517,11 +517,6 @@ SVG arrow indicating wind direction.
 | Param | Type | Description |
 | --- | --- | --- |
 | props | <code>Object</code> | Component props. |
-
-**Properties**
-
-| Name | Type | Description |
-| --- | --- | --- |
 | props.deg | <code>number</code> | Wind direction in degrees (0 = North, 90 = East, etc.). |
 | [props.size] | <code>string</code> | Tailwind CSS size class (e.g., 'size-10') |
 | [props.strokeWidth] | <code>number</code> | Stroke width of the arrow (range: 1–6). |
