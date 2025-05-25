@@ -358,11 +358,15 @@ Get local time from a given location (lat, lng) using 'GoogleMaps TimeZone' API.
 **Kind**: static typedef of [<code>Geolocation</code>](#module_Geolocation)  
 **Properties**
 
-| Name | Type |
-| --- | --- |
-| latitude | <code>number</code> | 
-| longitude | <code>number</code> | 
-| formatted_address | <code>string</code> | 
+| Name | Type | Description |
+| --- | --- | --- |
+| latitude | <code>number</code> |  |
+| longitude | <code>number</code> | // Address |
+| sublocality | <code>string</code> |  |
+| locality | <code>string</code> |  |
+| country | <code>string</code> |  |
+| country_short | <code>string</code> |  |
+| formatted_address | <code>string</code> |  |
 
 
 * * *
