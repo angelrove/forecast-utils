@@ -10,7 +10,7 @@
   "homepage": "https://github.com/angelrove/forecast-utils",
   "type": "module",
   "scripts": {
-    "docs:md": "bunx jsdoc2md --separators $(cat jsdoc-files.txt) > README.md"
+    "docs:md": "bunx jsdoc2md --separators $(cat jsdoc-files.txt) > README.md ; cat README_HEAD.md README.md > temp && mv temp README.md; echo Remember add new files to - jsdoc-files.txt -!!!"
   },
   "types": "dist/types/index.d.ts",
   "exports": {
@@ -18,10 +18,7 @@
       "import": "./src/index.js"
     }
   },
-  "files": [
-    "src",
-    "dist"
-  ],
+  "files": ["src", "dist"],
   "keywords": [
     "forecast",
     "weather",

@@ -11,7 +11,8 @@ bunx biome format --write
 # Generate doc (JSDoc).
 
 ```bash
-# See: 'package.json', 'jsdoc-files.txt'
+# See: 'package.json'
+# Remember add new files to - jsdoc-files.txt -!!!"
 bun run docs:md
 ```
 

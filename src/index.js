@@ -1,14 +1,3 @@
-/**
- * Several utility libraries for the Tierracolora project:
- * - Forecast API (OpenWeather)
- * - Astronomy utilities
- * - Geolocation
- * - Another utilities.
- *
- * I use public libraries for the following:
- * - Astronomy calculations: suncalc3
- */
-
 // Astronomy
 export { default as MoonCalc } from "./astronomy/moon/MoonCalc.js";
 export { default as SunCalc } from "./astronomy/sun/SunCalc.js";

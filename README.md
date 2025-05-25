@@ -1,3 +1,17 @@
+# @forecast-utils
+
+Several utility libraries for my "tierracolora.com" project:
+- Forecast API (OpenWeather)
+- Astronomy utilities
+- Geolocation
+- Another utilities.
+
+Includes directory *images/ws* with weather images (symbols)
+
+I use private libraries for the following:
+- Astronomy calculations: suncalc3
+
+# Documentation
 ## Modules
 
 <dl>
@@ -394,6 +408,7 @@ Custom hook to fetch current weather data from OpenMeteo API.
 
 ### OpenMeteo.exports.useForecastDaily(lat, lon, refreshIntervalMin) ⇒ <code>ForecastData</code>
 Custom hook to fetch daily forecast (10 days) data from OpenMeteo API.
+
 https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=36.6644363&longitude=-4.5108962&forecast_days=10&daily=weathercode
 
 **Kind**: static method of [<code>OpenMeteo</code>](#module_OpenMeteo)  
