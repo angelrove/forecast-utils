@@ -3,16 +3,10 @@
     "checkJs": true,
     "allowJs": true,
     "skipLibCheck": true,
-    "target": "ESNext",
-    "module": "nodenext",
+    "target": "esnext",
+    "module": "ESNext",
+    "moduleResolution": "node",
     "jsx": "react-jsx",
-
-    /* Bundler mode */
-    "noEmit": false,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "declarationDir": "dist/types",
-    "outDir": "./dist",
 
     /* Linting */
     "strict": true,
@@ -22,8 +16,13 @@
     "noFallthroughCasesInSwitch": true,
     // "noImplicitReturns": true,
 
-    // Paths
-    "rootDir": "./src"
+    /* Bundler mode */
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "dist/types",
+    "outDir": "./dist",
+    "rootDir": "./src" // este es el directorio raiz en 'dist'
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist"]

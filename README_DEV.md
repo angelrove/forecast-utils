@@ -1,7 +1,9 @@
 # Linter, formatter, JS check
 
 ```sh
-bunx tsc # JS errors and generate '.d.ts' files
+# Compilar tipos: JS errors and generate '.d.ts' files
+rm -rf dist && bunx tsc
+
 bunx biome lint
 bunx biome format --write
 ```
