@@ -1,4 +1,5 @@
 /**
+ * Use the OpenWeather forecast API
  * @module OpenMeteo
  *
  */

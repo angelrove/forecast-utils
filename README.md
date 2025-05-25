@@ -1,15 +1,11 @@
 # @forecast-utils
 
-Several utility libraries for my "tierracolora.com" project:
-- Forecast API (OpenWeather)
-- Astronomy utilities
-- Geolocation
-- Another utilities.
+Several utility libraries for my "tierracolora.com" project.
 
-Includes directory *images/ws* with weather images (symbols)
+Includes directory `images/ws` with weather images (symbols)
 
 I use private libraries for the following:
-- Astronomy calculations: suncalc3
+- Astronomy calculations: `suncalc3`
 
 # Documentation
 ## Modules
@@ -31,7 +27,8 @@ Con excepción de &#39;getSolarTime()&#39;: recibe la hora local correspondiente
 <dt><a href="#module_Geolocation">Geolocation</a></dt>
 <dd></dd>
 <dt><a href="#module_OpenMeteo">OpenMeteo</a></dt>
-<dd></dd>
+<dd><p>Use the OpenWeather forecast API</p>
+</dd>
 <dt><a href="#module_Utils">Utils</a></dt>
 <dd></dd>
 <dt><a href="#module_Utils/TimeDateStr">Utils/TimeDateStr</a></dt>
@@ -312,8 +309,9 @@ Con excepción de 'getSolarTime()': recibe la hora local correspondiente a la lo
 ## Geolocation
 
 * [Geolocation](#module_Geolocation)
-    * [.exports.getGeolocation()](#module_Geolocation.exports.getGeolocation) ⇒ <code>Promise.&lt;{latitude: number, longitude: number, formatted\_address: string}&gt;</code>
+    * [.exports.getGeolocation()](#module_Geolocation.exports.getGeolocation) ⇒ <code>Promise.&lt;ResolvedLocation&gt;</code>
     * [.exports.timeFromLocation(apiKey, lat, lng)](#module_Geolocation.exports.timeFromLocation) ⇒ <code>Promise.&lt;(any\|LocalTimeData)&gt;</code>
+    * [.ResolvedLocation](#module_Geolocation.ResolvedLocation) : <code>Object</code>
     * [.LocalTimeData](#module_Geolocation.LocalTimeData) : <code>Object</code>
 
 
@@ -321,11 +319,11 @@ Con excepción de 'getSolarTime()': recibe la hora local correspondiente a la lo
 
 <a name="module_Geolocation.exports.getGeolocation"></a>
 
-### Geolocation.exports.getGeolocation() ⇒ <code>Promise.&lt;{latitude: number, longitude: number, formatted\_address: string}&gt;</code>
+### Geolocation.exports.getGeolocation() ⇒ <code>Promise.&lt;ResolvedLocation&gt;</code>
 Get the current geolocation of the device and reverse geocode it to get the address.
 
 **Kind**: static method of [<code>Geolocation</code>](#module_Geolocation)  
-**Returns**: <code>Promise.&lt;{latitude: number, longitude: number, formatted\_address: string}&gt;</code> - Promise  
+**Returns**: <code>Promise.&lt;ResolvedLocation&gt;</code> - Promise  
 **Throws**:
 
 - <code>Error</code> If geolocation is not supported or permission is denied.
@@ -354,6 +352,21 @@ Get local time from a given location (lat, lng) using 'GoogleMaps TimeZone' API.
 
 * * *
 
+<a name="module_Geolocation.ResolvedLocation"></a>
+
+### Geolocation.ResolvedLocation : <code>Object</code>
+**Kind**: static typedef of [<code>Geolocation</code>](#module_Geolocation)  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| latitude | <code>number</code> | 
+| longitude | <code>number</code> | 
+| formatted_address | <code>string</code> | 
+
+
+* * *
+
 <a name="module_Geolocation.LocalTimeData"></a>
 
 ### Geolocation.LocalTimeData : <code>Object</code>
@@ -376,6 +389,8 @@ Get local time from a given location (lat, lng) using 'GoogleMaps TimeZone' API.
 <a name="module_OpenMeteo"></a>
 
 ## OpenMeteo
+Use the OpenWeather forecast API
+
 
 * [OpenMeteo](#module_OpenMeteo)
     * [.exports.useForecastCurrent(lat, lon, refreshIntervalMin)](#module_OpenMeteo.exports.useForecastCurrent) ⇒ <code>ForecastData</code>
