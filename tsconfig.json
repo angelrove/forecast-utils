@@ -2,28 +2,29 @@
   "compilerOptions": {
     "checkJs": true,
     "allowJs": true,
-    "strict": true,
-
     "skipLibCheck": true,
-    "target": "esnext",
-    "module": "NodeNext",
+    "target": "ESNext",
+    "module": "nodenext",
+    "jsx": "react-jsx",
 
+    /* Bundler mode */
+    "noEmit": false,
     "declaration": true,
+    "emitDeclarationOnly": true,
     "declarationDir": "dist/types",
-    "rootDir": "./src",
     "outDir": "./dist",
 
-    "jsx": "react-jsx",
-    "lib": ["esnext", "dom"],
-
-    // No build
-    "noEmit": false,
-    "emitDeclarationOnly": true,
-
-    "esModuleInterop": true,
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    // "noImplicitReturns": true,
+
+    // Paths
+    "rootDir": "./src"
   },
-  "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
-  "exclude": ["node_modules", "dist", "build", "out"]
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
 }
