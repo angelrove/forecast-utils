@@ -18,10 +18,7 @@
       "import": "./src/index.js"
     }
   },
-  "files": [
-    "src",
-    "dist"
-  ],
+  "files": ["src", "dist"],
   "keywords": [
     "forecast",
     "weather",
@@ -38,7 +35,7 @@
     "@capacitor/geolocation": "^7.1.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.2.4",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
     "jsdoc-to-markdown": "^9.1.2",
