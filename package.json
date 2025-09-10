@@ -1,7 +1,7 @@
 {
   "author": "Jose Angel Romero Vegas",
   "name": "@angelrove/forecast-utils",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "description": "Utilities for obtaining weather and astronomy forecast data.",
   "license": "MIT",
   "publishConfig": {
