@@ -9,7 +9,7 @@
  * @module Astronomy/MoonCalc
  */
 
-// @ts-ignore
+/* @ts-expect-error */
 import SunCalc from "suncalc3";
 import TimeDateStr from "../../utils/timehelpers.js";
 import { parseBasicData } from "./parseBasicData.js";
@@ -29,7 +29,7 @@ export default MoonCalc;
 
 /**
  * @memberof module:Astronomy
- * @typedef {Object} AstroPosition
+ * @typedef {object} AstroPosition
  * @property {number} altitude
  * @property {number} azimuth
  * @property {string} direction
@@ -38,7 +38,7 @@ export default MoonCalc;
 
 /**
  * @memberof module:Astronomy/MoonCalc
- * @typedef {Object} MoonDataExt
+ * @typedef {object} MoonDataExt
  * @property {string} date
  * @property {string} time
  * @property {string} illumination
@@ -48,14 +48,14 @@ export default MoonCalc;
  * @property {number} parallacticAngle
  * @property {number} angle
  * @property {AstroPosition} position
- * @property {Object} next
+ * @property {object} next
  */
 
 /**
  * @memberof module:Astronomy/MoonCalc
- * @typedef {Object} MoonData
+ * @typedef {object} MoonData
  * @property {AstroPosition} position
- * @property {Object} next
+ * @property {object} next
  * @property {string} next.newMoon - Date of the next new moon.
  * @property {string} next.fullMoon - Date of the next full moon.
  */

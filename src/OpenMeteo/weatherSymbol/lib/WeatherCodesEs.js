@@ -21,7 +21,7 @@
  */
 
 /**
- * @typedef {Object} WeatherCodeEntry
+ * @typedef {object} WeatherCodeEntry
  * @property {number} code - WMO Weather interpretation codes (WW).
  * @property {string} icon - Icon name.
  * @property {string} description - Description.

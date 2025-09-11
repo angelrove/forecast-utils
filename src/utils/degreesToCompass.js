@@ -3,7 +3,7 @@
  */
 
 /**
- * @typedef {Object} Compass
+ * @typedef {object} Compass
  * @property {string} short - Short compass designation
  * @property {string} full - Full compass designation
  * @memberof module:Utils

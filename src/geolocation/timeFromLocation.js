@@ -3,7 +3,7 @@ import TimeDateStr from "../utils/timehelpers.js";
 
 /**
  * @memberof module:Geolocation
- * @typedef {Object} LocalTimeData
+ * @typedef {object} LocalTimeData
  * @property {Date} time - The local time.
  * @property {string} timeStr - The formatted local time string.
  * @property {string} timezone - The timezone name.
@@ -55,7 +55,7 @@ export async function timeFromLocation(apiKey, lat, lng) {
 //------------------------------------------------------
 /**
  * @private
- * @param {Object} timezoneInfo - The timezone Google API information.
+ * @param {object} timezoneInfo - The timezone Google API information.
  * @param {number} timezoneInfo.rawOffset - The raw offset in seconds.
  * @param {number} timezoneInfo.dstOffset - The DST offset in seconds.
  * @param {string} timezoneInfo.timeZoneName - The name of the timezone.

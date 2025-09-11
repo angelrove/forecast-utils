@@ -1,5 +1,5 @@
 /**
- * @typedef {Object} AlertLevel
+ * @typedef {object} AlertLevel
  * @property {number} levelNum - The alert level number.
  * @property {string} level - The alert level string (e.g., "red", "orange", "yellow").
  * @property {number} precipitation - The precipitation threshold for the alert level.

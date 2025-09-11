@@ -102,7 +102,7 @@ export default async function reverseGeocoding(latitude, longitude, api_key) {
  * @param {any} url
  */
 function devLog(title, url) {
-  // @ts-ignore
+  /* @ts-expect-error */
   if (import.meta.env.MODE === "development") {
     console.log(`> fetch [${title}]:`, url);
   }

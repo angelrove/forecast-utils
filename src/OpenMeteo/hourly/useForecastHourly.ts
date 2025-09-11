@@ -1,20 +1,21 @@
-// @ts-nocheck
 import useSWR from "swr";
 import { fetcher, getPath } from "../conf.js";
 import { getDatesFromNumDays } from "../helpers.js";
+import type { ForecastData } from "../types";
 import { fetchParams } from "./fetchParams.js";
 
 /**
  * Custom hook to fetch hourly forecast data for a given location and number of days from OpenMeteo API.
- *
- * @param {{ latitude: number, longitude: number }} location
- * @param {number} dayNum Number of days from today: -1 = 24 hours, 0 = today, 1 = tomorrow, ...
- * @returns {ForecastData} {data, isLoading, isError, apiUrl}
- * @memberof module:OpenMeteo
  */
-export function useForecastHourly(location, dayNum) {
-  if (!location.latitude || !location.longitude) {
-    throw new Error("useForecastHourly: invalid coordinates");
+export function useForecastHourly(
+  lat: number,
+  lon: number,
+  dayNum: number): ForecastData
+  {
+
+  // Validate --
+  if (lat == null || lon == null) {
+    throw new Error("useForecastHourly: invalid coordinates: ["+lon+"]["+lat+"]");
   }
 
   // Fetch ---
@@ -28,7 +29,7 @@ export function useForecastHourly(location, dayNum) {
     dates.endDate +
     "&" +
     fetchParams;
-  apiUrl = getPath(location.latitude, location.longitude, apiUrl);
+  apiUrl = getPath(lat, lon, apiUrl);
 
   const { data, error, isLoading } = useSWR(apiUrl, fetcher);
 

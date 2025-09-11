@@ -3,7 +3,7 @@ import reverseGeocoding from "./lib/reversegeocoding.js";
 
 /**
  * @memberof module:Geolocation
- * @typedef {Object} ResolvedLocation
+ * @typedef {object} ResolvedLocation
  * @property {number} latitude
  * @property {number} longitude
  * // Address
@@ -39,7 +39,7 @@ export async function getGeolocation() {
     address = await reverseGeocoding(
       location.latitude,
       location.longitude,
-      // @ts-ignore
+      /* @ts-expect-error */
       import.meta.env.VITE_googlemaps_api_key,
     );
   } catch (error) {

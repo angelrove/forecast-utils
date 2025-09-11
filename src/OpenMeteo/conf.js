@@ -39,7 +39,7 @@ export function getPath(lat, lon, path) {
  * @param {string} url
  */
 function devLog(title, url) {
-  // @ts-ignore
+  /* @ts-expect-error */
   if (import.meta.env.MODE === "development") {
     // console.log('%c> fetch [' + title + ']:', 'color:#9e9', url);
     console.log("> fetch [" + title + "]:", url);

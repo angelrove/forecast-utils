@@ -1,22 +1,17 @@
+import type { WeatherSymbol } from "../types";
 import { getWeatherCodeEntry } from "./lib/getWeatherCodeEntry.js";
 
 /**
  * Get weather symbol and description based on the weather code.
- *
- * @param {any} code
- * @param {number} [precipitation]
- * @param {boolean} night
- * @param {boolean} dark
- * @returns {{ icon: string, description: string }}
- * { icon: string, description: string }
  * @memberof module:OpenMeteo
  */
 export function weatherSymbol(
-  code,
-  precipitation = undefined,
-  night = false,
-  dark = false,
-) {
+  code: any,
+  precipitation: number | undefined = undefined,
+  night: boolean = false,
+  dark: boolean = false,
+): WeatherSymbol
+{
   // Parse code ---
   let msgPlus = "";
   let theCode = code;

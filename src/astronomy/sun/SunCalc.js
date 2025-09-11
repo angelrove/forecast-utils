@@ -10,7 +10,7 @@
  * @module Astronomy/SunCalc
  */
 
-// @ts-ignore
+/* @ts-expect-error */
 import { default as SunCalc3 } from "suncalc3";
 import { degreesToCompass } from "../../utils/degreesToCompass.js";
 import TimeDateStr from "../../utils/timehelpers.js";
@@ -35,8 +35,8 @@ export default SunCalc;
  * @param {number} latitude
  * @param {number} longitude
  * @param {string} timezoneId
- * @returns {{ sunTimes: Object, sunPosition: Object, sunPhase: string }}
- * { sunTimes: Object, sunPosition: Object, sunPhase: string }
+ * @returns {{ sunTimes: object, sunPosition: object, sunPhase: string }}
+ * { sunTimes: object, sunPosition: object, sunPhase: string }
  * @memberof module:Astronomy/SunCalc
  */
 function all(date, latitude, longitude, timezoneId) {

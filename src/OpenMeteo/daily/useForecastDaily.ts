@@ -1,23 +1,20 @@
-// @ts-nocheck
 import useSWR from "swr";
 import { fetcher, getPath } from "../conf.js";
+import type { ForecastData } from "../types";
 import { fetchParams } from "./fetchParams.js";
 import transformer from "./transformer.js";
 
 /**
  * Custom hook to fetch daily forecast (10 days) data from OpenMeteo API.
- *
  * https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=36.6644363&longitude=-4.5108962&forecast_days=10&daily=weathercode
- *
- * @param {number} lat
- * @param {number} lon
- * @param {number} refreshIntervalMin
- * @returns {ForecastData} {data, isLoading, isError, apiUrl}
- * @memberof module:OpenMeteo
  */
-export function useForecastDaily(lat, lon, refreshIntervalMin = 0) {
+export function useForecastDaily(
+  lat: number | undefined,
+  lon: number | undefined,
+  refreshIntervalMin: number = 0): ForecastData
+  {
   // Validate --
-  if (!lat || !lon) {
+  if (lat == null || lon == null) {
     throw new Error("useForecastDaily: invalid coordinates");
   }
 

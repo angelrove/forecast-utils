@@ -2,7 +2,7 @@
  * SVG arrow indicating wind direction.
  *
  * @component JSX
- * @param {Object} props - Component props.
+ * @param {object} props - Component props.
  * @param {number} props.deg - Wind direction in degrees (0 = North, 90 = East, etc.).
  * @param {string} [props.size] - Tailwind CSS size class (e.g., 'size-10')
  * @param {number} [props.strokeWidth] - Stroke width of the arrow (range: 1–6).
@@ -17,13 +17,12 @@ export function WindArrow({
 }) {
   if (deg == null) {
     // console.warn("WindArrow: deg is undefined");
-    /* @ts-ignore */
     return <div>deg?</div>;
   }
 
   // Render arrow ---
   return (
-    /* @ts-ignore */
+    /*·@ts-expect-error·*/
     <svg
       className={`${size} ${className}`}
       style={{ transform: `rotate(${deg}deg)` }}

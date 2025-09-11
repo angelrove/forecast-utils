@@ -1,14 +1,5 @@
-# Linter, formatter, JS check
 
-```sh
-# Compilar tipos: JS errors and generate '.d.ts' files
-rm -rf dist && bunx tsc
-
-bunx biome lint
-bunx biome format --write
-```
-
-# Generate doc (JSDoc).
+# JSDoc: Generate doc.
 
 ```bash
 # See: 'package.json'
@@ -16,21 +7,34 @@ bunx biome format --write
 bun run docs:md
 ```
 
-# Dev: test NPM package in app
+# Compile
 
 ```bash
-bun link # en la ruta del paquete
-bun link @angelrove/forecast # en la ruta del proyecto que lo usa
-bun unlink @angelrove/forecast # en la ruta del paquete o eliminar carpeta de 'node_modules'
+# generate types for JSDoc ('.d.ts' files) in 'dist/types'. See 'tsconfig.json'
+rm -rf dist && bunx tsc
+```
+
+# Linter, formatter
+
+```sh
+bunx biome lint
+bunx biome format --write
+```
+
+# Develop: Test NPM package
+
+```bash
+# en la ruta del paquete
+npm link
+
+# en la ruta el proyecto
+npm link @angelrove/forecast-utils
+npm unlink @angelrove/forecast-utils # eliminar carpeta de 'node_modules'
 ```
 
 # Publish NPM package
 
 ```bash
-# generate types for JSDoc (.d.ts) in 'dist/types'. See 'tsconfig.json'
-bunx tsc
-
-# publish package
 commit
 npm version patch
 npm publish # 'with --access public' only first time

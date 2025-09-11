@@ -1,5 +1,5 @@
 /**
- * @typedef {Object} WindLevel
+ * @typedef {object} WindLevel
  * @property {number} id - Level ID
  * @property {number} speed - Minimum wind speed for this level
  * @property {string} color - Color representing this level

@@ -1,23 +1,23 @@
-// @ts-nocheck
 import useSWR from "swr";
 import { fetcher, getPath } from "../conf.js";
+import type { ForecastData } from "../types";
 import { fetchParams } from "./fetchParams.js";
 import transformer from "./transformer.js";
 
 /**
  * Custom hook to fetch current weather data from OpenMeteo API.
- *
- * @param {number} lat
- * @param {number} lon
- * @param {number} refreshIntervalMin
- * @returns {ForecastData} {data, isLoading, isError, apiUrl}
- * @memberof module:OpenMeteo
  */
-export function useForecastCurrent(lat, lon, refreshIntervalMin = 0) {
-  if (!lat || !lon) {
+export function useForecastCurrent(
+  lat: number | undefined,
+  lon: number | undefined,
+  refreshIntervalMin: number = 0): ForecastData
+  {
+  // Validate --
+  if (lat == null || lon == null) {
     throw new Error("useForecastCurrent: invalid coordinates");
   }
 
+  // Fetch ---
   const apiUrl = getPath(lat, lon, fetchParams);
   const { data, error, isLoading } = useSWR(apiUrl, fetcher, {
     refreshInterval: refreshIntervalMin * 60 * 1000,

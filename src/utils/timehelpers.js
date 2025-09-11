@@ -30,7 +30,7 @@ function dateFormat(date = new Date()) {
     day: "numeric",
     month: "short",
   };
-  // @ts-ignore
+  /* @ts-expect-error */
   return date.toLocaleDateString([], options);
 }
 //------------------------------------------------------
