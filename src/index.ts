@@ -1,3 +1,15 @@
+/**
+ * Several utility libraries for my "tierracolora.com" project.
+ *
+ * Includes directory `images/ws` with weather images (symbols)
+ *
+ * I use private libraries for the following:
+ * - Astronomy calculations: `suncalc3`
+ *
+ * // Documentation
+ *
+ */
+
 // Astronomy
 export { MoonCalc } from "./astronomy/moon/MoonCalc";
 export { SunCalc } from "./astronomy/sun/SunCalc";

@@ -8,7 +8,7 @@
 
 > **getWarningByDays**(`precipitationSumToday`, `precipitationSumTomorrow`, `showersSumToday`, `showersSumTomorrow`): `null` \| \{ `day`: `number`; `level`: `string`; `levelNum`: `number`; `message`: `string`; \}
 
-Defined in: [utils/warning.js:30](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/warning.js#L30)
+Defined in: [utils/warning.js:30](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/utils/warning.js#L30)
 
 Get warning by today and tomorrow
 

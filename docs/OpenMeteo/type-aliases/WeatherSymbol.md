@@ -8,7 +8,7 @@
 
 > **WeatherSymbol** = `object`
 
-Defined in: [OpenMeteo/types.ts:11](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/types.ts#L11)
+Defined in: [OpenMeteo/types.ts:11](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/OpenMeteo/types.ts#L11)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [OpenMeteo/types.ts:11](https://github.com/angelrove/forecast-utils/
 
 > **description**: `string`
 
-Defined in: [OpenMeteo/types.ts:13](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/types.ts#L13)
+Defined in: [OpenMeteo/types.ts:13](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/OpenMeteo/types.ts#L13)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [OpenMeteo/types.ts:13](https://github.com/angelrove/forecast-utils/
 
 > **icon**: `string`
 
-Defined in: [OpenMeteo/types.ts:12](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/types.ts#L12)
+Defined in: [OpenMeteo/types.ts:12](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/OpenMeteo/types.ts#L12)

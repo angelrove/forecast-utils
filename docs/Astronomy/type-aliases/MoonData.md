@@ -8,7 +8,7 @@
 
 > **MoonData** = `object`
 
-Defined in: [astronomy/moon/types.ts:24](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/types.ts#L24)
+Defined in: [astronomy/moon/types.ts:24](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/types.ts#L24)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [astronomy/moon/types.ts:24](https://github.com/angelrove/forecast-u
 
 > **next**: `object`
 
-Defined in: [astronomy/moon/types.ts:26](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/types.ts#L26)
+Defined in: [astronomy/moon/types.ts:26](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/types.ts#L26)
 
 #### fullMoon
 
@@ -32,4 +32,4 @@ Defined in: [astronomy/moon/types.ts:26](https://github.com/angelrove/forecast-u
 
 > **position**: [`AstroPosition`](AstroPosition.md)
 
-Defined in: [astronomy/moon/types.ts:25](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/types.ts#L25)
+Defined in: [astronomy/moon/types.ts:25](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/types.ts#L25)

@@ -8,7 +8,7 @@
 
 > `const` **SunCalc**: `object`
 
-Defined in: [astronomy/sun/SunCalc.js:21](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/sun/SunCalc.js#L21)
+Defined in: [astronomy/sun/SunCalc.js:21](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/sun/SunCalc.js#L21)
 
 SunCalc.
 

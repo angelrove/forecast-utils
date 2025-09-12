@@ -8,7 +8,7 @@
 
 > **useForecastDaily**(`lat`, `lon`, `refreshIntervalMin`): [`ForecastData`](../../OpenMeteo/type-aliases/ForecastData.md)
 
-Defined in: [OpenMeteo/daily/useForecastDaily.ts:11](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/daily/useForecastDaily.ts#L11)
+Defined in: [OpenMeteo/daily/useForecastDaily.ts:11](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/OpenMeteo/daily/useForecastDaily.ts#L11)
 
 Custom hook to fetch daily forecast (10 days) data from OpenMeteo API.
 https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=36.6644363&longitude=-4.5108962&forecast_days=10&daily=weathercode

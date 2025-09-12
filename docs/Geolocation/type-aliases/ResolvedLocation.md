@@ -8,7 +8,7 @@
 
 > **ResolvedLocation** = `object`
 
-Defined in: [geolocation/types.ts:9](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/geolocation/types.ts#L9)
+Defined in: [geolocation/types.ts:9](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/types.ts#L9)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [geolocation/types.ts:9](https://github.com/angelrove/forecast-utils
 
 > **country**: `string`
 
-Defined in: [geolocation/types.ts:15](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/geolocation/types.ts#L15)
+Defined in: [geolocation/types.ts:15](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/types.ts#L15)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [geolocation/types.ts:15](https://github.com/angelrove/forecast-util
 
 > **country\_short**: `string`
 
-Defined in: [geolocation/types.ts:16](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/geolocation/types.ts#L16)
+Defined in: [geolocation/types.ts:16](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/types.ts#L16)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [geolocation/types.ts:16](https://github.com/angelrove/forecast-util
 
 > **formatted\_address**: `string`
 
-Defined in: [geolocation/types.ts:17](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/geolocation/types.ts#L17)
+Defined in: [geolocation/types.ts:17](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/types.ts#L17)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [geolocation/types.ts:17](https://github.com/angelrove/forecast-util
 
 > **latitude**: `number`
 
-Defined in: [geolocation/types.ts:10](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/geolocation/types.ts#L10)
+Defined in: [geolocation/types.ts:10](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/types.ts#L10)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: [geolocation/types.ts:10](https://github.com/angelrove/forecast-util
 
 > **locality**: `string`
 
-Defined in: [geolocation/types.ts:14](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/geolocation/types.ts#L14)
+Defined in: [geolocation/types.ts:14](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/types.ts#L14)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: [geolocation/types.ts:14](https://github.com/angelrove/forecast-util
 
 > **longitude**: `number`
 
-Defined in: [geolocation/types.ts:11](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/geolocation/types.ts#L11)
+Defined in: [geolocation/types.ts:11](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/types.ts#L11)
 
 ***
 
@@ -64,4 +64,4 @@ Defined in: [geolocation/types.ts:11](https://github.com/angelrove/forecast-util
 
 > **sublocality**: `string`
 
-Defined in: [geolocation/types.ts:13](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/geolocation/types.ts#L13)
+Defined in: [geolocation/types.ts:13](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/types.ts#L13)

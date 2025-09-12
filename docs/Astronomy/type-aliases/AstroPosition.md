@@ -8,7 +8,7 @@
 
 > **AstroPosition** = `object`
 
-Defined in: [astronomy/moon/types.ts:1](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/types.ts#L1)
+Defined in: [astronomy/moon/types.ts:1](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/types.ts#L1)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [astronomy/moon/types.ts:1](https://github.com/angelrove/forecast-ut
 
 > **altitude**: `number`
 
-Defined in: [astronomy/moon/types.ts:2](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/types.ts#L2)
+Defined in: [astronomy/moon/types.ts:2](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/types.ts#L2)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [astronomy/moon/types.ts:2](https://github.com/angelrove/forecast-ut
 
 > **azimuth**: `number`
 
-Defined in: [astronomy/moon/types.ts:3](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/types.ts#L3)
+Defined in: [astronomy/moon/types.ts:3](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/types.ts#L3)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [astronomy/moon/types.ts:3](https://github.com/angelrove/forecast-ut
 
 > **direction**: `string`
 
-Defined in: [astronomy/moon/types.ts:4](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/types.ts#L4)
+Defined in: [astronomy/moon/types.ts:4](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/types.ts#L4)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [astronomy/moon/types.ts:4](https://github.com/angelrove/forecast-ut
 
 > **direction\_full**: `string`
 
-Defined in: [astronomy/moon/types.ts:5](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/types.ts#L5)
+Defined in: [astronomy/moon/types.ts:5](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/types.ts#L5)

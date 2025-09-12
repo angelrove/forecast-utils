@@ -8,7 +8,7 @@
 
 > **getWindLevel**(`speed`): `null` \| [`WindLevel`](../../Utils/type-aliases/WindLevel.md)
 
-Defined in: [utils/wind/windLevel.ts:30](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/windLevel.ts#L30)
+Defined in: [utils/wind/windLevel.ts:30](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/utils/wind/windLevel.ts#L30)
 
 Return the wind level based on the speed.
 

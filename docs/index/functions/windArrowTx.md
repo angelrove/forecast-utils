@@ -8,7 +8,7 @@
 
 > **windArrowTx**(`deg`): `string`
 
-Defined in: [utils/wind/windArrowTx.js:7](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/windArrowTx.js#L7)
+Defined in: [utils/wind/windArrowTx.js:7](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/utils/wind/windArrowTx.js#L7)
 
 Convert wind direction in degrees to an arrow representation.
 

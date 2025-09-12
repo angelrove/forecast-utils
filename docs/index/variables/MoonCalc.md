@@ -8,7 +8,7 @@
 
 > `const` **MoonCalc**: `object`
 
-Defined in: [astronomy/moon/MoonCalc.ts:20](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/astronomy/moon/MoonCalc.ts#L20)
+Defined in: [astronomy/moon/MoonCalc.ts:20](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/astronomy/moon/MoonCalc.ts#L20)
 
 MoonCalc.
 

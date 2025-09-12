@@ -8,7 +8,7 @@
 
 > **WindArrow**(`props`): `Element`
 
-Defined in: [utils/wind/WindArrow.jsx:10](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/WindArrow.jsx#L10)
+Defined in: [utils/wind/WindArrow.jsx:10](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/utils/wind/WindArrow.jsx#L10)
 
 SVG arrow indicating wind direction.
 
