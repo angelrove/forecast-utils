@@ -10,7 +10,7 @@
 
 /* @ts-expect-error */
 import SunCalc from "suncalc3";
-import { TimeDateStr } from "../../utils/timehelpers.js";
+import { TimeDateStr } from "../../utils/timehelpers";
 import { parseBasicData } from "./parseBasicData.js";
 import type { MoonData, MoonDataExt, MoonTimes } from "./types.js";
 
