@@ -8,7 +8,7 @@
 
 > **useForecastCurrent**(`lat`, `lon`, `refreshIntervalMin`): [`ForecastData`](../../OpenMeteo/type-aliases/ForecastData.md)
 
-Defined in: [OpenMeteo/current/useForecastCurrent.ts:10](https://github.com/angelrove/forecast-utils/blob/d9298a6163fd32583e182ae2f9197ab3aae26c2c/src/OpenMeteo/current/useForecastCurrent.ts#L10)
+Defined in: [OpenMeteo/current/useForecastCurrent.ts:10](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/OpenMeteo/current/useForecastCurrent.ts#L10)
 
 Custom hook to fetch current weather data from OpenMeteo API.
 

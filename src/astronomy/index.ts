@@ -3,7 +3,7 @@
  *
  */
 
-export { useForecastCurrent } from "../OpenMeteo/current/useForecastCurrent";
 export { MoonCalc } from "./moon/MoonCalc";
+export type { AstroPosition, MoonData, MoonDataExt, MoonTimes } from "./moon/types";
 export { SunCalc } from "./sun/SunCalc";
 

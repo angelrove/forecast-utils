@@ -8,7 +8,7 @@
 
 > **ResolvedLocation** = `object`
 
-Defined in: geolocation/types.ts:9
+Defined in: [geolocation/types.ts:9](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/geolocation/types.ts#L9)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: geolocation/types.ts:9
 
 > **country**: `string`
 
-Defined in: geolocation/types.ts:15
+Defined in: [geolocation/types.ts:15](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/geolocation/types.ts#L15)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: geolocation/types.ts:15
 
 > **country\_short**: `string`
 
-Defined in: geolocation/types.ts:16
+Defined in: [geolocation/types.ts:16](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/geolocation/types.ts#L16)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: geolocation/types.ts:16
 
 > **formatted\_address**: `string`
 
-Defined in: geolocation/types.ts:17
+Defined in: [geolocation/types.ts:17](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/geolocation/types.ts#L17)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: geolocation/types.ts:17
 
 > **latitude**: `number`
 
-Defined in: geolocation/types.ts:10
+Defined in: [geolocation/types.ts:10](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/geolocation/types.ts#L10)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: geolocation/types.ts:10
 
 > **locality**: `string`
 
-Defined in: geolocation/types.ts:14
+Defined in: [geolocation/types.ts:14](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/geolocation/types.ts#L14)
 
 ***
 
@@ -56,7 +56,7 @@ Defined in: geolocation/types.ts:14
 
 > **longitude**: `number`
 
-Defined in: geolocation/types.ts:11
+Defined in: [geolocation/types.ts:11](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/geolocation/types.ts#L11)
 
 ***
 
@@ -64,4 +64,4 @@ Defined in: geolocation/types.ts:11
 
 > **sublocality**: `string`
 
-Defined in: geolocation/types.ts:13
+Defined in: [geolocation/types.ts:13](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/geolocation/types.ts#L13)

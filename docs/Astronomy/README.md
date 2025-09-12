@@ -6,8 +6,9 @@
 
 # Astronomy
 
-## References
+## Type Aliases
 
-### useForecastCurrent
-
-Re-exports [useForecastCurrent](../index/functions/useForecastCurrent.md)
+- [AstroPosition](type-aliases/AstroPosition.md)
+- [MoonData](type-aliases/MoonData.md)
+- [MoonDataExt](type-aliases/MoonDataExt.md)
+- [MoonTimes](type-aliases/MoonTimes.md)

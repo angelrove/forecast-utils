@@ -6,61 +6,20 @@
  * Importante!:
  * ¡Solo proporcionar HORA LOCAL DEL SISTEMA!: 'new Date()'
  *
- * @module Astronomy/MoonCalc
  */
 
 /* @ts-expect-error */
 import SunCalc from "suncalc3";
 import { TimeDateStr } from "../../utils/timehelpers.js";
 import { parseBasicData } from "./parseBasicData.js";
+import type { MoonData, MoonDataExt, MoonTimes } from "./types.js";
 
 /**
  * MoonCalc.
  * @ignore
  */
 export const MoonCalc = {
-  data,
-  dataExt,
-  times,
-  emoji,
-  getUpOrDown,
-};
-
-type AstroPosition = {
-  altitude: number;
-  azimuth: number;
-  direction: string;
-  direction_full: string;
-};
-
-type MoonDataExt = {
-  date: string;
-  time: string;
-  illumination: string;
-  phase: string;
-  phaseId: string;
-  emoji: string;
-  parallacticAngle: number;
-  angle: number;
-  position: AstroPosition;
-  next: {
-    newMoon: string;
-    fullMoon: string;
-  };
-}
-
-type MoonData = {
-  position: AstroPosition;
-  next: {
-    newMoon: string;
-    fullMoon: string;
-  };
-};
-
-type MoonTimes = {
-  rise: string;
-  set: string;
-  highest: string;
+  data, dataExt, times, emoji, getUpOrDown,
 };
 
 /**
@@ -80,8 +39,10 @@ const phasesES = {
   waningCrescentMoon: "Luna Menguante",
 };
 
+type PhaseId = keyof typeof phasesES;
+
 //--------------------------------------------------------------------
-function data(
+export function data(
   latitude: number,
   longitude: number,
   date: Date = new Date(),
@@ -99,7 +60,7 @@ function data(
  * La fecha y hora se devolverán en la zona horaria local.
  *
  */
-function dataExt(
+export function dataExt(
   latitude: number,
   longitude: number,
   date: Date = new Date(),
@@ -112,8 +73,8 @@ function dataExt(
     Number((data.illumination.fraction * 100).toFixed(1)) + "%";
 
   // Phase
-  const emoji = data.illumination.phase.emoji;
-  const phaseId = String(data.illumination.phase.id);
+  const emojiStr = data.illumination.phase.emoji;
+  const phaseId = String(data.illumination.phase.id) as PhaseId;
   const phase = phasesES[phaseId];
 
   // Angle
@@ -131,7 +92,7 @@ function dataExt(
     illumination: illumination,
     phase: phase,
     phaseId: phaseId,
-    emoji: emoji,
+    emoji: emojiStr,
     parallacticAngle: parallacticAngle,
     angle: Math.round(angle),
     position: basicData.position,
@@ -139,7 +100,7 @@ function dataExt(
   };
 }
 //--------------------------------------------------------------------
-function emoji(
+export function emoji(
   latitude: number,
   longitude: number,
   date: Date = new Date()): string
@@ -148,7 +109,7 @@ function emoji(
   return data.illumination.phase.emoji;
 }
 //--------------------------------------------------------------------
-function times(
+export function times(
   latitude: number,
   longitude: number,
   timezoneId: string,
@@ -177,7 +138,7 @@ function times(
   return ret;
 }
 //--------------------------------------------------------------------
-function getUpOrDown(altitude: number, highest: Date): string {
+export function getUpOrDown(altitude: number, highest: Date): string {
   const now = new Date();
   let upOrDown = ""; // ◓ ◒
 
