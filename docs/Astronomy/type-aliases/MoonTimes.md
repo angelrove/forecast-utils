@@ -8,7 +8,7 @@
 
 > **MoonTimes** = `object`
 
-Defined in: astronomy/moon/types.ts:32
+Defined in: [astronomy/moon/types.ts:32](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L32)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: astronomy/moon/types.ts:32
 
 > **highest**: `string`
 
-Defined in: astronomy/moon/types.ts:35
+Defined in: [astronomy/moon/types.ts:35](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L35)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: astronomy/moon/types.ts:35
 
 > **rise**: `string`
 
-Defined in: astronomy/moon/types.ts:33
+Defined in: [astronomy/moon/types.ts:33](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L33)
 
 ***
 
@@ -32,4 +32,4 @@ Defined in: astronomy/moon/types.ts:33
 
 > **set**: `string`
 
-Defined in: astronomy/moon/types.ts:34
+Defined in: [astronomy/moon/types.ts:34](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L34)

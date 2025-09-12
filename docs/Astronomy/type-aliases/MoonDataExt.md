@@ -8,7 +8,7 @@
 
 > **MoonDataExt** = `object`
 
-Defined in: astronomy/moon/types.ts:8
+Defined in: [astronomy/moon/types.ts:8](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L8)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: astronomy/moon/types.ts:8
 
 > **angle**: `number`
 
-Defined in: astronomy/moon/types.ts:16
+Defined in: [astronomy/moon/types.ts:16](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L16)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: astronomy/moon/types.ts:16
 
 > **date**: `string`
 
-Defined in: astronomy/moon/types.ts:9
+Defined in: [astronomy/moon/types.ts:9](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L9)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: astronomy/moon/types.ts:9
 
 > **emoji**: `string`
 
-Defined in: astronomy/moon/types.ts:14
+Defined in: [astronomy/moon/types.ts:14](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L14)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: astronomy/moon/types.ts:14
 
 > **illumination**: `string`
 
-Defined in: astronomy/moon/types.ts:11
+Defined in: [astronomy/moon/types.ts:11](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L11)
 
 ***
 
@@ -48,7 +48,7 @@ Defined in: astronomy/moon/types.ts:11
 
 > **next**: `object`
 
-Defined in: astronomy/moon/types.ts:18
+Defined in: [astronomy/moon/types.ts:18](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L18)
 
 #### fullMoon
 
@@ -64,7 +64,7 @@ Defined in: astronomy/moon/types.ts:18
 
 > **parallacticAngle**: `number`
 
-Defined in: astronomy/moon/types.ts:15
+Defined in: [astronomy/moon/types.ts:15](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L15)
 
 ***
 
@@ -72,7 +72,7 @@ Defined in: astronomy/moon/types.ts:15
 
 > **phase**: `string`
 
-Defined in: astronomy/moon/types.ts:12
+Defined in: [astronomy/moon/types.ts:12](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L12)
 
 ***
 
@@ -80,7 +80,7 @@ Defined in: astronomy/moon/types.ts:12
 
 > **phaseId**: `string`
 
-Defined in: astronomy/moon/types.ts:13
+Defined in: [astronomy/moon/types.ts:13](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L13)
 
 ***
 
@@ -88,7 +88,7 @@ Defined in: astronomy/moon/types.ts:13
 
 > **position**: [`AstroPosition`](AstroPosition.md)
 
-Defined in: astronomy/moon/types.ts:17
+Defined in: [astronomy/moon/types.ts:17](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L17)
 
 ***
 
@@ -96,4 +96,4 @@ Defined in: astronomy/moon/types.ts:17
 
 > **time**: `string`
 
-Defined in: astronomy/moon/types.ts:10
+Defined in: [astronomy/moon/types.ts:10](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/astronomy/moon/types.ts#L10)

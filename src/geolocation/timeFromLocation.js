@@ -1,5 +1,5 @@
 // @ts-nocheck
-import TimeDateStr from "../utils/timehelpers.js";
+import { TimeDateStr } from "../utils/timehelpers.js";
 
 /**
  * @typedef {object} LocalTimeData

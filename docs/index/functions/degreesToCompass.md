@@ -8,7 +8,7 @@
 
 > **degreesToCompass**(`degrees`, `language`): `object`
 
-Defined in: [utils/degreesToCompass.js:54](https://github.com/angelrove/forecast-utils/blob/83a8f801e2d1ac86a424edae3898b39209a4d5b5/src/utils/degreesToCompass.js#L54)
+Defined in: [utils/degreesToCompass.js:54](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/utils/degreesToCompass.js#L54)
 
 Convert degrees to compass designation
 
