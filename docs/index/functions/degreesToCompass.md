@@ -2,13 +2,13 @@
 
 ***
 
-[@angelrove/forecast-utils](../../README.md) / [index](../README.md) / degreesToCompass
+[@angelrove/forecast-utils](../../modules.md) / [index](../README.md) / degreesToCompass
 
 # Function: degreesToCompass()
 
 > **degreesToCompass**(`degrees`, `language`): `object`
 
-Defined in: [utils/degreesToCompass.js:54](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/utils/degreesToCompass.js#L54)
+Defined in: [utils/degreesToCompass.js:54](https://github.com/angelrove/forecast-utils/blob/24fb242ac959e4d78950a4cc0b4469220f80b468/src/utils/degreesToCompass.js#L54)
 
 Convert degrees to compass designation
 

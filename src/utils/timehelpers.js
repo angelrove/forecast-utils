@@ -6,7 +6,6 @@
 
 /**
  * TimeDateStr.
- * @ignore
  */
 export const TimeDateStr = {
   dateFormat,

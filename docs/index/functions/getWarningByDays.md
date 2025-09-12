@@ -2,13 +2,13 @@
 
 ***
 
-[@angelrove/forecast-utils](../../README.md) / [index](../README.md) / getWarningByDays
+[@angelrove/forecast-utils](../../modules.md) / [index](../README.md) / getWarningByDays
 
 # Function: getWarningByDays()
 
 > **getWarningByDays**(`precipitationSumToday`, `precipitationSumTomorrow`, `showersSumToday`, `showersSumTomorrow`): `null` \| \{ `day`: `number`; `level`: `string`; `levelNum`: `number`; `message`: `string`; \}
 
-Defined in: [utils/warning.js:30](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/utils/warning.js#L30)
+Defined in: [utils/warning.js:30](https://github.com/angelrove/forecast-utils/blob/24fb242ac959e4d78950a4cc0b4469220f80b468/src/utils/warning.js#L30)
 
 Get warning by today and tomorrow
 

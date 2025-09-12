@@ -1,7 +1,3 @@
-**@angelrove/forecast-utils**
-
-***
-
 # @angelrove/forecast-utils
 
 Several utility libraries for my "tierracolora.com" project.
@@ -14,27 +10,27 @@ I use private libraries for the following:
 # Documentation
 ## Modules
 
-[Astronomy/MoonCalc](_media/MoonCalc.md)
+[Astronomy/MoonCalc](./docs/index/variables/MoonCalc.md)
 
 MoonCalc for calculating moon times, positions, and phases.
 
-[Astronomy/SunCalc](_media/SunCalc.md)
+[Astronomy/SunCalc](./docs/index/variables/SunCalc.md)
 
 SunCalc for calculating solar times, positions, and phases.
 
-[Geolocation](_media/README.md)
+[Geolocation](./docs/Geolocation/README.md)
 
 Geolocation utils
 
-[OpenMeteo](_media/README-1.md)
+[OpenMeteo](./docs/OpenMeteo/README.md)
 
 Use the OpenMeteo forecast API
 
-[Utils](_media/README-2.md)
+[Utils](./docs/Utils/README.md)
 
 Weather utils
 
-[Utils/TimeDateStr](_media/TimeDateStr.md)
+[Utils/TimeDateStr](./docs/index/variables/TimeDateStr.md)
 
 Helpers for get date and time formeted strings
 

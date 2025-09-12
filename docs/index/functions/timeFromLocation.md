@@ -2,13 +2,13 @@
 
 ***
 
-[@angelrove/forecast-utils](../../README.md) / [index](../README.md) / timeFromLocation
+[@angelrove/forecast-utils](../../modules.md) / [index](../README.md) / timeFromLocation
 
 # Function: timeFromLocation()
 
 > **timeFromLocation**(`apiKey`, `lat`, `lng`): `Promise`\<`any`\>
 
-Defined in: [geolocation/timeFromLocation.js:25](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/geolocation/timeFromLocation.js#L25)
+Defined in: [geolocation/timeFromLocation.js:25](https://github.com/angelrove/forecast-utils/blob/24fb242ac959e4d78950a4cc0b4469220f80b468/src/geolocation/timeFromLocation.js#L25)
 
 Get local time from a given location (lat, lng) using 'GoogleMaps TimeZone' API.
 

@@ -1,8 +1,7 @@
 
-# JSDoc: Generate doc.
+# TypeDoc
 
 ```bash
-# See: 'package.json'
 bun run docs
 ```
 
@@ -20,7 +19,7 @@ bunx biome lint
 bunx biome format --write
 ```
 
-# Develop: Test NPM package
+# Develop: test NPM package
 
 ```bash
 # en la ruta del paquete

@@ -2,7 +2,7 @@
 
 ***
 
-[@angelrove/forecast-utils](../README.md) / index
+[@angelrove/forecast-utils](../modules.md) / index
 
 # index
 
@@ -10,6 +10,7 @@
 
 - [MoonCalc](variables/MoonCalc.md)
 - [SunCalc](variables/SunCalc.md)
+- [TimeDateStr](variables/TimeDateStr.md)
 
 ## Functions
 

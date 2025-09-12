@@ -2,13 +2,13 @@
 
 ***
 
-[@angelrove/forecast-utils](../../README.md) / [index](../README.md) / getWindLevel
+[@angelrove/forecast-utils](../../modules.md) / [index](../README.md) / getWindLevel
 
 # Function: getWindLevel()
 
 > **getWindLevel**(`speed`): `null` \| [`WindLevel`](../../Utils/type-aliases/WindLevel.md)
 
-Defined in: [utils/wind/windLevel.ts:30](https://github.com/angelrove/forecast-utils/blob/70e10e7c60236c7ed7f338eae21c685612803c30/src/utils/wind/windLevel.ts#L30)
+Defined in: [utils/wind/windLevel.ts:30](https://github.com/angelrove/forecast-utils/blob/24fb242ac959e4d78950a4cc0b4469220f80b468/src/utils/wind/windLevel.ts#L30)
 
 Return the wind level based on the speed.
 

@@ -2,7 +2,7 @@
 
 ***
 
-[@angelrove/forecast-utils](../README.md) / Astronomy
+[@angelrove/forecast-utils](../modules.md) / Astronomy
 
 # Astronomy
 
