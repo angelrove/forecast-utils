@@ -8,7 +8,7 @@
 
 > **useForecastHourly**(`lat`, `lon`, `dayNum`): [`ForecastData`](../../OpenMeteo/type-aliases/ForecastData.md)
 
-Defined in: [OpenMeteo/hourly/useForecastHourly.ts:10](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/OpenMeteo/hourly/useForecastHourly.ts#L10)
+Defined in: [OpenMeteo/hourly/useForecastHourly.ts:10](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/hourly/useForecastHourly.ts#L10)
 
 Custom hook to fetch hourly forecast data for a given location and number of days from OpenMeteo API.
 

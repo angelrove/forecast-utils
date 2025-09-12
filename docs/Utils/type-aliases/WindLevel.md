@@ -8,7 +8,7 @@
 
 > **WindLevel** = `object`
 
-Defined in: [utils/wind/windLevel.ts:1](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/utils/wind/windLevel.ts#L1)
+Defined in: [utils/wind/windLevel.ts:1](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/windLevel.ts#L1)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [utils/wind/windLevel.ts:1](https://github.com/angelrove/forecast-ut
 
 > **color**: `string`
 
-Defined in: [utils/wind/windLevel.ts:4](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/utils/wind/windLevel.ts#L4)
+Defined in: [utils/wind/windLevel.ts:4](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/windLevel.ts#L4)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [utils/wind/windLevel.ts:4](https://github.com/angelrove/forecast-ut
 
 > **id**: `number`
 
-Defined in: [utils/wind/windLevel.ts:2](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/utils/wind/windLevel.ts#L2)
+Defined in: [utils/wind/windLevel.ts:2](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/windLevel.ts#L2)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [utils/wind/windLevel.ts:2](https://github.com/angelrove/forecast-ut
 
 > **speed**: `number`
 
-Defined in: [utils/wind/windLevel.ts:3](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/utils/wind/windLevel.ts#L3)
+Defined in: [utils/wind/windLevel.ts:3](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/windLevel.ts#L3)
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: [utils/wind/windLevel.ts:3](https://github.com/angelrove/forecast-ut
 
 > **tx**: `string`
 
-Defined in: [utils/wind/windLevel.ts:5](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/utils/wind/windLevel.ts#L5)
+Defined in: [utils/wind/windLevel.ts:5](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/windLevel.ts#L5)
 
 ***
 
@@ -48,4 +48,4 @@ Defined in: [utils/wind/windLevel.ts:5](https://github.com/angelrove/forecast-ut
 
 > **txEn**: `string`
 
-Defined in: [utils/wind/windLevel.ts:6](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/utils/wind/windLevel.ts#L6)
+Defined in: [utils/wind/windLevel.ts:6](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/utils/wind/windLevel.ts#L6)

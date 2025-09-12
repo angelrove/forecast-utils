@@ -17,7 +17,6 @@ import { TimeDateStr } from "../../utils/timehelpers";
 
 /**
  * SunCalc.
- * @ignore
  */
 export const SunCalc = {
   all,

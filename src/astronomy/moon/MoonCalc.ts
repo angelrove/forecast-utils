@@ -16,7 +16,6 @@ import type { MoonData, MoonDataExt, MoonTimes } from "./types.js";
 
 /**
  * MoonCalc.
- * @ignore
  */
 export const MoonCalc = {
   data, dataExt, times, emoji, getUpOrDown,

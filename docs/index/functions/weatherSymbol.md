@@ -8,7 +8,7 @@
 
 > **weatherSymbol**(`code`, `precipitation`, `night`, `dark`): [`WeatherSymbol`](../../OpenMeteo/type-aliases/WeatherSymbol.md)
 
-Defined in: [OpenMeteo/weatherSymbol/weatherSymbol.ts:7](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/OpenMeteo/weatherSymbol/weatherSymbol.ts#L7)
+Defined in: [OpenMeteo/weatherSymbol/weatherSymbol.ts:7](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/weatherSymbol/weatherSymbol.ts#L7)
 
 Get weather symbol and description based on the weather code.
 

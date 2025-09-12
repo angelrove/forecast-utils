@@ -8,7 +8,7 @@
 
 > **ForecastData** = `object`
 
-Defined in: [OpenMeteo/types.ts:4](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/OpenMeteo/types.ts#L4)
+Defined in: [OpenMeteo/types.ts:4](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/types.ts#L4)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [OpenMeteo/types.ts:4](https://github.com/angelrove/forecast-utils/b
 
 > **apiUrl**: `string`
 
-Defined in: [OpenMeteo/types.ts:6](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/OpenMeteo/types.ts#L6)
+Defined in: [OpenMeteo/types.ts:6](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/types.ts#L6)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [OpenMeteo/types.ts:6](https://github.com/angelrove/forecast-utils/b
 
 > **data**: `any`
 
-Defined in: [OpenMeteo/types.ts:5](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/OpenMeteo/types.ts#L5)
+Defined in: [OpenMeteo/types.ts:5](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/types.ts#L5)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [OpenMeteo/types.ts:5](https://github.com/angelrove/forecast-utils/b
 
 > **isError**: `unknown`
 
-Defined in: [OpenMeteo/types.ts:8](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/OpenMeteo/types.ts#L8)
+Defined in: [OpenMeteo/types.ts:8](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/types.ts#L8)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [OpenMeteo/types.ts:8](https://github.com/angelrove/forecast-utils/b
 
 > **isLoading**: `boolean`
 
-Defined in: [OpenMeteo/types.ts:7](https://github.com/angelrove/forecast-utils/blob/b7c12bb7f7fd8b0f16ad79c98200e7acfce43653/src/OpenMeteo/types.ts#L7)
+Defined in: [OpenMeteo/types.ts:7](https://github.com/angelrove/forecast-utils/blob/c8671c08665caf44781ca994161c6a147044eefe/src/OpenMeteo/types.ts#L7)

@@ -6,6 +6,11 @@
 
 # index
 
+## Variables
+
+- [MoonCalc](variables/MoonCalc.md)
+- [SunCalc](variables/SunCalc.md)
+
 ## Functions
 
 - [degreesToCompass](functions/degreesToCompass.md)

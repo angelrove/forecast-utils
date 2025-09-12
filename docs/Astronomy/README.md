@@ -12,3 +12,15 @@
 - [MoonData](type-aliases/MoonData.md)
 - [MoonDataExt](type-aliases/MoonDataExt.md)
 - [MoonTimes](type-aliases/MoonTimes.md)
+
+## References
+
+### MoonCalc
+
+Re-exports [MoonCalc](../index/variables/MoonCalc.md)
+
+***
+
+### SunCalc
+
+Re-exports [SunCalc](../index/variables/SunCalc.md)
