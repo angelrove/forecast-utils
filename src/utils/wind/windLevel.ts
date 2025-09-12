@@ -1,20 +1,12 @@
-/**
- * @typedef {object} WindLevel
- * @property {number} id - Level ID
- * @property {number} speed - Minimum wind speed for this level
- * @property {string} color - Color representing this level
- * @property {string} tx - Text representing this level
- * @property {string} txEn - Text representing this level
- * @memberof module:Utils
- */
+export type WindLevel = {
+  id: number; // Level ID
+  speed: number; // Minimum wind speed for this level
+  color: string;
+  tx: string;
+  txEn: string;
+};
 
-/**
- * Ordered list of wind levels.
- *
- * @type {WindLevel[]}
- * @memberof module:Utils
- */
-const WIND_LEVELS = [
+const WIND_LEVELS: WindLevel[] = [
   { id: 1, speed: 8, color: "green", tx: "Brisa", txEn: "Breeze" },
   { id: 2, speed: 16, color: "orange", tx: "Ligero", txEn: "Light" },
   { id: 3, speed: 23, color: "red", tx: "Moderado", txEn: "Moderate" },
@@ -32,11 +24,10 @@ const WIND_LEVELS = [
 /**
  * Return the wind level based on the speed.
  *
- * @param {number} speed Wind speed in km/h
- * @return {WindLevel | null} Wind level object or null if speed is null
- * @memberof module:Utils
+ * @param speed Wind speed in km/h
+ * @return Wind level object or null if speed is null
  */
-export function getWindLevel(speed) {
+export function getWindLevel(speed: number): WindLevel | null {
   if (typeof speed !== "number") return null;
 
   const theSpeed = Math.round(speed);

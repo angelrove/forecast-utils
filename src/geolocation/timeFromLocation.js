@@ -2,7 +2,6 @@
 import TimeDateStr from "../utils/timehelpers.js";
 
 /**
- * @memberof module:Geolocation
  * @typedef {object} LocalTimeData
  * @property {Date} time - The local time.
  * @property {string} timeStr - The formatted local time string.
@@ -22,7 +21,6 @@ import TimeDateStr from "../utils/timehelpers.js";
  * @param {number} lng
  * @returns {Promise<any | LocalTimeData>} An object containing the local time and timezone information:
  * @throws {Error} If the API request fails or returns an error status.
- * @memberof module:Geolocation
  */
 export async function timeFromLocation(apiKey, lat, lng) {
   const timestamp = Math.floor(Date.now() / 1000);

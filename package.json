@@ -10,7 +10,7 @@
   "homepage": "https://github.com/angelrove/forecast-utils",
   "type": "module",
   "scripts": {
-    "docs:md": "bunx jsdoc2md --separators $(cat jsdoc-files.txt) > README.md ; cat README_HEAD.md README.md > temp && mv temp README.md; echo Remember add new files to - jsdoc-files.txt -!!!"
+    "docs": "typedoc"
   },
   "types": "dist/types/index.d.ts",
   "exports": {
@@ -41,7 +41,10 @@
     "@biomejs/biome": "2.2.4",
     "@types/react": "^19.1.12",
     "@types/react-dom": "^19.1.9",
-    "jsdoc-to-markdown": "^9.1.2",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "typedoc": "^0.28.12",
+    "typedoc-plugin-markdown": "^4.8.1"
   }
 }

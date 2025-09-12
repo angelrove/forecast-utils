@@ -1,29 +1,16 @@
-import geolocationCapacitor from "./lib/geolocation.js";
-import reverseGeocoding from "./lib/reversegeocoding.js";
-
-/**
- * @memberof module:Geolocation
- * @typedef {object} ResolvedLocation
- * @property {number} latitude
- * @property {number} longitude
- * // Address
- * @property {string} sublocality
- * @property {string} locality
- * @property {string} country
- * @property {string} country_short
- * @property {string} formatted_address
- */
+import geolocationCapacitor from "./lib/geolocation";
+import reverseGeocoding from "./lib/reversegeocoding";
+import type { GeocodingAddress, ResolvedLocation } from "./types";
 
 /**
  * Get the current geolocation of the device and reverse geocode it to get the address.
  *
- * @memberof module:Geolocation
- * @returns {Promise<ResolvedLocation>} Promise
+ * @returns {Promise<ResolvedLocation>} Resolved location object.
  * @throws {Error} If geolocation is not supported or permission is denied.
  */
-export async function getGeolocation() {
-  let location;
-  let address = null;
+export async function getGeolocation(): Promise<ResolvedLocation> {
+  let location: { latitude: number; longitude: number };
+  let address = {} as GeocodingAddress;
 
   // Location ---
   try {
@@ -57,13 +44,9 @@ export async function getGeolocation() {
 
   // Return data ---
   return {
+    ...address,
     latitude: location.latitude,
-    longitude: location.longitude,
-    sublocality: address.sublocality,
-    locality: address.locality,
-    country: address.country,
-    country_short: address.country_short,
-    formatted_address: address.formatted_address,
+    longitude: location.longitude
   };
 }
 //--------------------------------------------

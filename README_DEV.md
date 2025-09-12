@@ -3,8 +3,7 @@
 
 ```bash
 # See: 'package.json'
-# Remember add new files to - jsdoc-files.txt -!!!"
-bun run docs:md
+bun run docs
 ```
 
 # Compile

@@ -2,5 +2,7 @@
  * @module Geolocation
  */
 
-export { getGeolocation } from "./getGeolocation.js";
-export { timeFromLocation } from "./timeFromLocation.js";
+export { getGeolocation } from "./getGeolocation";
+export { timeFromLocation } from "./timeFromLocation";
+export type { ResolvedLocation } from "./types";
+

@@ -1,8 +1,8 @@
 // Astronomy
-export { default as MoonCalc } from "./astronomy/moon/MoonCalc";
-export { default as SunCalc } from "./astronomy/sun/SunCalc";
+export { MoonCalc } from "./astronomy/moon/MoonCalc";
+export { SunCalc } from "./astronomy/sun/SunCalc";
 export { timeFromLocation } from "./geolocation/timeFromLocation";
-export { default as TimeDateStr } from "./utils/timehelpers";
+export { TimeDateStr } from "./utils/timehelpers";
 
 // Geolocation
 export { getGeolocation } from "./geolocation/getGeolocation";

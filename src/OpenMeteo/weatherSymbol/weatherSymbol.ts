@@ -3,7 +3,6 @@ import { getWeatherCodeEntry } from "./lib/getWeatherCodeEntry.js";
 
 /**
  * Get weather symbol and description based on the weather code.
- * @memberof module:OpenMeteo
  */
 export function weatherSymbol(
   code: any,

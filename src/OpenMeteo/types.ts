@@ -1,5 +1,4 @@
 /**
- * @memberof module:OpenMeteo
  */
 
 export type ForecastData = {

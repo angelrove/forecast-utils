@@ -11,61 +11,63 @@
 
 /* @ts-expect-error */
 import SunCalc from "suncalc3";
-import TimeDateStr from "../../utils/timehelpers.js";
+import { TimeDateStr } from "../../utils/timehelpers.js";
 import { parseBasicData } from "./parseBasicData.js";
 
 /**
  * MoonCalc.
  * @ignore
  */
-const MoonCalc = {
+export const MoonCalc = {
   data,
   dataExt,
   times,
   emoji,
   getUpOrDown,
 };
-export default MoonCalc;
 
-/**
- * @memberof module:Astronomy
- * @typedef {object} AstroPosition
- * @property {number} altitude
- * @property {number} azimuth
- * @property {string} direction
- * @property {string} direction_full``
- */
+type AstroPosition = {
+  altitude: number;
+  azimuth: number;
+  direction: string;
+  direction_full: string;
+};
 
-/**
- * @memberof module:Astronomy/MoonCalc
- * @typedef {object} MoonDataExt
- * @property {string} date
- * @property {string} time
- * @property {string} illumination
- * @property {string} phase
- * @property {string} phaseId
- * @property {string} emoji
- * @property {number} parallacticAngle
- * @property {number} angle
- * @property {AstroPosition} position
- * @property {object} next
- */
+type MoonDataExt = {
+  date: string;
+  time: string;
+  illumination: string;
+  phase: string;
+  phaseId: string;
+  emoji: string;
+  parallacticAngle: number;
+  angle: number;
+  position: AstroPosition;
+  next: {
+    newMoon: string;
+    fullMoon: string;
+  };
+}
 
-/**
- * @memberof module:Astronomy/MoonCalc
- * @typedef {object} MoonData
- * @property {AstroPosition} position
- * @property {object} next
- * @property {string} next.newMoon - Date of the next new moon.
- * @property {string} next.fullMoon - Date of the next full moon.
- */
+type MoonData = {
+  position: AstroPosition;
+  next: {
+    newMoon: string;
+    fullMoon: string;
+  };
+};
+
+type MoonTimes = {
+  rise: string;
+  set: string;
+  highest: string;
+};
 
 /**
  * Mapa de fases lunares.
  * { phaseId, phaseName }
  *
  * @type {Object.<string, string>}
- * @memberof module:Astronomy/MoonCalc
  */
 const phasesES = {
   newMoon: "Luna Nueva",
@@ -79,15 +81,12 @@ const phasesES = {
 };
 
 //--------------------------------------------------------------------
-/**
- * @param {number} latitude
- * @param {number} longitude
- * @param {Date} [date=new Date()]
- * @param {string} [language=es-ES]
- * @returns {MoonData} Moon info object
- * @memberof module:Astronomy/MoonCalc
- */
-function data(latitude, longitude, date = new Date(), language = "es-ES") {
+function data(
+  latitude: number,
+  longitude: number,
+  date: Date = new Date(),
+  language: string = "es-ES"): MoonData
+  {
   // date.setHours(date.getHours() + 0); // debug
   const data = SunCalc.getMoonData(date, latitude, longitude);
   // console.log("%cdebug:", "color:yellow", data.illumination.next.newMoon.value);
@@ -99,14 +98,13 @@ function data(latitude, longitude, date = new Date(), language = "es-ES") {
  * Información de la luna para una fecha y hora dadas.
  * La fecha y hora se devolverán en la zona horaria local.
  *
- * @param {number} latitude
- * @param {number} longitude
- * @param {Date} [date=new Date()]
- * @param {string} [language=es-ES]
- * @returns {MoonDataExt} Full information
- * @memberof module:Astronomy/MoonCalc
  */
-function dataExt(latitude, longitude, date = new Date(), language = "es-ES") {
+function dataExt(
+  latitude: number,
+  longitude: number,
+  date: Date = new Date(),
+  language: string = "es-ES"): MoonDataExt
+  {
   const data = SunCalc.getMoonData(date, latitude, longitude);
 
   // Illumination
@@ -141,32 +139,22 @@ function dataExt(latitude, longitude, date = new Date(), language = "es-ES") {
   };
 }
 //--------------------------------------------------------------------
-/**
- * @param {number} latitude
- * @param {number} longitude
- * @param {Date} [date=new Date()]
- * @returns {string} Emoji of the moon phase
- * @memberof module:Astronomy/MoonCalc
- */
-function emoji(latitude, longitude, date = new Date()) {
+function emoji(
+  latitude: number,
+  longitude: number,
+  date: Date = new Date()): string
+  {
   const data = SunCalc.getMoonData(date, latitude, longitude);
   return data.illumination.phase.emoji;
 }
 //--------------------------------------------------------------------
-/**
- * @param {number} latitude
- * @param {number} longitude
- * @param {string} timezoneId
- * @param {Date} date
- * @returns {{rise: string, set: string, highest: string}} Moon times
- * @memberof module:Astronomy/MoonCalc
- */
-function times(latitude, longitude, timezoneId, date = new Date()) {
-  const ret = {
-    rise: "",
-    set: "",
-    highest: "",
-  };
+function times(
+  latitude: number,
+  longitude: number,
+  timezoneId: string,
+  date: Date = new Date()): MoonTimes
+  {
+  const ret = {} as MoonTimes;
 
   const times = SunCalc.getMoonTimes(date, latitude, longitude);
   if (times.alwaysUp) {
@@ -189,13 +177,7 @@ function times(latitude, longitude, timezoneId, date = new Date()) {
   return ret;
 }
 //--------------------------------------------------------------------
-/**
- * @param {number} altitude
- * @param {Date} highest
- * @returns {string} - Up or down emoji
- * @memberof module:Astronomy/MoonCalc
- */
-function getUpOrDown(altitude, highest) {
+function getUpOrDown(altitude: number, highest: Date): string {
   const now = new Date();
   let upOrDown = ""; // ◓ ◒
 

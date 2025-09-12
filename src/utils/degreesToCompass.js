@@ -6,7 +6,6 @@
  * @typedef {object} Compass
  * @property {string} short - Short compass designation
  * @property {string} full - Full compass designation
- * @memberof module:Utils
  */
 
 /**
@@ -15,7 +14,6 @@
  * @constant
  * @property {string} short - Short compass designation
  * @property {string} full - Full compass designation
- * @memberof module:Utils
  */
 const directions = [
   { short: "N", full: "North" },
@@ -34,7 +32,6 @@ const directions = [
  * @constant
  * @property {string} short - Short compass designation
  * @property {string} full - Full compass designation
- * @memberof module:Utils
  */
 const directionsEs = [
   { short: "N", full: "Norte" },
@@ -53,7 +50,6 @@ const directionsEs = [
  * @param {number} degrees
  * @param {string} language - Language code ("en-US", "es-ES", "auto")
  * @returns {{short: string, full: string}} {short: string, full: string}
- * @memberof module:Utils
  */
 export function degreesToCompass(degrees, language = "auto") {
   if (degrees == null) return { short: "?", full: "?" };

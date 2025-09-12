@@ -1,0 +1,15 @@
+{
+  "plugin": [
+    "typedoc-plugin-markdown"
+  ],
+  "theme": "markdown",
+  "out": "docs",
+  "entryPoints": [
+    "src/*"
+  ],
+  "packageOptions": {
+    "entryPoints": [
+      "src/index.ts"
+    ]
+  }
+}

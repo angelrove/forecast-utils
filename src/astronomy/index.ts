@@ -1,2 +1,9 @@
-export { default as MoonCalc } from "./moon/MoonCalc.js";
-export { default as SunCalc } from "./sun/SunCalc.js";
+/**
+ * @module Astronomy
+ *
+ */
+
+export { useForecastCurrent } from "../OpenMeteo/current/useForecastCurrent";
+export { MoonCalc } from "./moon/MoonCalc";
+export { SunCalc } from "./sun/SunCalc";
+

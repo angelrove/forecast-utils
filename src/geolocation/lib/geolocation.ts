@@ -4,7 +4,7 @@
  * @returns {Promise<{latitude: number, longitude: number}>}
  * @throws {Error} If geolocation is not supported or permission is denied.
  */
-export default async function geolocation() {
+export default async function geolocation(): Promise<{latitude: number, longitude: number}> {
   const geolocOptions = {
     enableHighAccuracy: true,
     timeout: 6 * 1000,
@@ -12,7 +12,7 @@ export default async function geolocation() {
   };
 
   try {
-    const data = await new Promise((resolve, reject) => {
+    const data = await new Promise<GeolocationPosition>((resolve, reject) => {
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
           resolve,
