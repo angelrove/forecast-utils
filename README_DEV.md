@@ -36,4 +36,5 @@ npm unlink @angelrove/forecast-utils # eliminar carpeta de 'node_modules'
 commit
 npm version patch
 npm publish # 'with --access public' only first time
+gp
 ```
