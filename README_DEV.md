@@ -24,6 +24,7 @@ bunx biome format --write
 ```bash
 # en la ruta del paquete
 npm link
+npm run dev
 
 # en la ruta el proyecto
 npm link @angelrove/forecast-utils

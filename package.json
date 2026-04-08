@@ -10,7 +10,8 @@
   "homepage": "https://github.com/angelrove/forecast-utils",
   "type": "module",
   "scripts": {
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "dev": "tsc -w"
   },
   "types": "dist/types/index.d.ts",
   "exports": {

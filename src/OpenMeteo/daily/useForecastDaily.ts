@@ -9,14 +9,14 @@ import transformer from "./transformer.js";
  * https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=36.6644363&longitude=-4.5108962&forecast_days=10&daily=weathercode
  */
 export function useForecastDaily(
-  lat: number | undefined,
-  lon: number | undefined,
+  lat: number,
+  lon: number,
   refreshIntervalMin: number = 0): ForecastData
   {
   // Validate --
-  if (lat == null || lon == null) {
-    throw new Error("useForecastDaily: invalid coordinatesxxxx");
-  }
+  // if (lat == null || lon == null) {
+  //   throw new Error("useForecastDaily: invalid coordinates");
+  // }
 
   // Fetch --
   const apiUrl = getPath(lat, lon, fetchParams);
