@@ -15,7 +15,7 @@ export function useForecastDaily(
   {
   // Validate --
   if (lat == null || lon == null) {
-    throw new Error("useForecastDaily: invalid coordinates");
+    throw new Error("useForecastDaily: invalid coordinatesxxxx");
   }
 
   // Fetch --
