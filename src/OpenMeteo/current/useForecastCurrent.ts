@@ -19,6 +19,7 @@ export function useForecastCurrent(
 
   // Fetch ---
   const apiUrl = getPath(lat, lon, fetchParams);
+
   const { data, error, isLoading } = useSWR(apiUrl, fetcher, {
     refreshInterval: refreshIntervalMin * 60 * 1000,
   });
