@@ -33,15 +33,15 @@
   ],
   "peerDependencies": {
     "@capacitor/geolocation": "^7.1.2",
-    "react": "^19.1.0",
+    "react": "^19.2.5",
     "suncalc3": "^2.0.5",
-    "swr": "^2.3.3"
+    "swr": "^2.4.1"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.4",
+    "@biomejs/biome": "^2.4.10",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
   },
   "dependencies": {
     "typedoc": "^0.28.18",
