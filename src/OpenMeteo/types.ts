@@ -3,7 +3,7 @@
 
 export type ForecastData = {
   data: any; // 👈 Cambiar al tipo real que devuelve `transformer`
-  apiUrl: string;
+  apiUrl: string | null;
   isLoading: boolean;
   isError: unknown;
 };

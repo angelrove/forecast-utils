@@ -8,30 +8,28 @@ import { fetchParams } from "./fetchParams.js";
  * Custom hook to fetch hourly forecast data for a given location and number of days from OpenMeteo API.
  */
 export function useForecastHourly(
-  lat: number,
-  lon: number,
-  dayNum: number): ForecastData
+  lat: number | false,
+  lon: number | false,
+  dayNum: number | false
+): ForecastData | null
   {
 
   // Validate --
+  const shouldFetch = lat !== false && lon !== false && dayNum !== false;
+
   if (lat == null || lon == null) {
     throw new Error("useForecastHourly: invalid coordinates: ["+lon+"]["+lat+"]");
   }
 
   // Fetch ---
-  const dates = getDatesFromNumDays(dayNum);
-
-  let apiUrl =
-    "start_date=" +
-    dates.startDate +
-    "&" +
-    "end_date=" +
-    dates.endDate +
-    "&" +
-    fetchParams;
-  apiUrl = getPath(lat, lon, apiUrl);
+  const apiUrl = shouldFetch
+    ? getApiUrl(lat, lon, dayNum) : null;
 
   const { data, error, isLoading } = useSWR(apiUrl, fetcher);
+
+  if (!shouldFetch) {
+    return null;
+  }
 
   return {
     data: data,
@@ -39,4 +37,18 @@ export function useForecastHourly(
     isLoading,
     isError: error,
   };
+}
+
+function getApiUrl(lat: number, lon: number, dayNum: number) {
+  const dates = getDatesFromNumDays(dayNum);
+  const basicApiUrl =
+    "start_date=" +
+    dates.startDate +
+    "&" +
+    "end_date=" +
+    dates.endDate +
+    "&" +
+    fetchParams;
+
+  return getPath(lat, lon, basicApiUrl);
 }
