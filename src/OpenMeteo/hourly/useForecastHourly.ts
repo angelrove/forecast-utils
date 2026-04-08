@@ -18,7 +18,7 @@ export function useForecastHourly(
   const shouldFetch = lat !== false && lon !== false && dayNum !== false;
 
   if (lat == null || lon == null) {
-    throw new Error("useForecastHourly: invalid coordinates: ["+lon+"]["+lat+"]");
+    throw new Error("useForecastHourly: invalid coordinates");
   }
 
   // Fetch ---
