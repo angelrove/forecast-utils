@@ -32,7 +32,7 @@
     "JavaScript"
   ],
   "peerDependencies": {
-    "@capacitor/geolocation": "^7.1.2",
+    "@capacitor/geolocation": "^8.2.0",
     "react": "^19.2.5",
     "suncalc3": "^2.0.5",
     "swr": "^2.4.1"
