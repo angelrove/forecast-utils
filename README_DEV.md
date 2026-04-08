@@ -26,7 +26,7 @@ bunx biome format --write
 npm link
 
 # en la ruta el proyecto
-npm link @angelrove/forecast-utils
+bun link @angelrove/forecast-utils
 npm unlink @angelrove/forecast-utils # eliminar carpeta de 'node_modules'
 ```
 
