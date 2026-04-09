@@ -19,16 +19,29 @@ bunx biome lint
 bunx biome format --write
 ```
 
-# Develop: test NPM package
+# Develop: test NPM package with "Yalc"
 
 ```bash
-# en la ruta del paquete
-npm link
-npm run dev
+#-----------------------------------
+# Instalar Yalc
+npm i -g yalc
 
-# en la ruta el proyecto
-npm link @angelrove/forecast-utils
-npm unlink @angelrove/forecast-utils # eliminar carpeta de 'node_modules'
+#-----------------------------------
+# Development
+
+# En la ruta del paquete
+bunx tsc && yalc publish
+
+# En la ruta el proyecto
+yalc add @angelrove/forecast-utils && bun update
+
+# Actualizar cambios en el paquete
+bunx tsc && yalc publish --push
+bun update # en la ruta del proyecto
+
+#-----------------------------------
+# Limpiar las referencias locales y volver a usar la versión de NPM real.
+yalc remove --all # en la ruta del proyecto
 ```
 
 # Publish NPM package

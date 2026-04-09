@@ -8,10 +8,12 @@ import transformer from "./transformer.js";
  * Custom hook to fetch current weather data from OpenMeteo API.
  */
 export function useForecastCurrent(
-  lat: number | undefined,
-  lon: number | undefined,
+  lat: number,
+  lon: number,
   refreshIntervalMin: number = 0): ForecastData
   {
+  console.log('%cdebug:', 'color:yellow', 'OOOOOOOOOOOOOOOOOO...');
+
   // Validate --
   if (lat == null || lon == null) {
     throw new Error("useForecastCurrent: invalid coordinates");
