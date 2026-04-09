@@ -12,7 +12,7 @@ export function useForecastCurrent(
   lon: number,
   refreshIntervalMin: number = 0): ForecastData
   {
-  console.log('%cdebug:', 'color:yellow', 'RRRRRRRRRRRRRR...');
+  console.log('%cdebug:', 'color:yellow', '999999999999999...');
 
   // Validate --
   if (lat == null || lon == null) {
