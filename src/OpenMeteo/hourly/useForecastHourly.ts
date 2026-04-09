@@ -6,36 +6,41 @@ import { fetchParams } from "./fetchParams.js";
 
 /**
  * Custom hook to fetch hourly forecast data for a given location and number of days from OpenMeteo API.
+ * Ejecución condicional: si todos los parámetros son false, no se realiza el fetch
  */
 export function useForecastHourly(
-  lat: number | false,
-  lon: number | false,
-  dayNum: number | false
+  lat: number | false | null,
+  lon: number | false | null,
+  dayNum: number | false | null
 ): ForecastData | null
   {
 
-  // Validate --
+  // Lógica de validación ---
   const shouldFetch = lat !== false && lon !== false && dayNum !== false;
+  const hasMissingData = lat === null || lon === null || dayNum === null;
 
-  if (lat == null || lon == null) {
-    throw new Error("useForecastHourly: invalid coordinates");
+  // Aviso en consola si hay un NULL inesperado ---
+  if (hasMissingData) {
+    console.warn(
+      `[useForecastHourly]: Petición abortada por datos faltantes (null/undefined).`,
+      { lat, lon, dayNum }
+    );
   }
+
+  // Definición de la KEY para SWR ---
+  const apiUrl = shouldFetch && !hasMissingData
+  ? getApiUrl(lat as number, lon as number, dayNum as number)
+  : null;
 
   // Fetch ---
-  const apiUrl = shouldFetch
-    ? getApiUrl(lat, lon, dayNum) : null;
-
   const { data, error, isLoading } = useSWR(apiUrl, fetcher);
 
-  if (!shouldFetch) {
-    return null;
-  }
-
+  // Return ---
   return {
-    data: data,
-    apiUrl: apiUrl,
-    isLoading,
-    isError: error,
+    data: data ?? null,
+    apiUrl,
+    isLoading: !apiUrl ? false : isLoading,
+    isError: error
   };
 }
 
