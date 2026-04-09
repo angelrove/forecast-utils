@@ -47,6 +47,7 @@ export function useForecastHourly(
   };
 }
 
+//------------------------------------------------------------------
 function getApiUrl(lat: number, lon: number, dayNum: number, onlyCodes: boolean) {
   const dates = getDatesFromNumDays(dayNum);
 
@@ -63,7 +64,6 @@ function getApiUrl(lat: number, lon: number, dayNum: number, onlyCodes: boolean)
 
   return getPath(lat, lon, basicApiUrl);
 }
-
 //------------------------------------------------------------------
 /**
  * Parse hourly forecast data
@@ -114,7 +114,7 @@ export default function transformer(
 /**
  * Limit hours to show
  */
-function getHoursLimits(dayNum: number, nowTime: Date, isShort: boolean): { hourFrom: Date | null; hourTo: Date } {
+/* function getHoursLimits(dayNum: number, nowTime: Date, isShort: boolean): { hourFrom: Date | null; hourTo: Date } {
   // Today ---
   if (dayNum === 0) {
     let hourTo = null;
@@ -147,6 +147,7 @@ function getHoursLimits(dayNum: number, nowTime: Date, isShort: boolean): { hour
     hourTo: hourTo,
   };
 }
+ */
 //------------------------------------------------------------------
 function getHoursLimits2(dayNum: number, nowTime: Date, isShort: boolean) {
   const hourTo = new Date(nowTime);
