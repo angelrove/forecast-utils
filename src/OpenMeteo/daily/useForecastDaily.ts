@@ -17,7 +17,6 @@ export function useForecastDaily(
   if (lat == null || lon == null) {
     throw new Error("useForecastDaily: invalid coordinates");
   }
-  console.log('%cdebug:', 'color:yellow', 'probando...');
 
   // Fetch --
   const apiUrl = getPath(lat, lon, fetchParams);

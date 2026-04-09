@@ -37,11 +37,14 @@ yalc add @angelrove/forecast-utils && bun update
 
 # Actualizar cambios en el paquete
 bunx tsc && yalc publish --push
-bun update # en la ruta del proyecto
+# en la ruta del proyecto:
+#bun update
+yalc remove --all && bun update && yalc add @angelrove/forecast-utils && bun update
 
 #-----------------------------------
 # Limpiar las referencias locales y volver a usar la versión de NPM real.
-yalc remove --all # en la ruta del proyecto
+# en la ruta del proyecto:
+yalc remove --all && bun update
 ```
 
 # Publish NPM package
