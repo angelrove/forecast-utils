@@ -2,16 +2,19 @@ import useSWR from "swr";
 import { fetcher, getPath } from "../conf.js";
 import { getDatesFromNumDays } from "../helpers.js";
 import type { ForecastData } from "../types";
-import { fetchParams } from "./fetchParams.js";
+import { fetchParams, fetchParamsOnlyCodes } from "./fetchParams.js";
 
 /**
  * Custom hook to fetch hourly forecast data for a given location and number of days from OpenMeteo API.
- * Ejecución condicional: si todos los parámetros son false, no se realiza el fetch
+ * Ejecución condicional: si 'lat, lon, dayNum' son 'false', no se realiza el fetch
  */
 export function useForecastHourly(
   lat: number | false | null,
   lon: number | false | null,
-  dayNum: number | false | null
+  dayNum: number | false | null,
+  nowTime: Date,
+  isShort: boolean = false,
+  onlyCodes: boolean = false
 ): ForecastData | null
   {
 
@@ -29,7 +32,7 @@ export function useForecastHourly(
 
   // Definición de la KEY para SWR ---
   const apiUrl = shouldFetch && !hasMissingData
-  ? getApiUrl(lat as number, lon as number, dayNum as number)
+  ? getApiUrl(lat as number, lon as number, dayNum as number, onlyCodes)
   : null;
 
   // Fetch ---
@@ -37,15 +40,18 @@ export function useForecastHourly(
 
   // Return ---
   return {
-    data: data ?? null,
+    data: data ? transformer(data, dayNum, nowTime, isShort) : null,
     apiUrl,
-    isLoading: !apiUrl ? false : isLoading,
+    isLoading: isLoading,
     isError: error
   };
 }
 
-function getApiUrl(lat: number, lon: number, dayNum: number) {
+function getApiUrl(lat: number, lon: number, dayNum: number, onlyCodes: boolean) {
   const dates = getDatesFromNumDays(dayNum);
+
+  const params = onlyCodes ? fetchParamsOnlyCodes : fetchParams;
+
   const basicApiUrl =
     "start_date=" +
     dates.startDate +
@@ -53,7 +59,121 @@ function getApiUrl(lat: number, lon: number, dayNum: number) {
     "end_date=" +
     dates.endDate +
     "&" +
-    fetchParams;
+    params;
 
   return getPath(lat, lon, basicApiUrl);
+}
+
+//------------------------------------------------------------------
+/**
+ * Parse hourly forecast data
+ */
+export default function transformer(
+  dataHourly: any,
+  dayNum: number | false | null,
+  nowTime: Date,
+  isShort: boolean
+)
+  {
+  // Obtener las horas del día seleccionado
+  if (!dataHourly || !dayNum) return null;
+
+  // if dayNum is String, convert to Number
+  const dayNumInt = typeof dayNum === "string" ? Number.parseInt(dayNum, 10) : dayNum;
+
+  // hourFrom / hourTo
+  const limits = getHoursLimits2(dayNumInt, nowTime, isShort);
+
+  // Data transform: limit hours to show and add more info
+  // Open-Meteo usually nests under .hourly
+  const hourlyData = dataHourly.hourly;
+
+  return hourlyData.time.reduce((acc: any[], time: string, index: number) => {
+    const date = new Date(time);
+
+    // Filter Logic
+    if (limits.hourFrom && date < limits.hourFrom) return acc;
+    if (date > limits.hourTo) return acc;
+
+    // Create a single object for THIS hour
+    const hourEntry = {
+      time: time,
+      // Dynamically grab all other properties (temp, wind, etc.) for this index
+      ...Object.keys(hourlyData).reduce((obj, key) => {
+        if (key !== "time") obj[key] = hourlyData[key][index];
+        return obj;
+      }, {} as any)
+    };
+
+    acc.push(hourEntry);
+    return acc;
+  }, []);
+}
+
+//------------------------------------------------------------------
+/**
+ * Limit hours to show
+ */
+function getHoursLimits(dayNum: number, nowTime: Date, isShort: boolean): { hourFrom: Date | null; hourTo: Date } {
+  // Today ---
+  if (dayNum === 0) {
+    let hourTo = null;
+
+    if (isShort === false) {
+      hourTo = new Date(nowTime.getTime() + 25 * 60 * 60 * 1000); // +25 hours
+    } else {
+      hourTo = new Date(nowTime);
+      hourTo.setHours(23, 0, 0, 0); // Today at 23:00
+    }
+
+    // remove minutes to 'nowTime'
+    const hourFrom = new Date(nowTime);
+    hourFrom.setMinutes(0, 0, 0); // Rounded to the previous full hour
+
+    return {
+      hourFrom: hourFrom,
+      hourTo: hourTo,
+    };
+  }
+
+  // Other days ----
+  // To end of the day (23:00)
+  const hourTo = new Date();
+  hourTo.setDate(hourTo.getDate() + dayNum);
+  hourTo.setHours(23, 0, 0, 0);
+
+  return {
+    hourFrom: null,
+    hourTo: hourTo,
+  };
+}
+//------------------------------------------------------------------
+function getHoursLimits2(dayNum: number, nowTime: Date, isShort: boolean) {
+  const hourTo = new Date(nowTime);
+
+  if (dayNum === 0) {
+    // Today logic
+    if (isShort) {
+      hourTo.setHours(23, 59, 59, 999);
+    } else {
+      hourTo.setHours(hourTo.getHours() + 25);
+    }
+
+    const hourFrom = new Date(nowTime);
+    hourFrom.setMinutes(0, 0, 0);
+
+    return { hourFrom, hourTo };
+  }
+
+  // Future Days: From start of that day (00:00) to end of that day (23:59)
+  const targetDay = new Date(nowTime);
+  targetDay.setDate(targetDay.getDate() + dayNum);
+
+  const hourFrom = new Date(targetDay);
+  hourFrom.setHours(0, 0, 0, 0);
+
+  const hourToDate = new Date(targetDay);
+  hourToDate.setHours(23, 59, 59, 999);
+
+  return { hourFrom, hourTo: hourToDate };
 }

@@ -10,3 +10,5 @@ export const fetchParams =
   "freezing_level_height," +
   "is_day";
 // 'cloudcover,' +
+
+export const fetchParamsOnlyCodes = "hourly=" + "weathercode," + "is_day";
