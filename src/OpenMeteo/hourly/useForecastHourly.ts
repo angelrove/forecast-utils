@@ -40,7 +40,7 @@ export function useForecastHourly(
 
   // Return ---
   return {
-    data: data ? transformer(data, dayNum, nowTime, isShort) : null,
+    data: data ? transformer2(data, dayNum, nowTime, isShort) : null,
     apiUrl,
     isLoading: isLoading,
     isError: error
@@ -68,7 +68,7 @@ function getApiUrl(lat: number, lon: number, dayNum: number, onlyCodes: boolean)
 /**
  * Parse hourly forecast data
  */
-export default function transformer(
+/* function transformer2(
   dataHourly: any,
   dayNum: number | false | null,
   nowTime: Date,
@@ -108,6 +108,48 @@ export default function transformer(
     acc.push(hourEntry);
     return acc;
   }, []);
+}
+ */
+/**
+ * Parse hourly forecast data
+ */
+function transformer2(
+  dataHourly: any,
+  dayNum: number | false | null,
+  nowTime: Date,
+  isShort: boolean
+)
+  {
+  // Obtener las horas del día seleccionado
+  if (!dataHourly || !dayNum) return null;
+
+  // if dayNum is String, convert to Number
+  const dayNumInt = typeof dayNum === "string" ? Number.parseInt(dayNum, 10) : dayNum;
+
+  // hourFrom / hourTo
+  const limits = getHoursLimits2(dayNumInt, nowTime, isShort);
+
+  // Data transform: limit hours to show and add more info
+  const dataTransform = [];
+
+  for (let key = 0; key < dataHourly.time.length; key++) {
+    const time = dataHourly.time[key];
+    const date = new Date(time);
+
+    // Hour limits ---
+    if (limits.hourFrom && date < limits.hourFrom) {
+      continue;
+    }
+    if (date > limits.hourTo) {
+      continue;
+    }
+
+    // Add data ---
+    dataTransform.push(dataHourly);
+  }
+
+  // console.log('dataTransform', dataTransform);
+  return dataTransform;
 }
 
 //------------------------------------------------------------------

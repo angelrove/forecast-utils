@@ -37,6 +37,7 @@ yalc add @angelrove/forecast-utils && bun update
 
 # Actualizar cambios en el paquete
 bunx tsc && yalc publish --push
+
 # en la ruta del proyecto:
 #bun update
 yalc remove --all && bun update && yalc add @angelrove/forecast-utils && bun update
