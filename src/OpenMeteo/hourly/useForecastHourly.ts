@@ -51,7 +51,7 @@ export function useForecastHourly(
 function getApiUrl(lat: number, lon: number, dayNum: number, onlyCodes: boolean) {
   const dates = getDatesFromNumDays(dayNum);
 
-  const params = onlyCodes ? fetchParamsOnlyCodes : fetchParams;
+  const params = onlyCodes === true ? fetchParamsOnlyCodes : fetchParams;
 
   const basicApiUrl =
     "start_date=" +
