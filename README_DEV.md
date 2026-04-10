@@ -37,6 +37,7 @@ yalc add @angelrove/forecast-utils && bun update
 
 # Actualizar cambios en el paquete
 bunx tsc && yalc publish --push
+
 # en la ruta del proyecto:
 #bun update
 yalc remove --all && bun update && yalc add @angelrove/forecast-utils && bun update
@@ -50,8 +51,10 @@ yalc remove --all && bun update
 # Publish NPM package
 
 ```bash
+rm -rf dist && bunx tsc
 commit
 npm version patch
 npm publish # 'with --access public' only first time
+# si da error de permisos, ejecutar: npm login
 gp
 ```

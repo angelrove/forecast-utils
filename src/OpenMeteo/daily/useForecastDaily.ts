@@ -9,18 +9,29 @@ import transformer from "./transformer.js";
  * https://api.open-meteo.com/v1/forecast?timezone=auto&latitude=36.6644363&longitude=-4.5108962&forecast_days=10&daily=weathercode
  */
 export function useForecastDaily(
-  lat: number,
-  lon: number,
+  lat: number | false | null,
+  lon: number | false | null,
   refreshIntervalMin: number = 0): ForecastData
   {
-  // Validate --
-  if (lat == null || lon == null) {
-    throw new Error("useForecastDaily: invalid coordinates");
+
+  // Lógica de validación ---
+  const shouldFetch = lat !== false && lon !== false;
+  const hasMissingData = lat === null || lon === null;
+
+    // Aviso en consola si hay un NULL inesperado ---
+  if (hasMissingData) {
+    console.warn(
+      `[useForecastDayly]: Petición abortada por datos faltantes (null/undefined).`,
+      { lat, lon }
+    );
   }
 
+  // Definición de la KEY para SWR ---
+  const apiUrl = shouldFetch && !hasMissingData
+  ? getPath(lat, lon, fetchParams)
+  : null;
+
   // Fetch --
-  const apiUrl = getPath(lat, lon, fetchParams);
-  // console.log(apiUrl);
   const { data, error, isLoading } = useSWR(apiUrl, fetcher, {
     refreshInterval: refreshIntervalMin * 60 * 1000,
   });
