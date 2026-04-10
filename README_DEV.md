@@ -51,6 +51,7 @@ yalc remove --all && bun update
 # Publish NPM package
 
 ```bash
+rm -rf dist && bunx tsc
 commit
 npm version patch
 npm publish # 'with --access public' only first time
