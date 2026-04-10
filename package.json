@@ -44,6 +44,7 @@
     "typescript": "^6.0.2"
   },
   "dependencies": {
+    "@angelrove/forecast-utils": "file:.yalc/@angelrove/forecast-utils",
     "typedoc": "^0.28.18",
     "typedoc-plugin-markdown": "^4.11.0"
   }

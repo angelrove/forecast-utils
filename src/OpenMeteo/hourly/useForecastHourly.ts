@@ -14,7 +14,7 @@ export function useForecastHourly(
   dayNum: number | false | null,
   // nowTime: Date,
   // isShort: boolean = false,
-  onlyCodes: boolean = false
+  onlyWeatherCode: boolean = false
 ): ForecastData | null
   {
 
@@ -32,7 +32,7 @@ export function useForecastHourly(
 
   // Definición de la KEY para SWR ---
   const apiUrl = shouldFetch && !hasMissingData
-  ? getApiUrl(lat as number, lon as number, dayNum as number, onlyCodes)
+  ? getApiUrl(lat as number, lon as number, dayNum as number, onlyWeatherCode)
   : null;
 
   // Fetch ---
@@ -40,8 +40,8 @@ export function useForecastHourly(
 
   // Return ---
   return {
-    // data: data ? transformer(data, dayNum, nowTime, isShort) : null,
-    data: data,
+    // data: data ? transformer(data.hourly, dayNum, nowTime, isShort) : null,
+    data: data ? data.hourly : null,
     apiUrl,
     isLoading: isLoading,
     isError: error
