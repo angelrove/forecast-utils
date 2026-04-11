@@ -3,8 +3,8 @@
     "checkJs": true,
     "allowJs": true,
     "skipLibCheck": true,
-    "target": "esnext",
-    "module": "ESNext",
+    "target": "es2023",
+    "module": "esnext",
     "moduleResolution": "bundler",
     "jsx": "react-jsx",
     /* Linting */

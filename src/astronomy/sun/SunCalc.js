@@ -11,7 +11,7 @@
  */
 
 /* @ts-expect-error */
-import { default as SunCalc3 } from "suncalc3";
+import { SunCalc as SunCalc3 } from "suncalc3";
 import { degreesToCompass } from "../../utils/degreesToCompass";
 import { TimeDateStr } from "../../utils/timehelpers";
 
