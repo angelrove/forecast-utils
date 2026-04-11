@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import { fetcher, getPath } from "../conf.js";
-import { getDatesFromNumDays } from "../helpers.js";
 import type { ForecastData } from "../types";
 import { fetchParams, fetchParamsOnlyCodes } from "./fetchParams.js";
 
@@ -12,8 +11,6 @@ export function useForecastHourly(
   lat: number | false | null,
   lon: number | false | null,
   dayNum: number | false | null,
-  // nowTime: Date,
-  // isShort: boolean = false,
   onlyWeatherCode: boolean = false
 ): ForecastData | null
   {
@@ -40,7 +37,6 @@ export function useForecastHourly(
 
   // Return ---
   return {
-    // data: data ? transformer(data.hourly, dayNum, nowTime, isShort) : null,
     data: data ? data.hourly : null,
     apiUrl,
     isLoading: isLoading,
@@ -49,18 +45,31 @@ export function useForecastHourly(
 }
 
 function getApiUrl(lat: number, lon: number, dayNum: number, onlyCodes: boolean) {
-  const dates = getDatesFromNumDays(dayNum);
+  const strDate = getDateFromNumDays(dayNum);
 
   const params = onlyCodes === true ? fetchParamsOnlyCodes : fetchParams;
 
   const basicApiUrl =
     "start_date=" +
-    dates.startDate +
+    strDate +
     "&" +
     "end_date=" +
-    dates.endDate +
+    strDate +
     "&" +
     params;
 
   return getPath(lat, lon, basicApiUrl);
+}
+
+/**
+ * Get the date of a certain day based on the number of days from today.
+ *
+ * @param {number} numDay
+ * @returns {string} - The date in YYYY-MM-DD format.
+ */
+export function getDateFromNumDays(dayNum: number) {
+  const date = new Date();
+  date.setDate(date.getDate() + dayNum);
+
+  return date.toISOString().split("T")[0];
 }
