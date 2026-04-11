@@ -31,15 +31,15 @@ export default async function geolocation(): Promise<{latitude: number, longitud
   } catch (error) {
     console.error(error);
 
-    /* @ts-expect-error */
+    /* @ts-ignore */
     if (error.code === error.PERMISSION_DENIED) {
       throw new Error("Geolocation: permission denied");
     }
-    /* @ts-expect-error */
+    /* @ts-ignore */
     if (error.code === error.POSITION_UNAVAILABLE) {
       throw new Error("Geolocation: position unavailable");
     }
-    /* @ts-expect-error */
+    /* @ts-ignore */
     if (error.code === error.TIMEOUT) {
       throw new Error("Geolocation: timeout");
     }

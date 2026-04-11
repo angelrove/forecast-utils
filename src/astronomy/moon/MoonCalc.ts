@@ -8,7 +8,7 @@
  *
  */
 
-/* @ts-expect-error */
+/* @ts-ignore */
 import SunCalc from "suncalc3";
 import { TimeDateStr } from "../../utils/timehelpers";
 import { parseBasicData } from "./parseBasicData.js";

@@ -102,7 +102,7 @@ export default async function reverseGeocoding(
 }
 
 function devLog(title: string, url: any) {
-  /* @ts-expect-error */
+  /* @ts-ignore */
   if (import.meta.env.MODE === "development") {
     console.log(`> fetch [${title}]:`, url);
   }
