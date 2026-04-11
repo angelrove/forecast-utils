@@ -26,7 +26,7 @@ export async function getGeolocation(): Promise<ResolvedLocation> {
     address = await reverseGeocoding(
       location.latitude,
       location.longitude,
-      /* @ts-expect-error */
+      /* @ts-ignore */
       import.meta.env.VITE_googlemaps_api_key,
     );
   } catch (error) {
