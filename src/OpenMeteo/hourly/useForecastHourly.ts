@@ -33,7 +33,15 @@ export function useForecastHourly(
   : null;
 
   // Fetch ---
-  const { data, error, isLoading } = useSWR(apiUrl, fetcher);
+  const { data, error, isLoading } = useSWR(apiUrl, fetcher,
+    {
+      // Durante este tiempo, SWR considera que el dato que tiene es lo suficientemente nuevo y no disparará el fetcher.
+      dedupingInterval: (15 * 60 * 1000), // 10 minutos en milisegundos
+
+      // Actualiza solo si la app está abierta frente al usuario
+      // refreshInterval: (15 * 60 * 1000)
+    }
+  );
 
   // Return ---
   return {
