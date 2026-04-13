@@ -33,18 +33,19 @@ export function useForecastDaily(
   : null;
 
   // Fetch --
-  const { data, error, isLoading } = useSWR(apiUrl, fetcher, {
+  // Cache
+  const cacheOps = {
     // Durante este tiempo, SWR considera que el dato que tiene es lo suficientemente nuevo y no disparará el fetcher.
-    dedupingInterval: (15 * 60 * 1000), // 10 minutos en milisegundos
+    dedupingInterval: (15 * 60 * 1000), // 15 minutos en milisegundos
+  };
 
-    // Actualiza solo si la app está abierta frente al usuario
-    // refreshInterval: refreshIntervalMin * 60 * 1000,
-  });
+  // Fetch
+  const { data, error, isLoading } = useSWR(apiUrl, fetcher, cacheOps);
 
   // Return --
   return {
     data: data ? transformer(data) : null,
-    apiUrl: apiUrl,
+    apiUrl,
     isLoading,
     isError: error,
   };
