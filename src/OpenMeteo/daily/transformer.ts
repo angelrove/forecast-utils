@@ -1,10 +1,4 @@
-/**
- * Transforms the OpenMeteo API data into a more usable format.
- *
- * @param {{daily: any}} data - The data object to transform.
- * @returns {object|null} - The transformed data object or null if the input is invalid.
- */
-export default function transformer(data) {
+export default function transformer(data: { daily: any; hourly: any }): object | null {
   if (!data) return null;
 
   const newData = {

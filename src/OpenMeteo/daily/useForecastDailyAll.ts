@@ -3,7 +3,6 @@ import { fetcher, getPath } from "../conf.js";
 import { fetchParams as fetchParamsHourly } from "../hourly/fetchParams.js";
 import type { ForecastData } from "../types.js";
 import { fetchParams as fetchParamsDaily } from "./fetchParams.js";
-import transformer from "./transformer.js";
 
 /**
  * Custom hook to fetch daily forecast (10 days) data from OpenMeteo API.
@@ -49,5 +48,20 @@ export function useForecastDailyAll(
     apiUrl,
     isLoading,
     isError: error,
+  };
+}
+
+export default function transformer(data: { daily: any; hourly: any }): object | null {
+  if (!data) return null;
+
+  return {
+    time: data.daily.time,
+    weathercode: data.daily.weather_code,
+    tempMax: data.daily.temperature_2m_max,
+    tempMin: data.daily.temperature_2m_min,
+    windDirection: data.daily.winddirection_10m_dominant,
+    windSpeed: data.daily.windspeed_10m_max,
+    precipitation_sum: data.daily.precipitation_sum,
+    hourly: data.hourly
   };
 }

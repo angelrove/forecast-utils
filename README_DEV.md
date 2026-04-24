@@ -29,22 +29,21 @@ npm i -g yalc
 #-----------------------------------
 # Development
 
-# En la ruta del paquete
+# Publish: ruta del paquete
 bunx tsc && yalc publish
 
-# En la ruta el proyecto
+# Update json: ruta el proyecto
 yalc add @angelrove/forecast-utils && bun update
 
-# Actualizar cambios en el paquete
-bunx tsc && yalc publish --push
+# Actualizar cambios
+  # ruta del paquete
+  bunx tsc && yalc publish --push
+  # ruta del proyecto
+  #bun update
+  yalc remove --all && bun update && yalc add @angelrove/forecast-utils && bun update
 
-# en la ruta del proyecto:
-#bun update
-yalc remove --all && bun update && yalc add @angelrove/forecast-utils && bun update
-
-#-----------------------------------
-# Limpiar las referencias locales y volver a usar la versión de NPM real.
-# en la ruta del proyecto:
+# Volver a usar la versión real: limpiar las referencias locales.
+# ruta del proyecto
 yalc remove --all && bun update
 ```
 
