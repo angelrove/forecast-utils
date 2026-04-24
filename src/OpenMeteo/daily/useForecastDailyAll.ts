@@ -51,7 +51,7 @@ export function useForecastDailyAll(
   };
 }
 
-export default function transformer(data: { daily: any; hourly: any }): object | null {
+function transformer(data: { daily: any; hourly: any }): object | null {
   if (!data) return null;
 
   return {

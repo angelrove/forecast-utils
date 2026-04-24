@@ -22,6 +22,7 @@ export { getGeolocation } from "./geolocation/getGeolocation";
 // OpenMeteo
 export { useForecastCurrent } from "./OpenMeteo/current/useForecastCurrent";
 export { useForecastDaily } from "./OpenMeteo/daily/useForecastDaily";
+export { useForecastDailyAll } from "./OpenMeteo/daily/useForecastDailyAll";
 export { useForecastHourly } from "./OpenMeteo/hourly/useForecastHourly";
 export { weatherSymbol } from "./OpenMeteo/weatherSymbol/weatherSymbol";
 
