@@ -1,6 +1,6 @@
 import geolocationCapacitor from "./lib/geolocation";
 import reverseGeocoding from "./lib/reversegeocoding";
-import type { GeocodingAddress, ResolvedLocation } from "./types";
+import type { DetailedLocation, GeocodingAddress, ResolvedLocation } from "./types";
 
 /**
  * Get the current geolocation of the device and reverse geocode it to get the address.
@@ -8,11 +8,11 @@ import type { GeocodingAddress, ResolvedLocation } from "./types";
  * @returns {Promise<ResolvedLocation>} Resolved location object.
  * @throws {Error} If geolocation is not supported or permission is denied.
  */
-export async function getGeolocation(): Promise<ResolvedLocation> {
+export async function getGeolocation(googlemaps_api_key: string, currentLocation?: DetailedLocation): Promise<ResolvedLocation> {
   let location: { latitude: number; longitude: number };
   let address = {} as GeocodingAddress;
 
-  // Location ---
+  // Location --------------
   try {
     location = await geolocationCapacitor();
     // location.latitude = '25.90197748117876'; location.longitude = '-65.71650426928204';
@@ -21,17 +21,26 @@ export async function getGeolocation(): Promise<ResolvedLocation> {
     throw new Error("Geolocation error: " + message);
   }
 
-  // Address ---
+  // Is the same location (se mantiene la actual)
+  if(currentLocation &&
+     currentLocation.latitude === location.latitude &&
+     currentLocation.longitude === location.longitude) {
+    return {
+      changed: false,
+      location: currentLocation
+    };
+  }
+
+  // Reverse geocoding -----
   try {
     address = await reverseGeocoding(
       location.latitude,
       location.longitude,
-      /* @ts-ignore */
-      import.meta.env.VITE_googlemaps_api_key,
+      googlemaps_api_key,
     );
   } catch (error) {
     const message = error instanceof Error ? error.message : error;
-    console.log("reverseGeocoding - error: ", message);
+    console.warn("reverseGeocoding - error: ", message);
     address = {
       sublocality: "",
       locality: "",
@@ -44,9 +53,12 @@ export async function getGeolocation(): Promise<ResolvedLocation> {
 
   // Return data ---
   return {
-    ...address,
-    latitude: location.latitude,
-    longitude: location.longitude
+    changed: true,
+    location: {
+      ...address,
+      latitude: location.latitude,
+      longitude: location.longitude
+    }
   };
 }
 //--------------------------------------------
