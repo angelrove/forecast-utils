@@ -22,7 +22,17 @@ export type DetailedLocation = {
   formatted_address: string;
 }
 
-  export type ResolvedLocation = {
+export type ResolvedLocation = {
   changed: boolean;
   location: DetailedLocation
 };
+
+export type TimezoneInfo = {
+  time: Date;
+  timeStr: string;
+  timezone: string;
+  timezoneId: string;
+  offset: string;
+  offsetSign: string;
+  dstOffset: string;
+}
