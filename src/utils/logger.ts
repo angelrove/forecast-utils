@@ -1,5 +1,5 @@
-/* @ts-expect-error */
-const isDev = import.meta.env.MODE === "development";
+const meta = import.meta as any;
+const isDev = meta.env?.MODE === "development";
 
 //-----------------------------------------------------------
 export const logger = {
@@ -10,13 +10,11 @@ export const logger = {
   debug: (msg: string, obj?: any) => loggerF("yellow", msg, obj),
   handle: (msg: string, obj?: any) => loggerF("orange", "> " + msg, obj),
   fetch: (msg: string, from: string) => {
-    if (!isDev) return;
-    console.log(`<< fetch [${msg}]: %c${from}`, `color:lightblue;`);
+    if (isDev) console.log(`<< fetch [${msg}]: %c${from}`, `color:lightblue;`);
   },
 };
 //-----------------------------------------------------------
 function loggerF(color: string, msg: string, obj?: any) {
-  if (!isDev) return;
-  console.log(`%c${msg}`, `color:${color};`, obj ? obj : "");
+  if (isDev) console.log(`%c${msg}`, `color:${color};`, obj ? obj : "");
 }
 //-----------------------------------------------------------
