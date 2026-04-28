@@ -1,3 +1,4 @@
+/* @ts-expect-error */
 const isDev = import.meta.env.MODE === "development";
 
 //-----------------------------------------------------------
