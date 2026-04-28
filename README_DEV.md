@@ -35,14 +35,14 @@ bunx tsc && yalc publish
 # Update json: ruta el proyecto
 yalc add @angelrove/forecast-utils && bun update
 
-# Actualizar cambios
+# Actualizar cambios ---
   # ruta del paquete
   bunx tsc && yalc publish --push
   # ruta del proyecto
   #bun update
   yalc remove --all && bun update && yalc add @angelrove/forecast-utils && bun update
 
-# Volver a usar la versión real: limpiar las referencias locales.
+# Volver a usar la versión de producción: limpiar las referencias locales.
 # ruta del proyecto
 yalc remove --all && bun update
 ```
