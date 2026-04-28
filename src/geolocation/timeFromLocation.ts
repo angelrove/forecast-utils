@@ -23,16 +23,21 @@ import type { TimezoneInfo } from "./types";
  * @returns {Promise<TimezoneInfo>} An object containing the local time and timezone information:
  * @throws {Error} If the API request fails or returns an error status.
  */
-export async function timeFromLocation(apiKey: string, lat: number, lng: number): Promise<TimezoneInfo> {
+export async function timeFromLocation(
+  apiKey: string,
+  lat: number,
+  lng: number,
+): Promise<TimezoneInfo> {
   const timestamp = Math.floor(Date.now() / 1000);
   const url =
     "https://maps.googleapis.com/maps/api/timezone/json?" +
     `location=${lat},${lng}&timestamp=${timestamp}&key=${apiKey}`;
 
-  // Log: hidden apiKey
-  console.info(">> Google (time)", url.replace(/key=[^&]+/, "key=********"));
-
   // Fetch timezone information ---
+  logger.fetch(
+    "GoogleMaps: timezone",
+    "https://maps.googleapis.com/maps/api/timezone/...",
+  );
   return fetch(url)
     .then((response) => response.json())
     .then((data) => {

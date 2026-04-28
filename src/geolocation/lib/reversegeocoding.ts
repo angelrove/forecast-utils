@@ -1,3 +1,4 @@
+import { logger } from "../../utils/logger";
 import type { GeocodingAddress } from "../types";
 
 /**
@@ -13,8 +14,8 @@ import type { GeocodingAddress } from "../types";
 export default async function reverseGeocoding(
   latitude: number,
   longitude: number,
-  api_key: string): Promise<GeocodingAddress>
-  {
+  api_key: string,
+): Promise<GeocodingAddress> {
   // Validate --
   if (!api_key) {
     console.error("ReverseGeocoding: invalid api key");
@@ -46,8 +47,8 @@ export default async function reverseGeocoding(
   const urlApi = host + "&result_type=sublocality";
 
   // Fetch data --
+  logger.fetch("GoogleMaps: geocode", urlApi);
   const response = await fetch(urlApi);
-  devLog("Geocoding", urlApi);
 
   // Check response --
   if (!response.ok) {
@@ -99,11 +100,4 @@ export default async function reverseGeocoding(
     country_short: data.results[0].address_components[4].short_name,
     formatted_address: formatted_address,
   };
-}
-
-function devLog(title: string, url: any) {
-  /* @ts-ignore */
-  if (import.meta.env.MODE === "development") {
-    console.log(`> fetch [${title}]:`, url);
-  }
 }

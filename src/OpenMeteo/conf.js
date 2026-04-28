@@ -1,3 +1,5 @@
+import { logger } from "../utils/logger";
+
 const ApiInfo = {
   host: "https://api.open-meteo.com/v1",
   pathMain: "/forecast?timezone=auto&",
@@ -7,7 +9,7 @@ const ApiInfo = {
  * @param {string} url
  */
 export async function fetcher(url) {
-  devLog("OpemMeteo", url);
+  logger.fetch("OpemMeteo", url);
   return fetch(url).then((res) => res.json());
 }
 
@@ -30,18 +32,4 @@ export function getPath(lat, lon, path) {
     "&" +
     path
   );
-}
-
-/**
- * Console log for development
- *
- * @param {string} title
- * @param {string} url
- */
-function devLog(title, url) {
-  /* @ts-expect-error */
-  if (import.meta.env.MODE === "development") {
-    // console.log('%c> fetch [' + title + ']:', 'color:#9e9', url);
-    console.log("> fetch [" + title + "]:", url);
-  }
 }
