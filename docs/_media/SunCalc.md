@@ -54,6 +54,26 @@ SunCalc.
 
 > **sunTimes**: `object`
 
+### getIsNightNow()
+
+> **getIsNightNow**: (`lat`, `lon`) => `boolean`
+
+#### Parameters
+
+##### lat
+
+`number`
+
+##### lon
+
+`number`
+
+#### Returns
+
+`boolean`
+
+true if it's night, false otherwise
+
 ### getIsNight()
 
 > **getIsNight**: (`lat`, `lon`, `timezoneId`, `date`, `dateStr`) => `boolean`

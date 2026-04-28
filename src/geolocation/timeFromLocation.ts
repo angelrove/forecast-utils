@@ -20,10 +20,10 @@ import type { TimezoneInfo } from "./types";
  * @param {string} apiKey GoogleMaps API key.
  * @param {number} lat
  * @param {number} lng
- * @returns {Promise<any | LocalTimeData>} An object containing the local time and timezone information:
+ * @returns {Promise<TimezoneInfo>} An object containing the local time and timezone information:
  * @throws {Error} If the API request fails or returns an error status.
  */
-export async function timeFromLocation(apiKey: string, lat, lng): TimezoneInfo {
+export async function timeFromLocation(apiKey: string, lat: number, lng: number): Promise<TimezoneInfo> {
   const timestamp = Math.floor(Date.now() / 1000);
   const url =
     "https://maps.googleapis.com/maps/api/timezone/json?" +
@@ -59,7 +59,7 @@ export async function timeFromLocation(apiKey: string, lat, lng): TimezoneInfo {
  * @param {number} timezoneInfo.dstOffset - The DST offset in seconds.
  * @param {string} timezoneInfo.timeZoneName - The name of the timezone.
  * @param {string} timezoneInfo.timeZoneId - The ID of the timezone.
- * @returns {LocalTimeData} - An object containing the local time and timezone information.
+ * @returns {TimezoneInfo} - An object containing the local time and timezone information.
  */
 function getLocalTimeData(timezoneInfo: object): TimezoneInfo {
   // Time
@@ -82,7 +82,7 @@ function getLocalTimeData(timezoneInfo: object): TimezoneInfo {
 //------------------------------------------------------
 /**
  * @private
- * @returns {LocalTimeData} - An object containing the local time and timezone information when error.
+ * @returns {TimezoneInfo} - An object containing the local time and timezone information when error.
  */
 function getLocalTimeDataErr(): TimezoneInfo {
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
