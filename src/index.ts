@@ -32,4 +32,3 @@ export { getWarning, getWarningByDays } from "./utils/warning";
 export { WindArrow } from "./utils/wind/WindArrow";
 export { windArrowTx } from "./utils/wind/windArrowTx";
 export { getWindLevel } from "./utils/wind/windLevel";
-

@@ -37,7 +37,12 @@ export const SunCalc = {
  * @returns {{ sunTimes: object, sunPosition: object, sunPhase: string }}
  * { sunTimes: object, sunPosition: object, sunPhase: string }
  */
-export function all(date, latitude, longitude, timezoneId) {
+export function all(
+  date: Date,
+  latitude: number,
+  longitude: number,
+  timezoneId: string,
+) {
   const sunTimes = SunCalc.times(date, latitude, longitude, timezoneId);
   const sunPosition = SunCalc.position(latitude, longitude, date);
   const sunPhase = SunCalc.getPhase(sunPosition.altitude, sunTimes.noon);
@@ -58,7 +63,12 @@ export function all(date, latitude, longitude, timezoneId) {
  * @returns {{ date: Date, sunrise: string, sunset: string, noon: string, dawn: string, dusk: string }}
  * { date: Date, sunrise: string, sunset: string, noon: string, dawn: string, dusk: string }
  */
-export function times(date, latitude, longitude, timezoneId) {
+export function times(
+  date: Date,
+  latitude: number,
+  longitude: number,
+  timezoneId: string,
+) {
   const times = SunCalc3.getSunTimes(date, latitude, longitude);
 
   const sunTimes = {
@@ -84,7 +94,12 @@ export function times(date, latitude, longitude, timezoneId) {
  * @param {number} offset UTC offset in hours
  * @returns {string} Local time in "HH:mm" format
  */
-export function getSolarTime(date, lng, offsetSign, offset) {
+export function getSolarTime(
+  date: Date,
+  lng: number,
+  offsetSign: "+" | "-",
+  offset: number | string,
+): string {
   // Convert offsetSign and offset to a numeric UTC offset (e.g., -3, +2)
   const utcOffset = (offsetSign === "-" ? -1 : 1) * Math.abs(Number(offset));
   const solarTime = SunCalc3.getSolarTime(date, lng, utcOffset);
@@ -98,10 +113,10 @@ export function getSolarTime(date, lng, offsetSign, offset) {
  * {date: string, azimuth: number, direction: string, direction_full: string, altitude: number, zenith: number, declination: number}
  */
 export function position(
-  latitude,
-  longitude,
-  date = new Date(),
-  language = "es-ES",
+  latitude: number,
+  longitude: number,
+  date: Date = new Date(),
+  language: string = "es-ES",
 ) {
   const position = SunCalc3.getPosition(date, latitude, longitude);
 
@@ -129,7 +144,13 @@ export function position(
  * @param {string} dateStr
  * @returns {boolean} true if it's night, false otherwise
  */
-export function getIsNight(lat, lon, timezoneId, date, dateStr) {
+export function getIsNight(
+  lat: number,
+  lon: number,
+  timezoneId: string,
+  date: Date,
+  dateStr: string,
+): boolean {
   const times = SunCalc3.getSunTimes(date, lat, lon);
 
   // se pueden comparar horas(hh:mm) estando en formato texto
@@ -152,7 +173,7 @@ export function getIsNight(lat, lon, timezoneId, date, dateStr) {
  * @returns {boolean} true if it's night, false otherwise
  */
 // NO FUNCIONA ??? --------
-export function getIsNightNow(lat, lon) {
+export function getIsNightNow(lat: number, lon: number): boolean {
   const date = new Date();
 
   // Cálculo de día/noche usando las coordenadas
@@ -170,7 +191,7 @@ export function getIsNightNow(lat, lon) {
  * @param {string} noon
  * @returns {string} The phase of the sun based on its altitude
  */
-export function getPhase(altitude, noon) {
+export function getPhase(altitude: number, noon: string): string {
   const nowTime = TimeDateStr.nowString();
 
   let phase = "day";

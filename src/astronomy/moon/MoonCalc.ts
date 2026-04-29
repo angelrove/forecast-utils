@@ -18,7 +18,11 @@ import type { MoonData, MoonDataExt, MoonTimes } from "./types.js";
  * MoonCalc.
  */
 export const MoonCalc = {
-  data, dataExt, times, emoji, getUpOrDown,
+  data,
+  dataExt,
+  times,
+  emoji,
+  getUpOrDown,
 };
 
 /**
@@ -45,8 +49,8 @@ export function data(
   latitude: number,
   longitude: number,
   date: Date = new Date(),
-  language: string = "es-ES"): MoonData
-  {
+  language: string = "es-ES",
+): MoonData {
   // date.setHours(date.getHours() + 0); // debug
   const data = SunCalc.getMoonData(date, latitude, longitude);
   // console.log("%cdebug:", "color:yellow", data.illumination.next.newMoon.value);
@@ -63,8 +67,8 @@ export function dataExt(
   latitude: number,
   longitude: number,
   date: Date = new Date(),
-  language: string = "es-ES"): MoonDataExt
-  {
+  language: string = "es-ES",
+): MoonDataExt {
   const data = SunCalc.getMoonData(date, latitude, longitude);
 
   // Illumination
@@ -102,8 +106,8 @@ export function dataExt(
 export function emoji(
   latitude: number,
   longitude: number,
-  date: Date = new Date()): string
-  {
+  date: Date = new Date(),
+): string {
   const data = SunCalc.getMoonData(date, latitude, longitude);
   return data.illumination.phase.emoji;
 }
@@ -112,8 +116,8 @@ export function times(
   latitude: number,
   longitude: number,
   timezoneId: string,
-  date: Date = new Date()): MoonTimes
-  {
+  date: Date = new Date(),
+): MoonTimes {
   const ret = {} as MoonTimes;
 
   const times = SunCalc.getMoonTimes(date, latitude, longitude);
