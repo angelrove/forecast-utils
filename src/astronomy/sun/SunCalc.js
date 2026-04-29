@@ -151,6 +151,7 @@ export function getIsNight(lat, lon, timezoneId, date, dateStr) {
  * @param {number} lon
  * @returns {boolean} true if it's night, false otherwise
  */
+// NO FUNCIONA ??? --------
 export function getIsNightNow(lat, lon) {
   const date = new Date();
 
