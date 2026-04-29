@@ -52,11 +52,11 @@ yalc remove --all && bun update
 ```bash
 rm -rf dist && bunx tsc
 commit
+#----
 npm version patch && npm publish # 'with --access public' only first time
-
 # si da error de permisos, ejecutar:
 npm login
+#----
 
-# Push to GitHub
 gp
 ```
