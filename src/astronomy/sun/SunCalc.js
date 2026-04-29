@@ -149,10 +149,11 @@ export function getIsNight(lat, lon, timezoneId, date, dateStr) {
 /**
  * @param {number} lat
  * @param {number} lon
- * @param {Date} date
  * @returns {boolean} true if it's night, false otherwise
  */
-export function getIsNightNow(lat, lon, date) {
+export function getIsNightNow(lat, lon) {
+  const date = new Date();
+
   // Cálculo de día/noche usando las coordenadas
   const times = SunCalc3.getSunTimes(date, lat, lon);
 
