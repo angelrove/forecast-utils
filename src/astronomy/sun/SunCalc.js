@@ -149,18 +149,17 @@ export function getIsNight(lat, lon, timezoneId, date, dateStr) {
 /**
  * @param {number} lat
  * @param {number} lon
+ * @param {Date} date
  * @returns {boolean} true if it's night, false otherwise
  */
-export function getIsNightNow(lat, lon) {
-  const now = new Date();
-
+export function getIsNightNow(lat, lon, date) {
   // Cálculo de día/noche usando las coordenadas
-  const times = SunCalc3.getSunTimes(now, lat, lon);
+  const times = SunCalc3.getSunTimes(date, lat, lon);
 
   // Comparamos el objeto Date actual con los límites astronómicos
   // times.sunsetStart
   const isDay =
-    now > times.sunriseEnd.value && now < times.goldenHourDuskStart.value;
+    date > times.sunriseEnd.value && date < times.goldenHourDuskStart.value;
   return !isDay;
 }
 //-------------------------------------------------------
