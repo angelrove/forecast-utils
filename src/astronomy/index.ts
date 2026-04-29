@@ -4,6 +4,10 @@
  */
 
 export { MoonCalc } from "./moon/MoonCalc";
-export type { AstroPosition, MoonData, MoonDataExt, MoonTimes } from "./moon/types";
-export { SunCalc } from "./sun/SunCalc";
-
+export type {
+  AstroPosition,
+  MoonData,
+  MoonDataExt,
+  MoonTimes,
+} from "./moon/types";
+export { SunCalc, type SunPhase } from "./sun/SunCalc";

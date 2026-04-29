@@ -72,7 +72,10 @@ function nowString(sec = false) {
  * @param {Date | number} [date=new Date()] - The date object to format. Defaults to the current date.
  * @returns {string} - The formatted local time string.
  */
-function getLocalTimeFromTz(timeZone, date = new Date()) {
+function getLocalTimeFromTz(
+  timeZone: string,
+  date: Date | number = new Date(),
+) {
   // Timezone example
   // timeZone = 'America/New_York';
 

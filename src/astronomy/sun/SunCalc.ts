@@ -4,7 +4,7 @@
  *   import { SunCalc } from ...
  *
  * Importante:
- * ¡Solo proporcionar HORA LOCAL DEL SISTEMA!: 'new Date()'
+ * ¡Solo proporcionar hora con objeto 'Date'!: 'new Date()'
  * Con excepción de 'getSolarTime()': recibe la hora local correspondiente a la localización dada.
  *
  * @module Astronomy/SunCalc
@@ -27,6 +27,16 @@ export const SunCalc = {
   getIsNightNow,
   getPhase,
 };
+
+export type SunPhase =
+  | "dayStart" // punto técnico donde comienza la jornada
+  | "dawn" // primer resplandor de luz antes de que salga el sol.
+  | "sunrise" // aparece en el horizonte
+  | "day" // plena luz solar.
+  | "sunset" // el sol desaparece bajo el horizonte.
+  | "dusk" // luz mortecina que queda antes de la oscuridad total.
+  | "dayEnd" // cierre técnico de la jornada
+  | "night"; // periodo de oscuridad total.
 
 //-------------------------------------------------------
 /**
@@ -54,21 +64,26 @@ export function all(
   };
 }
 //-------------------------------------------------------
-// 'timeZone' es necesario para devolver las horas locales
 /**
  * @param {Date} date
  * @param {number} latitude
  * @param {number} longitude
  * @param {string} timezoneId
  * @returns {{ date: Date, sunrise: string, sunset: string, noon: string, dawn: string, dusk: string }}
- * { date: Date, sunrise: string, sunset: string, noon: string, dawn: string, dusk: string }
  */
 export function times(
   date: Date,
   latitude: number,
   longitude: number,
   timezoneId: string,
-) {
+): {
+  date: Date;
+  dawn: string;
+  sunrise: string;
+  noon: string;
+  sunset: string;
+  dusk: string;
+} {
   const times = SunCalc3.getSunTimes(date, latitude, longitude);
 
   const sunTimes = {
@@ -88,22 +103,26 @@ export function times(
 }
 //-------------------------------------------------------
 /**
- * @param {Date} date
- * @param {number} lng
- * @param {string} offsetSign "+" or "-"
- * @param {number} offset UTC offset in hours
- * @returns {string} Local time in "HH:mm" format
+ * The sun phase based on its altitude
  */
-export function getSolarTime(
-  date: Date,
-  lng: number,
-  offsetSign: "+" | "-",
-  offset: number | string,
-): string {
-  // Convert offsetSign and offset to a numeric UTC offset (e.g., -3, +2)
-  const utcOffset = (offsetSign === "-" ? -1 : 1) * Math.abs(Number(offset));
-  const solarTime = SunCalc3.getSolarTime(date, lng, utcOffset);
-  return TimeDateStr.timeString(solarTime);
+export function getPhase(altitude: number, noon: string): SunPhase {
+  const nowTime = TimeDateStr.nowString();
+
+  let phase = "day";
+  if (altitude < 4) {
+    phase = nowTime > noon ? "dayEnd" : "dayStart";
+  }
+  if (altitude < 2) {
+    phase = nowTime > noon ? "sunset" : "sunrise";
+  }
+  if (altitude < -5) {
+    phase = nowTime > noon ? "dusk" : "dawn";
+  }
+  if (altitude < -18) {
+    phase = "night";
+  }
+
+  return phase as SunPhase;
 }
 //-------------------------------------------------------
 /**
@@ -134,7 +153,25 @@ export function position(
   };
 }
 //-------------------------------------------------------
-// Sun phase
+//-------------------------------------------------------
+/**
+ * @param {Date} date
+ * @param {number} lng
+ * @param {string} offsetSign "+" or "-"
+ * @param {number} offset UTC offset in hours
+ * @returns {string} Local time in "HH:mm" format
+ */
+export function getSolarTime(
+  date: Date,
+  lng: number,
+  offsetSign: "+" | "-",
+  offset: number | string,
+): string {
+  // Convert offsetSign and offset to a numeric UTC offset (e.g., -3, +2)
+  const utcOffset = (offsetSign === "-" ? -1 : 1) * Math.abs(Number(offset));
+  const solarTime = SunCalc3.getSolarTime(date, lng, utcOffset);
+  return TimeDateStr.timeString(solarTime);
+}
 //-------------------------------------------------------
 /**
  * @param {number} lat
@@ -152,6 +189,7 @@ export function getIsNight(
   dateStr: string,
 ): boolean {
   const times = SunCalc3.getSunTimes(date, lat, lon);
+  console.warn("getSunTimes", times);
 
   // se pueden comparar horas(hh:mm) estando en formato texto
   // y así no tenemos que tener en cuenta el día, mes.
@@ -161,7 +199,7 @@ export function getIsNight(
   );
   const timeDown = TimeDateStr.getLocalTimeFromTz(
     timezoneId,
-    times.goldenHourDuskStart.value,
+    times.sunsetStart.value,
   );
 
   return dateStr < timeUp || dateStr > timeDown;
@@ -184,31 +222,6 @@ export function getIsNightNow(lat: number, lon: number): boolean {
   const isDay =
     date > times.sunriseEnd.value && date < times.goldenHourDuskStart.value;
   return !isDay;
-}
-//-------------------------------------------------------
-/**
- * @param {number} altitude
- * @param {string} noon
- * @returns {string} The phase of the sun based on its altitude
- */
-export function getPhase(altitude: number, noon: string): string {
-  const nowTime = TimeDateStr.nowString();
-
-  let phase = "day";
-  if (altitude < 4) {
-    phase = nowTime > noon ? "dayEnd" : "dayStart";
-  }
-  if (altitude < 2) {
-    phase = nowTime > noon ? "sunset" : "sunrise";
-  }
-  if (altitude < -5) {
-    phase = nowTime > noon ? "dusk" : "dawn";
-  }
-  if (altitude < -18) {
-    phase = "night";
-  }
-
-  return phase;
 }
 //-------------------------------------------------------
 // function getPhase2(date, sunTimes, timeZone) {
