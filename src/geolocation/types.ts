@@ -11,7 +11,7 @@ export type Location = {
   longitude: number;
 };
 
-export type DetailedLocation = {
+export type ResolvedLocation = {
   latitude: number;
   longitude: number;
   // Address
@@ -20,11 +20,6 @@ export type DetailedLocation = {
   locality: string;
   sublocality: string;
   formatted_address: string;
-}
-
-export type ResolvedLocation = {
-  changed: boolean;
-  location: DetailedLocation
 };
 
 export type TimezoneInfo = {
@@ -35,4 +30,4 @@ export type TimezoneInfo = {
   offset: string;
   offsetSign: string;
   dstOffset: string;
-}
+};

@@ -1,6 +1,6 @@
 import geolocationCapacitor from "./lib/geolocation";
 import reverseGeocoding from "./lib/reversegeocoding";
-import type { DetailedLocation, GeocodingAddress, ResolvedLocation } from "./types";
+import type { GeocodingAddress, ResolvedLocation } from "./types";
 
 /**
  * Get the current geolocation of the device and reverse geocode it to get the address.
@@ -8,7 +8,10 @@ import type { DetailedLocation, GeocodingAddress, ResolvedLocation } from "./typ
  * @returns {Promise<ResolvedLocation>} Resolved location object.
  * @throws {Error} If geolocation is not supported or permission is denied.
  */
-export async function getGeolocation(googlemaps_api_key: string, currentLocation?: DetailedLocation): Promise<ResolvedLocation> {
+export async function getGeolocation(
+  googlemaps_api_key: string,
+  currentLocation?: ResolvedLocation,
+): Promise<{ changed: boolean; location: ResolvedLocation }> {
   let location: { latitude: number; longitude: number };
   let address = {} as GeocodingAddress;
 
@@ -22,12 +25,14 @@ export async function getGeolocation(googlemaps_api_key: string, currentLocation
   }
 
   // Is the same location (se mantiene la actual)
-  if(currentLocation &&
-     currentLocation.latitude === location.latitude &&
-     currentLocation.longitude === location.longitude) {
+  if (
+    currentLocation &&
+    currentLocation.latitude === location.latitude &&
+    currentLocation.longitude === location.longitude
+  ) {
     return {
       changed: false,
-      location: currentLocation
+      location: currentLocation,
     };
   }
 
@@ -57,8 +62,8 @@ export async function getGeolocation(googlemaps_api_key: string, currentLocation
     location: {
       ...address,
       latitude: location.latitude,
-      longitude: location.longitude
-    }
+      longitude: location.longitude,
+    },
   };
 }
 //--------------------------------------------
