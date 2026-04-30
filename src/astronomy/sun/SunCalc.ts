@@ -189,7 +189,7 @@ export function getIsNight(
   dateStr: string,
 ): boolean {
   const times = SunCalc3.getSunTimes(date, lat, lon);
-  console.warn("getSunTimes", times);
+  // console.warn("getSunTimes", times);
 
   // se pueden comparar horas(hh:mm) estando en formato texto
   // y así no tenemos que tener en cuenta el día, mes.
