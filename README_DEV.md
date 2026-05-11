@@ -49,7 +49,6 @@ Si da error de permisos, ejecutar: `npm login`
 ```bash
 # Compile
 rm -rf dist && bunx tsc # generate types for JSDoc ('.d.ts' files) in 'dist/types'. See 'tsconfig.json'
-
 commit
 npm version patch && npm publish # 'with --access public' only first time
 gp
