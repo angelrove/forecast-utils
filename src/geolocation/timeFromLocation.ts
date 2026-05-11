@@ -3,25 +3,14 @@ import { TimeDateStr } from "../utils/timehelpers";
 import type { TimezoneInfo } from "./types";
 
 // Time Zone API >> Respuestas de zona horaria: https://developers.google.com/maps/documentation/timezone/requests-timezone?hl=es-419#responses
-interface GoogleTimezoneResponse {
+type GoogleTimezoneResponse = {
   dstOffset: number;
   rawOffset: number;
   status: string;
   timeZoneId: string;
   timeZoneName: string;
   errorMessage?: string;
-}
-
-/**
- * @typedef {object} LocalTimeData
- * @property {Date} time - The local time.
- * @property {string} timeStr - The formatted local time string.
- * @property {string} timezone - The timezone name.
- * @property {string} timezoneId - The timezone ID.
- * @property {number} offset - The UTC offset in hours.
- * @property {string} offsetSign - The sign of the offset ('+' or '-').
- * @property {number} dstOffset - The DST offset in hours.
- */
+};
 
 //------------------------------------------------------
 /**
