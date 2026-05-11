@@ -2,6 +2,7 @@ import { logger } from "../utils/logger";
 import { TimeDateStr } from "../utils/timehelpers";
 import type { TimezoneInfo } from "./types";
 
+// Time Zone API >> Respuestas de zona horaria: https://developers.google.com/maps/documentation/timezone/requests-timezone?hl=es-419#responses
 interface GoogleTimezoneResponse {
   dstOffset: number;
   rawOffset: number;
@@ -49,15 +50,15 @@ export async function timeFromLocation(
   );
   return fetch(url)
     .then((response) => response.json())
-    .then((data: GoogleTimezoneResponse) => {
+    .then((timezoneInfo: GoogleTimezoneResponse) => {
       // Error ---
-      if (data.status !== "OK") {
-        console.error(data);
+      if (timezoneInfo.status !== "OK") {
+        console.error(timezoneInfo);
         return getLocalTimeDataErr();
       }
 
       // Success ---
-      return getLocalTimeData(data);
+      return getLocalTimeData(timezoneInfo);
     })
     .catch((error) => {
       console.error(error);
@@ -69,29 +70,29 @@ export async function timeFromLocation(
 //------------------------------------------------------
 /**
  * @private
- * @param {object} timezoneInfo - The timezone Google API information.
- * @param {number} timezoneInfo.rawOffset - The raw offset in seconds.
- * @param {number} timezoneInfo.dstOffset - The DST offset in seconds.
- * @param {string} timezoneInfo.timeZoneName - The name of the timezone.
- * @param {string} timezoneInfo.timeZoneId - The ID of the timezone.
+ * @param {GoogleTimezoneResponse} googleTimezoneResponse
  * @returns {TimezoneInfo} - An object containing the local time and timezone information.
  */
-function getLocalTimeData(timezoneInfo: GoogleTimezoneResponse): TimezoneInfo {
+function getLocalTimeData(
+  googleTimezoneResponse: GoogleTimezoneResponse,
+): TimezoneInfo {
   // Time
   const date = new Date();
   const utc = date.getTime() + date.getTimezoneOffset() * 60000;
   const localTime =
-    utc + 1000 * timezoneInfo.rawOffset + 1000 * timezoneInfo.dstOffset;
+    utc +
+    1000 * googleTimezoneResponse.rawOffset +
+    1000 * googleTimezoneResponse.dstOffset;
   const time = new Date(localTime);
 
   return {
     time: time,
     timeStr: TimeDateStr.timeString(time),
-    timezone: timezoneInfo.timeZoneName,
-    timezoneId: timezoneInfo.timeZoneId,
-    offset: (timezoneInfo.rawOffset / 3600).toString(),
-    offsetSign: timezoneInfo.rawOffset < 0 ? "" : "+",
-    dstOffset: (timezoneInfo.dstOffset / 3600).toString(),
+    timezone: googleTimezoneResponse.timeZoneName,
+    timezoneId: googleTimezoneResponse.timeZoneId,
+    offset: (googleTimezoneResponse.rawOffset / 3600).toString(),
+    offsetSign: googleTimezoneResponse.rawOffset < 0 ? "" : "+",
+    dstOffset: (googleTimezoneResponse.dstOffset / 3600).toString(),
   };
 }
 //------------------------------------------------------
