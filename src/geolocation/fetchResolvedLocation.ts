@@ -3,12 +3,12 @@ import reverseGeocoding from "./lib/reversegeocoding";
 import type { GeocodingAddress, ResolvedLocation } from "./types";
 
 /**
- * Get the current geolocation of the device and reverse geocode it to get the address.
+ * Fetches the current device position and performs reverse geocoding to resolve the address.
  *
- * @returns {Promise<ResolvedLocation>} Resolved location object.
+ * @returns {Promise<{ changed: boolean; location: ResolvedLocation }>} Object containing a change flag and the resolved location.
  * @throws {Error} If geolocation is not supported or permission is denied.
  */
-export async function getGeolocation(
+export async function fetchResolvedLocation(
   googlemaps_api_key: string,
   currentLocation?: ResolvedLocation,
 ): Promise<{ changed: boolean; location: ResolvedLocation }> {

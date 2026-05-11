@@ -17,7 +17,7 @@ export { timeFromLocation } from "./geolocation/timeFromLocation";
 export { TimeDateStr } from "./utils/timehelpers";
 
 // Geolocation
-export { getGeolocation } from "./geolocation/getGeolocation";
+export { fetchResolvedLocation } from "./geolocation/fetchResolvedLocation";
 
 // OpenMeteo
 export { useForecastCurrent } from "./OpenMeteo/current/useForecastCurrent";

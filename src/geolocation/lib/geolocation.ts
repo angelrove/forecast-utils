@@ -9,7 +9,11 @@ export default async function geolocation(): Promise<{
   longitude: number;
 }> {
   const geolocOptions = {
-    enableHighAccuracy: false,
+    // Se recomienda 'true' incluso para ubicación aproximada.
+    // Si el usuario denegó precisión a nivel de SO, el navegador simplemente
+    // recibirá la ubicación aproximada, pero el sistema activará los servicios
+    // de localización de forma más activa, evitando timeouts.
+    enableHighAccuracy: true,
     // Aumentamos a 30s porque algunos navegadores incluyen el tiempo de respuesta del usuario
     // en el diálogo de permisos dentro de este contador.
     timeout: 30 * 1000,
