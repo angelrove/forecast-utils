@@ -1,14 +1,17 @@
+import { logger } from "../../utils/logger";
+
 /**
  * Transforms the OpenMeteo API data into a more usable format.
  *
  * @param {{current: any, daily: any, hourly: any, latitude: number, longitude: number}} data - The data object to transform.
  * @returns {object|null} - The transformed data object or null if the input is invalid.
  */
-export default function transformer(data) {
+export default function transformer(data, lang = "es") {
   if (!data) return null;
 
   const current = data.current;
   const daily = data.daily;
+  logger.trace(lang);
 
   return {
     city: null,

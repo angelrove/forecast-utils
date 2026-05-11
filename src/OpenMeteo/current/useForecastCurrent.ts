@@ -10,31 +10,30 @@ import transformer from "./transformer.js";
 export function useForecastCurrent(
   lat: number | false | null,
   lon: number | false | null,
-  refreshIntervalMin: number = 0): ForecastData
-  {
-
+  refreshIntervalMin: number = 0,
+  lang: string = "es",
+): ForecastData {
   // Lógica de validación ---
   const shouldFetch = lat !== false && lon !== false;
   const hasMissingData = lat === null || lon === null;
 
-    // Aviso en consola si hay un NULL inesperado ---
+  // Aviso en consola si hay un NULL inesperado ---
   if (hasMissingData) {
     console.warn(
       `[useForecastCurrent]: Petición abortada por datos faltantes (null/undefined).`,
-      { lat, lon }
+      { lat, lon },
     );
   }
 
   // Definición de la KEY para SWR ---
-  const apiUrl = shouldFetch && !hasMissingData
-  ? getPath(lat, lon, fetchParams)
-  : null;
+  const apiUrl =
+    shouldFetch && !hasMissingData ? getPath(lat, lon, fetchParams) : null;
 
   // Fetch ---
   // Cache
   const cacheOps = {
     // Durante este tiempo, SWR considera que el dato que tiene es lo suficientemente nuevo y no disparará el fetcher.
-    dedupingInterval: (10 * 60 * 1000), // 10 minutos en milisegundos
+    dedupingInterval: 10 * 60 * 1000, // 10 minutos en milisegundos
     // Actualiza solo si la app está abierta frente al usuario
     refreshInterval: refreshIntervalMin * 60 * 1000,
   };
@@ -44,7 +43,7 @@ export function useForecastCurrent(
 
   // Return --
   return {
-    data: data ? transformer(data) : null,
+    data: data ? transformer(data, lang) : null,
     apiUrl,
     isLoading,
     isError: error,

@@ -3,24 +3,30 @@ import { getWeatherCodeEntry } from "./lib/getWeatherCodeEntry.js";
 
 /**
  * Get weather symbol and description based on the weather code.
+ * @param {any} code - WMO Weather code.
+ * @param {number | undefined} precipitation - Precipitation amount.
+ * @param {boolean} night - Is it night time.
+ * @param {boolean} dark - Use dark theme icons.
+ * @param {string} lang - Language code ('es' or 'en').
+ * @returns {WeatherSymbol}
  */
 export function weatherSymbol(
   code: any,
   precipitation: number | undefined = undefined,
   night: boolean = false,
   dark: boolean = false,
-): WeatherSymbol
-{
+  lang: string = "es",
+): WeatherSymbol {
   // Parse code ---
-  let msgPlus = "";
+  let msgPlus = lang === "es" ? " y lluvia fuerte" : " and heavy rain";
   let theCode = code;
   if (precipitation && precipitation > 0.8) {
     if (theCode === 63) theCode = 65;
-    if (theCode === 95) msgPlus = " y lluvia fuerte";
+    if (theCode === 95) msgPlus = lang === "es" ? " y lluvia fuerte" : " and heavy rain";
   }
 
   // Get weather entry ---
-  const weatherCodeEntry = getWeatherCodeEntry(theCode);
+  const weatherCodeEntry = getWeatherCodeEntry(theCode, lang);
   if (!weatherCodeEntry) {
     return {
       icon: "ws/icon_error.webp",
