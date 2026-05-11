@@ -18,7 +18,7 @@ export default async function geolocation(): Promise<{
     // en el diálogo de permisos dentro de este contador.
     timeout: 30 * 1000,
     // 5 minutos de caché es razonable para aplicaciones de clima.
-    maximumAge: 5 * 60 * 1000, // Permite usar una ubicación cacheada de hasta 5 minutos
+    maximumAge: 5 * 60 * 1000,
   };
 
   try {
