@@ -10,8 +10,11 @@ export default async function geolocation(): Promise<{
 }> {
   const geolocOptions = {
     enableHighAccuracy: true,
-    timeout: 9 * 1000,
-    maximumAge: 0,
+    // Aumentamos a 30s porque algunos navegadores incluyen el tiempo de respuesta del usuario
+    // en el diálogo de permisos dentro de este contador.
+    timeout: 30 * 1000,
+    // 5 minutos de caché es razonable para aplicaciones de clima.
+    maximumAge: 5 * 60 * 1000, // Permite usar una ubicación cacheada de hasta 5 minutos
   };
 
   try {
@@ -32,18 +35,17 @@ export default async function geolocation(): Promise<{
       longitude: data.coords.longitude,
     };
   } catch (error) {
-    console.error(error);
+    const geolocError = error as GeolocationPositionError;
 
-    /* @ts-expect-error */
-    if (error.code === error.PERMISSION_DENIED) {
+    console.error("Geolocation Error:", geolocError);
+
+    if (geolocError.code === geolocError.PERMISSION_DENIED) {
       throw new Error("Geolocation: permission denied");
     }
-    /* @ts-expect-error */
-    if (error.code === error.POSITION_UNAVAILABLE) {
+    if (geolocError.code === geolocError.POSITION_UNAVAILABLE) {
       throw new Error("Geolocation: position unavailable");
     }
-    /* @ts-expect-error */
-    if (error.code === error.TIMEOUT) {
+    if (geolocError.code === geolocError.TIMEOUT) {
       throw new Error("Geolocation: timeout");
     }
     throw new Error("Geolocation: unknown error");
