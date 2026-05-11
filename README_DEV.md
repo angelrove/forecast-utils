@@ -59,3 +59,11 @@ npm login
 #----
 gp
 ```
+
+## [npm version](https://docs.npmjs.com/cli/v8/commands/npm-version)
+
+```
+npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
+
+npm version patch -m "Actualizar a %s por ciertas razones"
+```
