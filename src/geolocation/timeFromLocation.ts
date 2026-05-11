@@ -2,7 +2,8 @@ import { logger } from "../utils/logger";
 import { TimeDateStr } from "../utils/timehelpers";
 import type { TimezoneInfo } from "./types";
 
-// Time Zone API >> Respuestas de zona horaria: https://developers.google.com/maps/documentation/timezone/requests-timezone?hl=es-419#responses
+// Time Zone API >> Respuestas de zona horaria:
+// https://developers.google.com/maps/documentation/timezone/requests-timezone?hl=es-419#responses
 type GoogleTimezoneResponse = {
   dstOffset: number;
   rawOffset: number;
