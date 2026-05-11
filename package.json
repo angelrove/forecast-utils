@@ -32,20 +32,18 @@
     "JavaScript"
   ],
   "peerDependencies": {
-    "@capacitor/geolocation": "^7.1.8",
     "react": "^19.2.5",
     "swr": "^2.4.1"
   },
   "dependencies": {
-    "@angelrove/forecast-utils": "file:.yalc/@angelrove/forecast-utils",
-    "suncalc3": "^2.0.5",
-    "typedoc": "^0.28.19",
-    "typedoc-plugin-markdown": "^4.11.0"
+    "suncalc3": "^2.0.5"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.13",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
+    "typedoc": "^0.28.19",
+    "typedoc-plugin-markdown": "^4.11.0",
     "typescript": "^6.0.3"
   }
 }

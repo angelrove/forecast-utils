@@ -4,7 +4,10 @@
  * @returns {Promise<{latitude: number, longitude: number}>}
  * @throws {Error} If geolocation is not supported or permission is denied.
  */
-export default async function geolocation(): Promise<{latitude: number, longitude: number}> {
+export default async function geolocation(): Promise<{
+  latitude: number;
+  longitude: number;
+}> {
   const geolocOptions = {
     enableHighAccuracy: true,
     timeout: 6 * 1000,
@@ -31,15 +34,15 @@ export default async function geolocation(): Promise<{latitude: number, longitud
   } catch (error) {
     console.error(error);
 
-    /* @ts-ignore */
+    /* @ts-expect-error */
     if (error.code === error.PERMISSION_DENIED) {
       throw new Error("Geolocation: permission denied");
     }
-    /* @ts-ignore */
+    /* @ts-expect-error */
     if (error.code === error.POSITION_UNAVAILABLE) {
       throw new Error("Geolocation: position unavailable");
     }
-    /* @ts-ignore */
+    /* @ts-expect-error */
     if (error.code === error.TIMEOUT) {
       throw new Error("Geolocation: timeout");
     }
