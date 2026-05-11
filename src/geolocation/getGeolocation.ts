@@ -1,4 +1,4 @@
-import geolocationCapacitor from "./lib/geolocation";
+import geolocation from "./lib/geolocation";
 import reverseGeocoding from "./lib/reversegeocoding";
 import type { GeocodingAddress, ResolvedLocation } from "./types";
 
@@ -17,7 +17,7 @@ export async function getGeolocation(
 
   // Location --------------
   try {
-    location = await geolocationCapacitor();
+    location = await geolocation();
     // location.latitude = '25.90197748117876'; location.longitude = '-65.71650426928204';
   } catch (error) {
     const message = error instanceof Error ? error.message : error;
