@@ -1,4 +1,4 @@
-import geolocationCapacitor from "./lib/geolocation";
+import geolocation from "./lib/geolocation";
 import reverseGeocoding from "./lib/reversegeocoding";
 import type { GeocodingAddress, ResolvedLocation } from "./types";
 
@@ -13,12 +13,11 @@ export async function getGeolocation(
   currentLocation?: ResolvedLocation,
 ): Promise<{ changed: boolean; location: ResolvedLocation }> {
   let location: { latitude: number; longitude: number };
-  let address = {} as GeocodingAddress;
+  let address: GeocodingAddress;
 
   // Location --------------
   try {
-    location = await geolocationCapacitor();
-    // location.latitude = '25.90197748117876'; location.longitude = '-65.71650426928204';
+    location = await geolocation();
   } catch (error) {
     const message = error instanceof Error ? error.message : error;
     throw new Error("Geolocation error: " + message);

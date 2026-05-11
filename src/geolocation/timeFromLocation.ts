@@ -1,18 +1,26 @@
-// @ts-nocheck
 import { logger } from "../utils/logger";
 import { TimeDateStr } from "../utils/timehelpers";
 import type { TimezoneInfo } from "./types";
 
 /**
- * @typedef {object} LocalTimeData
- * @property {Date} time - The local time.
- * @property {string} timeStr - The formatted local time string.
- * @property {string} timezone - The timezone name.
- * @property {string} timezoneId - The timezone ID.
- * @property {number} offset - The UTC offset in hours.
- * @property {string} offsetSign - The sign of the offset ('+' or '-').
- * @property {number} dstOffset - The DST offset in hours.
+ * Google Time Zone API
+ * Respuestas de zona horaria: https://developers.google.com/maps/documentation/timezone/requests-timezone?hl=es-419#responses
+ * {
+ *  "dstOffset": 3600,
+ *  "rawOffset": -28800,
+ *  "status": "OK",
+ *  "timeZoneId": "America/Los_Angeles",
+ *  "timeZoneName": "hora de verano del Pacífico"
+ * }
  */
+type GoogleTimezoneResponse = {
+  dstOffset: number; // desfase del horario de verano en segundos.
+  rawOffset: number; // diferencia con respecto a la hora UTC (en segundos) para la ubicación determinada.
+  status: string;
+  timeZoneId: string;
+  timeZoneName: string;
+  errorMessage?: string;
+};
 
 //------------------------------------------------------
 /**
@@ -41,18 +49,19 @@ export async function timeFromLocation(
   );
   return fetch(url)
     .then((response) => response.json())
-    .then((data) => {
+    .then((timezoneInfo: GoogleTimezoneResponse) => {
       // Error ---
-      if (data.status !== "OK") {
-        console.error(data);
+      if (timezoneInfo.status !== "OK") {
+        console.error(timezoneInfo);
         return getLocalTimeDataErr();
       }
 
       // Success ---
-      return getLocalTimeData(data);
+      return getLocalTimeData(timezoneInfo);
     })
     .catch((error) => {
       console.error(error);
+      return getLocalTimeDataErr();
     });
 }
 //------------------------------------------------------
@@ -60,29 +69,29 @@ export async function timeFromLocation(
 //------------------------------------------------------
 /**
  * @private
- * @param {object} timezoneInfo - The timezone Google API information.
- * @param {number} timezoneInfo.rawOffset - The raw offset in seconds.
- * @param {number} timezoneInfo.dstOffset - The DST offset in seconds.
- * @param {string} timezoneInfo.timeZoneName - The name of the timezone.
- * @param {string} timezoneInfo.timeZoneId - The ID of the timezone.
+ * @param {GoogleTimezoneResponse} googleTimezoneResponse
  * @returns {TimezoneInfo} - An object containing the local time and timezone information.
  */
-function getLocalTimeData(timezoneInfo: object): TimezoneInfo {
+function getLocalTimeData(
+  googleTimezoneResponse: GoogleTimezoneResponse,
+): TimezoneInfo {
   // Time
   const date = new Date();
   const utc = date.getTime() + date.getTimezoneOffset() * 60000;
   const localTime =
-    utc + 1000 * timezoneInfo.rawOffset + 1000 * timezoneInfo.dstOffset;
+    utc +
+    1000 * googleTimezoneResponse.rawOffset +
+    1000 * googleTimezoneResponse.dstOffset;
   const time = new Date(localTime);
 
   return {
     time: time,
     timeStr: TimeDateStr.timeString(time),
-    timezone: timezoneInfo.timeZoneName,
-    timezoneId: timezoneInfo.timeZoneId,
-    offset: timezoneInfo.rawOffset / 3600,
-    offsetSign: timezoneInfo.rawOffset < 0 ? "" : "+",
-    dstOffset: timezoneInfo.dstOffset / 3600,
+    timezone: googleTimezoneResponse.timeZoneName,
+    timezoneId: googleTimezoneResponse.timeZoneId,
+    offset: (googleTimezoneResponse.rawOffset / 3600).toString(),
+    offsetSign: googleTimezoneResponse.rawOffset < 0 ? "" : "+",
+    dstOffset: (googleTimezoneResponse.dstOffset / 3600).toString(),
   };
 }
 //------------------------------------------------------
@@ -97,9 +106,9 @@ function getLocalTimeDataErr(): TimezoneInfo {
     timeStr: TimeDateStr.timeString(new Date()),
     timezone: timezone,
     timezoneId: timezone,
-    offset: 0,
+    offset: "0",
     offsetSign: "+",
-    dstOffset: 0,
+    dstOffset: "0",
   };
 }
 //------------------------------------------------------
