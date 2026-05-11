@@ -1,7 +1,15 @@
-// @ts-nocheck
 import { logger } from "../utils/logger";
 import { TimeDateStr } from "../utils/timehelpers";
 import type { TimezoneInfo } from "./types";
+
+interface GoogleTimezoneResponse {
+  dstOffset: number;
+  rawOffset: number;
+  status: string;
+  timeZoneId: string;
+  timeZoneName: string;
+  errorMessage?: string;
+}
 
 /**
  * @typedef {object} LocalTimeData
@@ -41,7 +49,7 @@ export async function timeFromLocation(
   );
   return fetch(url)
     .then((response) => response.json())
-    .then((data) => {
+    .then((data: GoogleTimezoneResponse) => {
       // Error ---
       if (data.status !== "OK") {
         console.error(data);
@@ -53,6 +61,7 @@ export async function timeFromLocation(
     })
     .catch((error) => {
       console.error(error);
+      return getLocalTimeDataErr();
     });
 }
 //------------------------------------------------------
@@ -67,7 +76,7 @@ export async function timeFromLocation(
  * @param {string} timezoneInfo.timeZoneId - The ID of the timezone.
  * @returns {TimezoneInfo} - An object containing the local time and timezone information.
  */
-function getLocalTimeData(timezoneInfo: object): TimezoneInfo {
+function getLocalTimeData(timezoneInfo: GoogleTimezoneResponse): TimezoneInfo {
   // Time
   const date = new Date();
   const utc = date.getTime() + date.getTimezoneOffset() * 60000;
@@ -80,9 +89,9 @@ function getLocalTimeData(timezoneInfo: object): TimezoneInfo {
     timeStr: TimeDateStr.timeString(time),
     timezone: timezoneInfo.timeZoneName,
     timezoneId: timezoneInfo.timeZoneId,
-    offset: timezoneInfo.rawOffset / 3600,
+    offset: (timezoneInfo.rawOffset / 3600).toString(),
     offsetSign: timezoneInfo.rawOffset < 0 ? "" : "+",
-    dstOffset: timezoneInfo.dstOffset / 3600,
+    dstOffset: (timezoneInfo.dstOffset / 3600).toString(),
   };
 }
 //------------------------------------------------------
@@ -97,9 +106,9 @@ function getLocalTimeDataErr(): TimezoneInfo {
     timeStr: TimeDateStr.timeString(new Date()),
     timezone: timezone,
     timezoneId: timezone,
-    offset: 0,
+    offset: "0",
     offsetSign: "+",
-    dstOffset: 0,
+    dstOffset: "0",
   };
 }
 //------------------------------------------------------
