@@ -10,7 +10,7 @@ export default async function geolocation(): Promise<{
 }> {
   const geolocOptions = {
     enableHighAccuracy: true,
-    timeout: 6 * 1000,
+    timeout: 9 * 1000,
     maximumAge: 0,
   };
 
