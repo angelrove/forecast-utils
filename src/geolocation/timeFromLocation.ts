@@ -2,11 +2,20 @@ import { logger } from "../utils/logger";
 import { TimeDateStr } from "../utils/timehelpers";
 import type { TimezoneInfo } from "./types";
 
-// Time Zone API >> Respuestas de zona horaria:
-// https://developers.google.com/maps/documentation/timezone/requests-timezone?hl=es-419#responses
+/**
+ * Google Time Zone API
+ * Respuestas de zona horaria: https://developers.google.com/maps/documentation/timezone/requests-timezone?hl=es-419#responses
+ * {
+ *  "dstOffset": 3600,
+ *  "rawOffset": -28800,
+ *  "status": "OK",
+ *  "timeZoneId": "America/Los_Angeles",
+ *  "timeZoneName": "hora de verano del Pacífico"
+ * }
+ */
 type GoogleTimezoneResponse = {
-  dstOffset: number;
-  rawOffset: number;
+  dstOffset: number; // desfase del horario de verano en segundos.
+  rawOffset: number; // diferencia con respecto a la hora UTC (en segundos) para la ubicación determinada.
   status: string;
   timeZoneId: string;
   timeZoneName: string;
