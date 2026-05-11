@@ -9,7 +9,7 @@ export default async function geolocation(): Promise<{
   longitude: number;
 }> {
   const geolocOptions = {
-    enableHighAccuracy: true,
+    enableHighAccuracy: false,
     // Aumentamos a 30s porque algunos navegadores incluyen el tiempo de respuesta del usuario
     // en el diálogo de permisos dentro de este contador.
     timeout: 30 * 1000,

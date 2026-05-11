@@ -5,13 +5,6 @@
 bun run docs
 ```
 
-# Compile
-
-```bash
-# generate types for JSDoc ('.d.ts' files) in 'dist/types'. See 'tsconfig.json'
-rm -rf dist && bunx tsc
-```
-
 # Linter, formatter
 
 ```sh
@@ -19,14 +12,15 @@ bunx biome lint
 bunx biome format --write
 ```
 
+# --------------------------------------------------
 # Develop: test NPM package with "Yalc"
 
 ```bash
-#-----------------------------------
+#----------------------
 # Instalar Yalc
 npm i -g yalc
 
-#-----------------------------------
+#----------------------
 # Development
 
 # Publish: ruta del paquete
@@ -47,20 +41,24 @@ yalc add @angelrove/forecast-utils && bun update
 yalc remove --all && bun update
 ```
 
-# Publish NPM package
+# --------------------------------------------------
+# Publish package
+
+Si da error de permisos, ejecutar: `npm login`
 
 ```bash
-rm -rf dist && bunx tsc
+# Compile
+rm -rf dist && bunx tsc # generate types for JSDoc ('.d.ts' files) in 'dist/types'. See 'tsconfig.json'
+
 commit
-#----
 npm version patch && npm publish # 'with --access public' only first time
-# si da error de permisos, ejecutar:
-npm login
-#----
 gp
 ```
 
-## [npm version](https://docs.npmjs.com/cli/v8/commands/npm-version)
+# --------------------------------------------------
+# NOTES
+
+- [npm version](https://docs.npmjs.com/cli/v8/commands/npm-version)
 
 ```
 npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
