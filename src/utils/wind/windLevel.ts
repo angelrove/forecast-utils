@@ -25,15 +25,26 @@ const WIND_LEVELS: WindLevel[] = [
  * Return the wind level based on the speed.
  *
  * @param speed Wind speed in km/h
+ * @param lang Language code ('es' or 'en')
  * @return Wind level object or null if speed is null
  */
-export function getWindLevel(speed: number): WindLevel | null {
+export function getWindLevel(speed: number, lang: string = "es"): WindLevel | null {
   if (typeof speed !== "number") return null;
 
   const theSpeed = Math.round(speed);
 
   for (const level of WIND_LEVELS) {
-    if (theSpeed < level.speed) return level;
+    if (theSpeed < level.speed) {
+      return {
+        ...level,
+        tx: lang === "en" ? level.txEn : level.tx,
+      };
+    }
   }
-  return WIND_LEVELS[WIND_LEVELS.length - 1]; // fallback defensivo
+
+  const last = WIND_LEVELS[WIND_LEVELS.length - 1];
+  return {
+    ...last,
+    tx: lang === "en" ? last.txEn : last.tx,
+  };
 }

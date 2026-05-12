@@ -48,21 +48,14 @@ const directionsEs = [
  * Convert degrees to compass designation
  *
  * @param {number} degrees
- * @param {string} language - Language code ("en-US", "es-ES", "auto")
+ * @param {string} lang - Language code ("en", "es")
  * @returns {{short: string, full: string}} {short: string, full: string}
  */
-export function degreesToCompass(degrees, language = "auto") {
+export function degreesToCompass(degrees, lang = "en") {
   if (degrees == null) return { short: "?", full: "?" };
 
   const index = Math.round(degrees / 45) % 8;
 
-  // auto detect language
-  let lang = language;
-  if (language === "auto") {
-    lang = navigator.language;
-  }
-
-  // Parse the language
   if (lang.startsWith("es")) {
     return directionsEs[index];
   }
